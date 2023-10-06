@@ -1,0 +1,26 @@
+.container{
+    position: relative;
+    height: 150px;
+}
+
+.elem{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+.elem+.elem{
+    left: 50px;
+    top: 50px
+}
+
+.box{
+    background-color: #646cff;
+    width: 100px;
+    height: 100px;
+}
+
+.alignElem{
+    border: 1px #e50000 solid;
+    width: calc(100% / 3);
+}

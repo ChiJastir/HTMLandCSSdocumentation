@@ -1,0 +1,9 @@
+.container{
+    height: 100px;
+    border: #646cff 1px solid;
+}
+
+.elem{
+    border: #e50000 1px solid;
+    width: 50px;
+}
