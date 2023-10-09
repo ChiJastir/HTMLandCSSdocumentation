@@ -1,9 +1,8 @@
-import classes from './pageWithDisplayFlex.module.css'
-import Navigation from "../../components/navigation/navigation.tsx";
-import Container from "../../UI/container.tsx";
-import CodeExample from "../../UI/codeExample.tsx";
-import Code from "../../UI/code.tsx";
-import FlexElements from "./flexElements.tsx";
+import {css} from "styled-components";
+import Navigation from "../components/navigation.tsx";
+import CodeExample from "../components/codeExample.tsx";
+import {Container, Code, Page, Example} from "../UI/components";
+import BoxElements from "../components/boxElements.tsx";
 
 const PageWithDisplayFlex = () => {
     const displayFlex = `div{
@@ -29,49 +28,68 @@ const PageWithDisplayFlex = () => {
     justify-content: space-between;
 }`
     return (
-        <div className={'page'}>
+        <Page>
             <Navigation/>
             <Container>
                 <h1>Display</h1>
-                <div className="item">
+                <div>
                     <h2>display: flex</h2>
                     <p><Code>display: flex</Code> позволяет сделать элементы в блоке обтекаемыми, а также даёт доступ к другим flex-свойствам. Для сравнения стандартное значение <Code>block</Code></p>
-                    <div className="example">
+                    <Example>
                         <CodeExample>{displayBlock}</CodeExample>
-                        <FlexElements className={classes.blockContainer} length={3}/>
-                    </div>
-                    <div className="example">
+                        <BoxElements $elemStyle={MElem} length={3}/>
+                    </Example>
+                    <Example>
                         <CodeExample>{displayFlex}</CodeExample>
-                        <FlexElements className={classes.flexContainer} length={3}/>
-                    </div>
+                        <BoxElements $elemStyle={MElem} $containerStyle={DFlex} length={3}/>
+                    </Example>
                 </div>
-                <div className="item">
-                    <h2>flex-duration</h2>
-                    <p>С помощью <Code>flex-duration</Code> мы можем указать направление укладки элементов</p>
-                    <div className="example">
+                <div>
+                    <h2>flex-direction</h2>
+                    <p>С помощью <Code>flex-direction</Code> мы можем указать направление укладки элементов</p>
+                    <Example>
                         <CodeExample>{directionRowReverse}</CodeExample>
-                        <FlexElements className={classes.flexDuration} length={3}/>
-                    </div>
+                        <BoxElements $elemStyle={MElem} $containerStyle={FDirection} length={3}/>
+                    </Example>
                 </div>
-                <div className="item">
+                <div>
                     <h2>flex-wrap</h2>
                     <p><Code>flex-wrap</Code> отвечает за перенос элементов</p>
-                    <div className="example">
+                    <Example>
                         <CodeExample>{flexWrap}</CodeExample>
-                        <FlexElements className={classes.flexWrap} length={5}/>
-                    </div>
+                        <BoxElements $elemStyle={MElem} $containerStyle={FWrap} length={5}/>
+                    </Example>
                 </div>
-                <div className="item">
+                <div>
                     <h2>justify-content</h2>
                     <p><Code>justify-content</Code> отвечает за размещение элементов в блоке. Самые частно используемые значения это <Code>center</Code>, <Code>space-between</Code> и <Code>space-around</Code></p>
-                    <div className="example">
+                    <Example>
                         <CodeExample>{justifyContentSpaceBetween}</CodeExample>
-                        <FlexElements className={classes.justifyContent} length={4}/>
-                    </div>
+                        <BoxElements $elemStyle={MElem} $containerStyle={JC} length={4}/>
+                    </Example>
                 </div>
             </Container>
-        </div>
+        </Page>
     );
 };
+
+const MElem = css`
+  margin: 5px`.toString()
+
+const DFlex = css`
+  display: flex`.toString()
+
+const FDirection = css`
+  display: flex; 
+  flex-direction: row-reverse;`.toString()
+
+const FWrap = css`
+  max-width: 150px;
+  display: flex;
+  flex-wrap: wrap;`.toString()
+
+const JC = css`
+  display: flex;
+  justify-content: space-between;`.toString()
 
 export default PageWithDisplayFlex;

@@ -1,12 +1,11 @@
-import classes from './pageWithAnimation.module.css'
-import Navigation from "../../components/navigation/navigation.jsx";
-import Container from "../../UI/container.tsx";
-import CodeExample, {languages} from "../../UI/codeExample.tsx"
-import Code from "../../UI/code.tsx";
+import styled, {keyframes} from "styled-components";
+import Navigation from "../components/navigation";
+import CodeExample, {languages} from "../components/codeExample.tsx"
+import {Container, Code, Page, Example} from "../UI/components";
+import {Gradient} from "../UI/gradient";
+import {baseTheme} from "../styles/theme";
 
 const PageWithAnimation = () => {
-    const textExample = 'Hello world'
-
     const transition = `p{
     padding: 15px;
     background-color: #535bf2;
@@ -41,7 +40,6 @@ p:hover{
         transform: translateX(0);
     }
 }`
-
     const gradient = `div{
     width: 100%;
     height: 50px;
@@ -58,37 +56,72 @@ p:hover{
         background-position: 150% 50%;
     }
 }`
+
     return (
-        <div className={'page'}>
+        <Page>
             <Navigation/>
             <Container>
                 <h1>Анимация</h1>
-                <div className="item">
+                <div>
                     <h2>Transition</h2>
                     <p><Code>transition</Code> позволяет добавить плавное изменение CSS-свойства. Указывается небходимое свойство (можно указать <Code>all</Code>), а также время в миллисекундах или секундах. Можно указать задержку перед началом анимации и кривую анимации</p>
-                    <div className={'example'}>
+                    <Example>
                         <CodeExample language={languages.css}>{transition}</CodeExample>
-                        <p className={classes.transition}>{textExample}</p>
-                    </div>
+                        <TransitionExample>Hello world</TransitionExample>
+                    </Example>
                 </div>
-                <div className="item">
+                <div>
                     <h2>@keyframes и animation</h2>
                     <p><Code>@keyframes</Code> позволяет нам создать анимацию с помощью ключивых кадров и дать ей название. Ключивые кадры задаются процентами от анимации. С помощью <Code>animation</Code> мы применяем созданную анимацию и указываем дополнительные параметры, такие как время, задержка, кривая анимации, повторяемость и др</p>
-                    <div className={'example'}>
+                    <Example>
                         <CodeExample>{keyframesAndAnimation}</CodeExample>
-                        <div className={classes.keyframesBox}>
-                            <div className={classes.keyframes}></div>
-                        </div>
-                    </div>
+                        <Keyframe><div/></Keyframe>
+                    </Example>
                     <p>Для интереса, примерно так реализован градиент:</p>
-                    <div className={'example'}>
+                    <Example>
                         <CodeExample>{gradient}</CodeExample>
-                        <div className={classes.gradient}/>
-                    </div>
+                        <Gradient $horizontal height={'50px'}/>
+                    </Example>
                 </div>
             </Container>
-        </div>
+        </Page>
     );
 };
+
+const TransitionExample = styled.p`
+  padding: 15px;
+  background-color: ${baseTheme.colors.primary};
+  transition: background-color 800ms;
+  &:hover{
+    background-color: ${baseTheme.colors.secondary};
+  }`
+
+const move = keyframes`
+  0% {
+    left: 0;
+    transform: translateX(0);
+  }
+  50% {
+    left: 100%;
+    transform: translateX(-100%);
+  }
+  100% {
+    left: 0;
+    transform: translateX(0);
+  }`
+
+const Keyframe = styled.div`
+  position: relative;
+  width: 100%;
+  height: 50px;
+  div{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: ${baseTheme.colors.primary};
+
+    animation: ${move} 10s linear infinite;
+  }`
 
 export default PageWithAnimation;

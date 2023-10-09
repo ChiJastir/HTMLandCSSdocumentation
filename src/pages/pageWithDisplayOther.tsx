@@ -1,9 +1,10 @@
 import {useState} from 'react';
-import classes from './pageWithDisplayOther.module.css'
-import Navigation from "../../components/navigation/navigation";
-import Container from "../../UI/container";
-import CodeExample from "../../UI/codeExample";
-import Code from "../../UI/code";
+import Navigation from "../components/navigation";
+import CodeExample from "../components/codeExample";
+import {Container, Code, Page, Example} from "../UI/components";
+import BoxElements from "../components/boxElements";
+import styled, {css} from "styled-components";
+import {baseTheme} from "../styles/theme";
 
 const PageWithDisplayOther = () => {
     const [visible, setVisible] = useState(true)
@@ -19,34 +20,45 @@ const PageWithDisplayOther = () => {
     display: ${block ? 'block' : 'flex'} /* Нажатие кнопки меняет значение на ${!block ? 'block' : 'flex'} */
 }`
     return (
-        <div className={'page'}>
+        <Page>
             <Navigation/>
             <Container>
                 <h1>None, block</h1>
-                <div className="item">
+                <div>
                     <h2>display: none</h2>
                     <p><Code>display: none</Code> полностью уберает блок со страницы так, будто его и нет</p>
-                    <div className="example">
+                    <Example>
                         <CodeExample>{displayNone}</CodeExample>
-                        <div style={{display: visible ? 'block' : 'none', marginBottom: 10}} className={classes.displayNone}/>
+                        <DisplayNone $visible={visible}/>
                         <button onClick={() => setVisible(!visible)}>Скрыть/показать</button>
-                    </div>
+                    </Example>
                 </div>
-                <div className="item">
+                <div>
                     <h2>display: block</h2>
                     <p><Code>display: block</Code> Значение <Code>display</Code> по умолчанию. Ничего интересного</p>
-                    <div className="example">
+                    <Example>
                         <CodeExample>{displayBlock}</CodeExample>
-                        <div style={{display: block ? 'block' : 'flex', marginBottom: 10}} className={classes.displayBlock}>
-                            <div className={classes.elem}/>
-                            <div className={classes.elem}/>
-                        </div>
+                        <BoxElements $containerStyle={DisplayBlock + ` display: ${block ? 'block' : 'flex'};`} width={'100px'} height={'100px'} length={2}/>
                         <button onClick={() => setBlock(!block)}>block/flex</button>
-                    </div>
+                    </Example>
                 </div>
             </Container>
-        </div>
+        </Page>
     );
 };
+
+const DisplayBlock = css`
+  padding: 5px;
+  margin-bottom: 10px;`.toString()
+
+interface DisplayNoneProps {
+    $visible?: boolean,
+}
+
+const DisplayNone = styled.div<DisplayNoneProps>`
+  height: 100px;
+  background-color: ${baseTheme.colors.primary};
+  margin-bottom: 10px;
+  ${props => !props.$visible && 'display: none'}`
 
 export default PageWithDisplayOther;

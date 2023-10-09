@@ -1,9 +1,10 @@
-import classes from './pageWithGrid.module.css'
-import Navigation from "../../components/navigation/navigation.tsx";
-import Container from "../../UI/container.tsx";
-import CodeExample, {languages} from "../../UI/codeExample.tsx";
-import Code from "../../UI/code.tsx";
-import GridElements from "./gridElements.tsx";
+import Navigation from "../components/navigation.tsx";
+import CodeExample, {languages} from "../components/codeExample.tsx";
+import {Container, Code, Page, Example} from "../UI/components";
+import BoxElements from "../components/boxElements";
+import styled, {css} from "styled-components";
+import BoxElem from "../components/boxElem";
+import {baseTheme} from "../styles/theme";
 
 const PageWithDisplayGrid = () => {
     const displayGrid = `div{
@@ -18,7 +19,7 @@ const PageWithDisplayGrid = () => {
 
     const gridTemplateAreasHTML = `<div class="gridTemplateAreas">
     <div class="header">header</div>
-    <div class="navigation">navigation</div>
+    <div class="nav">nav</div>
     <div class="content">content</div>
 </div>`
 
@@ -26,7 +27,7 @@ const PageWithDisplayGrid = () => {
     display: grid;
     grid-template-areas:
         "header header"
-        "navigation content";
+        "nav content";
     grid-template-columns: 25% 1fr;
     grid-template-rows: 50px 150px;
 }
@@ -34,8 +35,8 @@ const PageWithDisplayGrid = () => {
 .header{
     grid-area: header;
 }
-.navigation{
-    grid-area: navigation;
+.nav{
+    grid-area: nav;
 }
 .content{
     grid-area: content;
@@ -47,47 +48,73 @@ const PageWithDisplayGrid = () => {
     gap: 15px;
 }`
     return (
-        <div className={'page'}>
+        <Page>
             <Navigation/>
             <Container>
                 <h1>Display</h1>
-                <div className="item">
+                <div>
                     <h2>display: grid, grid-template-columns, grid-template-rows и единица измерения fr</h2>
                     <p><Code>display: grid</Code> ведёт себя как <Code>display: block</Code>, но открывает доступ к интересным CSS-свойствам, которые позволяют создать сетку(grid) на странице, а также к единице измерения <Code>fr</Code>. <Code>fr</Code> можно условно назвать "часть". Запись <Code>repeat(3, 1fr)</Code> означает "поделить блок на 3 равные части". <Code>repeat(5, 1fr)</Code> соответственно "поделить блок на 5 равных частей". <Code>30% 60% 1fr</Code> знает что всё доступное пространство делится на 3 неравные части. Одна часть занимает 30%, вторая часть 60%, а третья то, что останется. В данном примере это 10%.</p>
                     <p><Code>grid-template-columns</Code> и <Code>grid-template-rows</Code> соответственно означают деление на столбики и строки. Получается что-то вроде таблицы</p>
-                    <div className={'example'}>
+                    <Example>
                         <CodeExample>{displayGrid}</CodeExample>
-                        <GridElements className={classes.displayGrid} length={5}/>
-                    </div>
-                    <div className={'example'}>
+                        <BoxElements width={'100%'} $containerStyle={DGrid} length={5}/>
+                    </Example>
+                    <Example>
                         <CodeExample>{gridTemplateColumns}</CodeExample>
-                        <GridElements className={classes.gridTemplateColumns} length={3}/>
-                    </div>
+                        <BoxElements width={'100%'} $containerStyle={GridTemplateColumns} length={3}/>
+                    </Example>
                 </div>
-                <div className="item">
+                <div>
                     <h2>grid-template-areas и grid-area</h2>
                     <p><Code>grid-template-areas</Code> это общее свойство для колонок и строк. Имеет специфический синтаксис, но позволяет задавать нестандартную сетку. Для маркировки элементов сетки используется <Code>grid-area</Code></p>
-                    <div className={'example'}>
+                    <Example>
                         <CodeExample language={languages.html}>{gridTemplateAreasHTML}</CodeExample>
                         <CodeExample>{gridTemplateAreasCSS}</CodeExample>
-                        <div className={classes.gridTemplateAreas}>
-                            <div className={[classes.header, classes.elem].join(' ')}>header</div>
-                            <div className={[classes.navigation, classes.elem].join(' ')}>navigation</div>
-                            <div className={[classes.content, classes.elem].join(' ')}>content</div>
-                        </div>
-                    </div>
+                        <GridTemplateAreas>
+                            <BoxElem width={'auto'} height={'auto'} $elemStyle={'grid-area: header;'}>header</BoxElem>
+                            <BoxElem width={'auto'} height={'auto'} $elemStyle={'grid-area: nav;'}>nav</BoxElem>
+                            <BoxElem width={'auto'} height={'auto'} $elemStyle={'grid-area: content;'}>content</BoxElem>
+                        </GridTemplateAreas>
+                    </Example>
                 </div>
-                <div className="item">
+                <div>
                     <h2>gap</h2>
                     <p><Code>gap</Code> это зазоры между элементами сетки, но далеко не всегда они работают так, как нам хочется</p>
-                    <div className={'example'}>
+                    <Example>
                         <CodeExample>{gap}</CodeExample>
-                        <GridElements className={classes.gap} length={5}/>
-                    </div>
+                        <BoxElements width={'100%'} $containerStyle={Gap} length={5}/>
+                    </Example>
                 </div>
             </Container>
-        </div>
+        </Page>
     );
 };
+
+const DGrid = css`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 5px;`.toString()
+
+const GridTemplateColumns = css`
+    display: grid;
+    grid-template-columns: 30% 60% 1fr;
+    padding: 5px;`.toString()
+
+const GridTemplateAreas = styled.div`
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "nav content";
+  grid-template-columns: 25% 1fr;
+  grid-template-rows: 50px 150px;
+  border: ${baseTheme.colors.primary} 1px solid;
+  padding: 5px;`
+
+const Gap = css`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 5px;
+  gap: 15px;`.toString()
 
 export default PageWithDisplayGrid;

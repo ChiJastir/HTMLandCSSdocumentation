@@ -1,8 +1,8 @@
-import classes from './pageWithFrames.module.css'
-import Navigation from "../../components/navigation/navigation";
-import Container from "../../UI/container";
-import CodeExample from "../../UI/codeExample";
-import Code from "../../UI/code";
+import Navigation from "../components/navigation";
+import CodeExample from "../components/codeExample";
+import {Container, Code, Page, Example} from "../UI/components";
+import styled from "styled-components";
+import {baseTheme} from "../styles/theme";
 
 const PageWithFrames = () => {
     const border = `div{
@@ -15,29 +15,37 @@ const PageWithFrames = () => {
     outline: 15px #646cff solid;
 }`
     return (
-        <div className={'page'}>
+        <Page>
             <Navigation/>
             <Container>
                 <h1>Рамки и контуры</h1>
-                <div className="item">
+                <div>
                     <h2>border</h2>
                     <p><Code>border</Code> добавляет осязаемую рамку элементу, которая является его частью. Указывается толщина рамки, цвет и стиль рамки. В 90% случаев достаточно сплошной рамки <Code>solid</Code></p>
-                    <div className="example">
+                    <Example>
                         <CodeExample>{border}</CodeExample>
-                        <div className={classes.border}/>
-                    </div>
+                        <Border/>
+                    </Example>
                 </div>
-                <div className="item">
+                <div>
                     <h2>outline</h2>
                     <p><Code>outline</Code> добавляет неосязаемую рамку элементу, которая не является его частью. Указывается толщина рамки, цвет и стиль рамки. В 90% случаев достаточно сплошной рамки <Code>solid</Code></p>
-                    <div className="example">
+                    <Example>
                         <CodeExample>{outline}</CodeExample>
-                        <div className={classes.outline}/>
-                    </div>
+                        <Outline/>
+                    </Example>
                 </div>
             </Container>
-        </div>
+        </Page>
     );
 };
+
+const Border = styled.div`
+  height: 100px;
+  border: 15px ${baseTheme.colors.primary} solid;`
+
+const Outline = styled.div`
+  height: 100px;
+  outline: 15px ${baseTheme.colors.primary} solid;`
 
 export default PageWithFrames;
