@@ -1,6 +1,6 @@
 import styled, {keyframes} from "styled-components";
 import Navigation from "../components/navigation";
-import CodeExample, {languages} from "../components/codeExample.tsx"
+import CodeExample from "../components/codeExample.tsx"
 import {Container, Code, Page, Example} from "../UI/components";
 import {Gradient} from "../UI/gradient";
 import {baseTheme} from "../styles/theme";
@@ -66,7 +66,7 @@ p:hover{
                     <h2>Transition</h2>
                     <p><Code>transition</Code> позволяет добавить плавное изменение CSS-свойства. Указывается небходимое свойство (можно указать <Code>all</Code>), а также время в миллисекундах или секундах. Можно указать задержку перед началом анимации и кривую анимации</p>
                     <Example>
-                        <CodeExample language={languages.css}>{transition}</CodeExample>
+                        <CodeExample>{transition}</CodeExample>
                         <TransitionExample>Hello world</TransitionExample>
                     </Example>
                 </div>

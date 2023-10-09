@@ -16,7 +16,10 @@ const Navigation = () => {
                 <Nav>
                     <h3>Навигация по CSS</h3>
                     <ul>
-                        <li><Link to={'/'}>Текст</Link></li>
+                        <li><Link to={'/'}>Селекторы</Link></li>
+                        <li><Link to={'/pseudoClasses'}>Псевдоклассы</Link></li>
+                        <li><Link to={'/pseudoElements'}>Псевдоэлементы</Link></li>
+                        <li><Link to={'/text'}>Текст</Link></li>
                         <li><Link to={'/animation'}>Анимация</Link></li>
                         <li>
                             <Link to={'/displayFlex'}>Display</Link>
@@ -28,12 +31,12 @@ const Navigation = () => {
                         </li>
                         <li><Link to={'/position'}>Position</Link></li>
                         <li><Link to={'/transform'}>Transform</Link></li>
-                        <li><Link to={'/frames'}>Рамки и контуры</Link></li>
+                        <li><Link to={'/frames'}>Рамки</Link></li>
                         <li><Link to={'/indents'}>Отступы</Link></li>
                         <li><Link to={'/other'}>Прочее</Link></li>
                     </ul>
                 </Nav>
-                <Ver>v1.2</Ver>
+                <Ver>v1.3</Ver>
                 <GradientLine $vertical width={'5px'}/>
             </Content>
             <Background $isVisible={visible}/>
