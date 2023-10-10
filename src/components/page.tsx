@@ -11,17 +11,17 @@ const Page = ({children}: PageProps) => {
     const [swipe, setSwipe] = useState(false)
 
     const handlers = useSwipeable({
-        onSwipedRight: () => {
-            setSwipe(true)
+        onSwipedRight: (eventData) => {
+            setSwipe(eventData.deltaX >= 100)
         },
-        onSwipedLeft: () => {
-            setSwipe(false)
+        onSwipedLeft: (eventData) => {
+            setSwipe(eventData.deltaX >= 100)
         },
     });
 
     return (
         <PageStyle {...handlers}>
-            <Navigation swipe={swipe} />
+            <Navigation swipe={swipe} setSwipe={setSwipe} />
             {children}
         </PageStyle>
     );

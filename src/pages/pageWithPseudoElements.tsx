@@ -2,7 +2,7 @@ import CodeExample from "../components/codeExample.tsx"
 import {Container, Example, Code} from "../UI/components"
 import Page from "../components/page";
 
-const PageWithAnimation = () => {
+const PageWithPseudoElements = () => {
     const before = `li::before {
     content: "$";
     /* Перед элементами списка будет выводиться знак доллара */
@@ -51,4 +51,4 @@ const PageWithAnimation = () => {
     );
 };
 
-export default PageWithAnimation;
+export default PageWithPseudoElements;

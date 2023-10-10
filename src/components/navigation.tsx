@@ -3,16 +3,20 @@ import styled from "styled-components";
 import {Link} from "react-router-dom";
 import {Gradient} from "../UI/gradient";
 
-interface NavigationProps{
-    swipe: boolean,
+type NavigationProps = {
+    swipe: boolean;
+    setSwipe: (swipe: boolean) => void;
 }
 
-const Navigation = ({swipe}: NavigationProps) => {
+const Navigation = ({swipe, setSwipe}: NavigationProps) => {
     const [visible, setVisible] = useState(false)
 
     useEffect(() => {
         setVisible(swipe)
     }, [swipe])
+    useEffect(() => {
+        setSwipe(visible)
+    }, [visible])
 
     return (
         <div>
@@ -27,6 +31,7 @@ const Navigation = ({swipe}: NavigationProps) => {
                         <li><Link to={'/'}>Селекторы</Link></li>
                         <li><Link to={'/pseudoClasses'}>Псевдоклассы</Link></li>
                         <li><Link to={'/pseudoElements'}>Псевдоэлементы</Link></li>
+                        <li><Link to={'/math'}>Математика</Link></li>
                         <li><Link to={'/text'}>Текст</Link></li>
                         <li>
                             <Link to={'/displayFlex'}>Display</Link>
@@ -44,9 +49,8 @@ const Navigation = ({swipe}: NavigationProps) => {
                         <li><Link to={'/other'}>Прочее</Link></li>
                     </ul>
                 </Nav>
-                <Ver>v1.4</Ver>
+                <Ver>v1.5</Ver>
                 <GradientLine $vertical width={'5px'}/>
-                <SwipePlaceholder/>
             </Content>
             <Background $isVisible={visible} onClick={() => setVisible(false)}/>
         </div>
@@ -92,13 +96,6 @@ const Nav = styled.nav`
 const GradientLine = styled(Gradient)`
   position: absolute;
   right: 0;
-  left: auto;`
-
-const SwipePlaceholder = styled.div`
-  position: absolute;
-  width: 20px;
-  height: 100%;
-  right: -20px;
   left: auto;`
 
 export default Navigation;

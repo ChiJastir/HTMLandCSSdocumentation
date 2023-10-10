@@ -11,11 +11,13 @@ import PageWithOther from "../pages/pageWithOther";
 import PageWithSelectors from "../pages/pageWithSelectors";
 import PageWithPseudoClasses from "../pages/pageWithPseudoClasses";
 import PageWithPseudoElements from "../pages/pageWithPseudoElements";
+import PageWithMath from "../pages/pageWithMath";
 
 export const routes = [
     {path: '/', component: <PageWithSelectors/>},
     {path: '/pseudoClasses', component: <PageWithPseudoClasses/>},
     {path: '/pseudoElements', component: <PageWithPseudoElements/>},
+    {path: '/math', component: <PageWithMath/>},
     {path: '/text', component: <PageWithText/>},
     {path: '/animation', component: <PageWithAnimation/>},
     {path: '/displayFlex', component: <PageWithDisplayFlex/>},

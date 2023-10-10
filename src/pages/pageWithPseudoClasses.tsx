@@ -2,7 +2,7 @@ import CodeExample from "../components/codeExample.tsx"
 import {Container, Example, Code} from "../UI/components"
 import Page from "../components/page";
 
-const PageWithAnimation = () => {
+const PageWithPseudoClasses = () => {
     const hover = `button:hover {
     /* Стили будут применены к <button> при наведении на неё мыши */
 }`
@@ -60,4 +60,4 @@ const PageWithAnimation = () => {
     );
 };
 
-export default PageWithAnimation;
+export default PageWithPseudoClasses;

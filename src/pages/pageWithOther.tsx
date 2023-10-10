@@ -59,6 +59,14 @@ const PageWithOther = () => {
     border: 1px #e50000 solid;
     width: calc(100% / 3);
 }`
+
+    const cursor = `.pointer{
+    cursor: pointer;
+}
+
+.grad{
+    cursor: grad;
+}`
     return (
         <Page>
             <Container>
@@ -114,12 +122,21 @@ const PageWithOther = () => {
                         <CodeExample language={languages.html}>{alignItemsHTML}</CodeExample>
                         <CodeExample>{alignItemsCSS}</CodeExample>
                         <AlignItemsExample>
-                            <Elem width={'calc(100% / 3)'} height={'100px'}/>
-                            <Elem width={'calc(100% / 3)'} height={'150px'}/>
-                            <Elem width={'calc(100% / 3)'} height={'75px'}/>
-                            {/*<AlignElem style={{height: 150}}/>*/}
-                            {/*<AlignElem style={{height: 75}}/>*/}
+                            <Elem width={'calc(100% / 3)'} height={'100px'}>1</Elem>
+                            <Elem width={'calc(100% / 3)'} height={'150px'}>2</Elem>
+                            <Elem width={'calc(100% / 3)'} height={'75px'}>3</Elem>
                         </AlignItemsExample>
+                    </Example>
+                </div>
+                <div>
+                    <h2>cursor</h2>
+                    <p><Code>cursor</Code> обозначает тип указателя мыши при наведении</p>
+                    <Example>
+                        <CodeExample>{cursor}</CodeExample>
+                        <CursorBox>
+                            <CursorElem>.pointer</CursorElem>
+                            <CursorElem>.grab</CursorElem>
+                        </CursorBox>
                     </Example>
                 </div>
             </Container>
@@ -179,8 +196,21 @@ const AlignItemsExample = styled.div`
   display: flex; 
   align-items: center`
 
-// const AlignElem = styled.div`
-//   border: 1px #e50000 solid;
-//   width: calc(100% / 3);`
+const CursorBox = styled.div`
+  display: flex;`
+
+const CursorElem = styled.div`
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  background-color: ${baseTheme.colors.secondary};
+  cursor: pointer;
+  &+&{
+    background-color: ${baseTheme.colors.primary};
+    cursor: grab;
+  }`
 
 export default PageWithOther;

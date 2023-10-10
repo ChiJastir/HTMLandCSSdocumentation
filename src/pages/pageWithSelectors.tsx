@@ -2,7 +2,7 @@ import CodeExample from "../components/codeExample.tsx"
 import {Container, Example, Code} from "../UI/components"
 import Page from "../components/page";
 
-const PageWithAnimation = () => {
+const PageWithSelectors = () => {
     const tagSelectorExample = `p {
     /* Стили будут применены ко всем <p> на странице */
 }`
@@ -116,4 +116,4 @@ const PageWithAnimation = () => {
     );
 };
 
-export default PageWithAnimation;
+export default PageWithSelectors;
