@@ -1,8 +1,8 @@
-import Navigation from "../components/navigation";
 import CodeExample from "../components/codeExample";
-import {Container, Code, Page, Example} from "../UI/components";
+import {Container, Code, Example} from "../UI/components";
 import styled from "styled-components";
 import {baseTheme} from "../styles/theme";
+import Page from "../components/page";
 
 const PageWithIndents = () => {
     const padding = `div{
@@ -18,7 +18,6 @@ const PageWithIndents = () => {
 }`
     return (
         <Page>
-            <Navigation/>
             <Container>
                 <h1>Отступы</h1>
                 <div>

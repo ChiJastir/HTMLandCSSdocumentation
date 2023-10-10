@@ -1,8 +1,8 @@
 import {useState} from 'react';
-import Navigation from "../components/navigation";
 import CodeExample from "../components/codeExample";
-import {Container, Code, ParagraphBorder, Page, Example} from "../UI/components";
+import {Container, Code, ParagraphBorder, Example} from "../UI/components";
 import styled from "styled-components";
+import Page from "../components/page";
 
 const PageWithPosition = () => {
     const [absolute, setAbsolute] = useState(false)
@@ -27,7 +27,6 @@ const PageWithPosition = () => {
 }`
     return (
         <Page>
-            <Navigation/>
             <Container>
                 <h1>Position</h1>
                 <div>

@@ -1,6 +1,6 @@
-import Navigation from "../components/navigation"
 import CodeExample from "../components/codeExample.tsx"
-import {Container, Page, Example, Code} from "../UI/components"
+import {Container, Example, Code} from "../UI/components"
+import Page from "../components/page";
 
 const PageWithAnimation = () => {
     const hover = `button:hover {
@@ -21,7 +21,6 @@ const PageWithAnimation = () => {
 
     return (
         <Page>
-            <Navigation/>
             <Container>
                 <h1>Псевдо-классы</h1>
                 <div>

@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
-import Navigation from "../components/navigation";
 import CodeExample, {languages} from "../components/codeExample";
-import {Container, Code, Page, Example} from "../UI/components";
+import {Container, Code, Example} from "../UI/components";
 import img from '../assets/react.svg'
 import styled from "styled-components";
 import {baseTheme} from "../styles/theme";
-// import BoxElem from "../components/boxElem";
 import Elem from '../components/boxElem'
+import Page from "../components/page";
 
 const PageWithOther = () => {
     const [zValue, setZValue] = useState(1)
@@ -62,7 +61,6 @@ const PageWithOther = () => {
 }`
     return (
         <Page>
-            <Navigation/>
             <Container>
                 <h1>Прочее</h1>
                 <div>

@@ -14,9 +14,6 @@ export const ParagraphBorder = styled.p<{color?: string}>`
   padding: 10px;
   border: ${({color = baseTheme.colors.primary}) => color} 1px solid;`
 
-export const Page = styled.div`
-  display: flex;`
-
 export const Example = styled.div`
   padding: 10px 0;
   &+&{

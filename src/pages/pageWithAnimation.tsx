@@ -1,9 +1,9 @@
 import styled, {keyframes} from "styled-components";
-import Navigation from "../components/navigation";
 import CodeExample from "../components/codeExample.tsx"
-import {Container, Code, Page, Example} from "../UI/components";
+import {Container, Code, Example} from "../UI/components";
 import {Gradient} from "../UI/gradient";
 import {baseTheme} from "../styles/theme";
+import Page from "../components/page";
 
 const PageWithAnimation = () => {
     const transition = `p{
@@ -59,7 +59,6 @@ p:hover{
 
     return (
         <Page>
-            <Navigation/>
             <Container>
                 <h1>Анимация</h1>
                 <div>

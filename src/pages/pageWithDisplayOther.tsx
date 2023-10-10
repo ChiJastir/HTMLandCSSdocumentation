@@ -1,10 +1,10 @@
 import {useState} from 'react';
-import Navigation from "../components/navigation";
 import CodeExample from "../components/codeExample";
-import {Container, Code, Page, Example} from "../UI/components";
+import {Container, Code, Example} from "../UI/components";
 import BoxElements from "../components/boxElements";
 import styled, {css} from "styled-components";
 import {baseTheme} from "../styles/theme";
+import Page from "../components/page";
 
 const PageWithDisplayOther = () => {
     const [visible, setVisible] = useState(true)
@@ -21,7 +21,6 @@ const PageWithDisplayOther = () => {
 }`
     return (
         <Page>
-            <Navigation/>
             <Container>
                 <h1>None, block</h1>
                 <div>

@@ -1,10 +1,10 @@
-import Navigation from "../components/navigation.tsx";
 import CodeExample, {languages} from "../components/codeExample.tsx";
-import {Container, Code, Page, Example} from "../UI/components";
+import {Container, Code, Example} from "../UI/components";
 import BoxElements from "../components/boxElements";
 import styled, {css} from "styled-components";
 import BoxElem from "../components/boxElem";
 import {baseTheme} from "../styles/theme";
+import Page from "../components/page";
 
 const PageWithDisplayGrid = () => {
     const displayGrid = `div{
@@ -49,7 +49,6 @@ const PageWithDisplayGrid = () => {
 }`
     return (
         <Page>
-            <Navigation/>
             <Container>
                 <h1>Display</h1>
                 <div>

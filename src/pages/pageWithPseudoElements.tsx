@@ -1,6 +1,6 @@
-import Navigation from "../components/navigation"
 import CodeExample from "../components/codeExample.tsx"
-import {Container, Page, Example, Code} from "../UI/components"
+import {Container, Example, Code} from "../UI/components"
+import Page from "../components/page";
 
 const PageWithAnimation = () => {
     const before = `li::before {
@@ -19,7 +19,6 @@ const PageWithAnimation = () => {
 
     return (
         <Page>
-            <Navigation/>
             <Container>
                 <h1><span>Псевдо-элементы</span></h1>
                 <div>

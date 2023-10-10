@@ -1,36 +1,23 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import {Gradient} from "../UI/gradient";
-import {useSwipeable} from "react-swipeable";
 
-const Navigation = () => {
+interface NavigationProps{
+    swipe: boolean,
+}
+
+const Navigation = ({swipe}: NavigationProps) => {
     const [visible, setVisible] = useState(false)
-    // const [swipe, setSwipe] = useState(0)
 
-    const handlers = useSwipeable({
-        // onSwiping: (eventData) => {
-        //     console.log(eventData)
-        //     setSwipe(eventData.deltaX)
-        // },
-        onSwipedRight: () => {
-            setVisible(true)
-        },
-        onSwipedLeft: () => {
-            setVisible(false)
-        },
-    });
-
-    // useEffect(() => {
-    //
-    // }, [swipe])
+    useEffect(() => {
+        setVisible(swipe)
+    }, [swipe])
 
     return (
         <div>
             <Content
-                {...handlers}
                 $isVisible={visible}
-                // swipe={swipe}
                 onMouseEnter={() => setVisible(true)}
                 onMouseLeave={() => setVisible(false)}
             >
@@ -67,18 +54,13 @@ const Navigation = () => {
 };
 
 // CSS
-interface NavigationProps{
-    $isVisible?: boolean,
-    swipe?: number,
-}
 
-const Content = styled.aside<NavigationProps>`
+const Content = styled.aside<{$isVisible: boolean}>`
   background-color: #1f1f1f;
   height: 100vh;
   display: flex;
   position: fixed;
-  //left: clamp(min(-1 * (280px - 5px), -1 *(20vw - 5px)), ${props => props.swipe}px, 0px);
-  // left: ${props => props.$isVisible ? 0 : `clamp(min(-1 * (280px - 5px), -1 *(20vw - 5px)), ${props.swipe}px, 0px)`};
+  // left: ${props => props.$isVisible ? 0 : `clamp(min(-1 * (280px - 5px), -1 *(20vw - 5px)), props.swipe px, 0px)`};
   left: ${props => props.$isVisible ? 0 : 'min(-1 * (280px - 5px), -1 *(20vw - 5px))'};
   width: max(280px, 20vw);
   z-index: 3;

@@ -1,7 +1,7 @@
-import Navigation from "../components/navigation";
 import CodeExample from "../components/codeExample.tsx";
-import {Container, Code, Page, Example} from "../UI/components";
+import {Container, Code, Example} from "../UI/components";
 import styled from "styled-components";
+import Page from "../components/page";
 
 const PageWithText = () => {
     const textExample = 'Hello world'
@@ -42,7 +42,6 @@ const PageWithText = () => {
 }`
     return (
         <Page>
-            <Navigation/>
             <Container>
                 <h1>Текст</h1>
                 <div>

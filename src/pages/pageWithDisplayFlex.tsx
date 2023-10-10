@@ -1,8 +1,8 @@
 import {css} from "styled-components";
-import Navigation from "../components/navigation.tsx";
 import CodeExample from "../components/codeExample.tsx";
-import {Container, Code, Page, Example} from "../UI/components";
+import {Container, Code, Example} from "../UI/components";
 import BoxElements from "../components/boxElements.tsx";
+import Page from "../components/page";
 
 const PageWithDisplayFlex = () => {
     const displayFlex = `div{
@@ -29,7 +29,6 @@ const PageWithDisplayFlex = () => {
 }`
     return (
         <Page>
-            <Navigation/>
             <Container>
                 <h1>Display</h1>
                 <div>

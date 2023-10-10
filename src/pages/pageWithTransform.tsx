@@ -1,8 +1,8 @@
 import {useState} from 'react';
 import styled from "styled-components";
-import Navigation from "../components/navigation";
 import CodeExample from "../components/codeExample";
-import {Container, Code, ParagraphBorder, Page, Example} from "../UI/components";
+import {Container, Code, ParagraphBorder, Example} from "../UI/components";
+import Page from "../components/page";
 
 const PageWithTransform = () => {
     const [translate, setTranslate] = useState(false)
@@ -21,7 +21,6 @@ const PageWithTransform = () => {
 }`
     return (
         <Page>
-            <Navigation/>
             <Container>
                 <h1>Transform</h1>
                 <div>

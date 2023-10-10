@@ -1,6 +1,6 @@
-import Navigation from "../components/navigation"
 import CodeExample from "../components/codeExample.tsx"
-import {Container, Page, Example, Code} from "../UI/components"
+import {Container, Example, Code} from "../UI/components"
+import Page from "../components/page";
 
 const PageWithAnimation = () => {
     const tagSelectorExample = `p {
@@ -41,7 +41,6 @@ const PageWithAnimation = () => {
 
     return (
         <Page>
-            <Navigation/>
             <Container>
                 <h1>Селекторы</h1>
                 <div>
