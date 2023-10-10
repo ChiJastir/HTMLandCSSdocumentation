@@ -34,6 +34,7 @@ export const GlobalStyles =  createGlobalStyle`
     font-size: 3.2em;
     line-height: 1.1;
     margin: 0;
+    overflow-wrap: break-word;
   }
 
   button {

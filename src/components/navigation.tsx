@@ -2,14 +2,35 @@ import {useState} from 'react';
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import {Gradient} from "../UI/gradient";
+import {useSwipeable} from "react-swipeable";
 
 const Navigation = () => {
     const [visible, setVisible] = useState(false)
+    // const [swipe, setSwipe] = useState(0)
+
+    const handlers = useSwipeable({
+        // onSwiping: (eventData) => {
+        //     console.log(eventData)
+        //     setSwipe(eventData.deltaX)
+        // },
+        onSwipedRight: () => {
+            setVisible(true)
+        },
+        onSwipedLeft: () => {
+            setVisible(false)
+        },
+    });
+
+    // useEffect(() => {
+    //
+    // }, [swipe])
 
     return (
         <div>
             <Content
+                {...handlers}
                 $isVisible={visible}
+                // swipe={swipe}
                 onMouseEnter={() => setVisible(true)}
                 onMouseLeave={() => setVisible(false)}
             >
@@ -20,7 +41,6 @@ const Navigation = () => {
                         <li><Link to={'/pseudoClasses'}>Псевдоклассы</Link></li>
                         <li><Link to={'/pseudoElements'}>Псевдоэлементы</Link></li>
                         <li><Link to={'/text'}>Текст</Link></li>
-                        <li><Link to={'/animation'}>Анимация</Link></li>
                         <li>
                             <Link to={'/displayFlex'}>Display</Link>
                             <ul>
@@ -31,25 +51,34 @@ const Navigation = () => {
                         </li>
                         <li><Link to={'/position'}>Position</Link></li>
                         <li><Link to={'/transform'}>Transform</Link></li>
+                        <li><Link to={'/animation'}>Анимация</Link></li>
                         <li><Link to={'/frames'}>Рамки</Link></li>
                         <li><Link to={'/indents'}>Отступы</Link></li>
                         <li><Link to={'/other'}>Прочее</Link></li>
                     </ul>
                 </Nav>
-                <Ver>v1.3</Ver>
+                <Ver>v1.4</Ver>
                 <GradientLine $vertical width={'5px'}/>
+                <SwipePlaceholder/>
             </Content>
-            <Background $isVisible={visible}/>
+            <Background $isVisible={visible} onClick={() => setVisible(false)}/>
         </div>
     );
 };
 
 // CSS
-const Content = styled.aside<{$isVisible: boolean}>`
+interface NavigationProps{
+    $isVisible?: boolean,
+    swipe?: number,
+}
+
+const Content = styled.aside<NavigationProps>`
   background-color: #1f1f1f;
   height: 100vh;
   display: flex;
   position: fixed;
+  //left: clamp(min(-1 * (280px - 5px), -1 *(20vw - 5px)), ${props => props.swipe}px, 0px);
+  // left: ${props => props.$isVisible ? 0 : `clamp(min(-1 * (280px - 5px), -1 *(20vw - 5px)), ${props.swipe}px, 0px)`};
   left: ${props => props.$isVisible ? 0 : 'min(-1 * (280px - 5px), -1 *(20vw - 5px))'};
   width: max(280px, 20vw);
   z-index: 3;
@@ -81,6 +110,13 @@ const Nav = styled.nav`
 const GradientLine = styled(Gradient)`
   position: absolute;
   right: 0;
+  left: auto;`
+
+const SwipePlaceholder = styled.div`
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  right: -20px;
   left: auto;`
 
 export default Navigation;
