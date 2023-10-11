@@ -13,9 +13,11 @@ import PageWithPseudoClasses from "../pages/pageWithPseudoClasses";
 import PageWithPseudoElements from "../pages/pageWithPseudoElements";
 import PageWithMath from "../pages/pageWithMath";
 import PageWithMeasurementUnits from "../pages/pageWithMeasurementUnits";
+import PageWithColorAndBackground from "../pages/pageWithColorAndBackground";
 
 export const routes = [
     {path: '/', component: <PageWithSelectors/>},
+    {path: '/colorAndBackground', component: <PageWithColorAndBackground/>},
     {path: '/measurement', component: <PageWithMeasurementUnits/>},
     {path: '/pseudoClasses', component: <PageWithPseudoClasses/>},
     {path: '/pseudoElements', component: <PageWithPseudoElements/>},

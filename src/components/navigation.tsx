@@ -34,6 +34,7 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
                         <li><Link to={'/pseudoElements'}>Псевдоэлементы</Link></li>
                         <li><Link to={'/math'}>Математика</Link></li>
                         <li><Link to={'/text'}>Текст</Link></li>
+                        <li><Link to={'/colorAndBackground'}>Цвет и фон</Link></li>
                         <li>
                             <Link to={'/displayFlex'}>Display</Link>
                             <ul>
@@ -50,7 +51,7 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
                         <li><Link to={'/other'}>Прочее</Link></li>
                     </ul>
                 </Nav>
-                <Ver>v1.5</Ver>
+                <Ver>v1.6</Ver>
                 <GradientLine $vertical width={'5px'}/>
             </Content>
             <Background $isVisible={visible} onClick={() => setVisible(false)}/>
@@ -83,8 +84,9 @@ const Background = styled.div<{$isVisible: boolean}>`
 
 const Ver = styled.p`
   position: absolute;
-  bottom: 0;
-  margin: 15px;
+  bottom: 15px;
+  left: 15px;
+  margin: 0;
   color: gray;`
 
 
