@@ -29,6 +29,7 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
                     <h3>Навигация по CSS</h3>
                     <ul>
                         <li><Link to={'/'}>Селекторы</Link></li>
+                        <li><Link to={'/measurement'}>Единицы измерения</Link></li>
                         <li><Link to={'/pseudoClasses'}>Псевдоклассы</Link></li>
                         <li><Link to={'/pseudoElements'}>Псевдоэлементы</Link></li>
                         <li><Link to={'/math'}>Математика</Link></li>
