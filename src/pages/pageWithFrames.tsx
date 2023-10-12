@@ -14,6 +14,14 @@ const PageWithFrames = () => {
     height: 100px;
     outline: 15px #646cff solid;
 }`
+
+    const borderRadius = `div{
+    background-color: #646cff;
+    width: 200px;
+    height: 100px;
+    border-radius: 15px;
+}`
+
     return (
         <Page>
             <Container>
@@ -34,6 +42,14 @@ const PageWithFrames = () => {
                         <Outline/>
                     </Example>
                 </div>
+                <div>
+                    <h2>border-radius</h2>
+                    <p><Code>border-radius</Code> скругляет края элемента</p>
+                    <Example>
+                        <CodeExample>{borderRadius}</CodeExample>
+                        <BorderRadius/>
+                    </Example>
+                </div>
             </Container>
         </Page>
     );
@@ -46,5 +62,11 @@ const Border = styled.div`
 const Outline = styled.div`
   height: 100px;
   outline: 15px ${baseTheme.colors.primary} solid;`
+
+const BorderRadius = styled.div`
+  background-color: ${baseTheme.colors.primary};
+  width: 200px;
+  height: 100px;
+  border-radius: 15px;`
 
 export default PageWithFrames;

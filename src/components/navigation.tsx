@@ -33,6 +33,7 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
                         <li><Link to={'/pseudoClasses'}>Псевдоклассы</Link></li>
                         <li><Link to={'/pseudoElements'}>Псевдоэлементы</Link></li>
                         <li><Link to={'/math'}>Математика</Link></li>
+                        <li><Link to={'/size'}>Размеры</Link></li>
                         <li><Link to={'/text'}>Текст</Link></li>
                         <li><Link to={'/colorAndBackground'}>Цвет и фон</Link></li>
                         <li>
@@ -79,6 +80,7 @@ const Background = styled.div<{$isVisible: boolean}>`
   top: 0;
   right: 0;
   bottom: 0;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   display: ${props => props.$isVisible ? 'block' : 'none'};`
 

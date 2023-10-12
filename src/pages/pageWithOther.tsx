@@ -10,6 +10,7 @@ import Page from "../components/page";
 const PageWithOther = () => {
     const [zValue, setZValue] = useState(1)
     const [opacityValue, setOpacityValue] = useState(1)
+    const [isVisible, setIsVisible] = useState(true)
 
     const zIndexHTML = `<div class="container">
     <div class="elem1"/>
@@ -66,6 +67,17 @@ const PageWithOther = () => {
 
 .grad{
     cursor: grad;
+}`
+
+    const visibility = `div{
+    height: 100px;
+    background-color: #646cff;
+    cursor: pointer;
+    ${isVisible ? 'visibility: visible;' : 'visibility: hidden;'}
+}`
+
+    const listStyle = `ul{
+    list-style: url("images/logo.svg");
 }`
     return (
         <Page>
@@ -137,6 +149,27 @@ const PageWithOther = () => {
                             <CursorElem>.pointer</CursorElem>
                             <CursorElem>.grab</CursorElem>
                         </CursorBox>
+                    </Example>
+                </div>
+                <div>
+                    <h2>visibility</h2>
+                    <p><Code>visibility: hidden</Code> скрывает элемент на странице, но место занимаемое им остаётся занятым. Возможно анимировать</p>
+                    <Example>
+                        <CodeExample>{visibility}</CodeExample>
+                        <Visibility $visible={isVisible}/>
+                        <button onClick={() => setIsVisible(!isVisible)}>Скрыть/показать</button>
+                    </Example>
+                </div>
+                <div>
+                    <h2>list-style</h2>
+                    <p><Code>list-style</Code> настраивает стиль указатилей списка. Можно выбрать из множества существующих, а можно указать самому</p>
+                    <Example>
+                        <CodeExample>{listStyle}</CodeExample>
+                        <ListStyle img={img}>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ListStyle>
                     </Example>
                 </div>
             </Container>
@@ -212,5 +245,19 @@ const CursorElem = styled.div`
     background-color: ${baseTheme.colors.primary};
     cursor: grab;
   }`
+
+interface VisibilityProps {
+    $visible?: boolean,
+}
+
+const Visibility = styled.div<VisibilityProps>`
+  height: 100px;
+  background-color: ${baseTheme.colors.primary};
+  margin-bottom: 10px;
+  cursor: pointer;
+  ${props => !props.$visible && 'visibility: hidden'}`
+
+const ListStyle = styled.ul<{img: string}>`
+  list-style: url("${props => props.img}");`
 
 export default PageWithOther;
