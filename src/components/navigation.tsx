@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react';
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import {Gradient} from "../UI/gradient";
+import {motion} from "framer-motion";
+import settings from '../assets/settings.svg'
 
 type NavigationProps = {
     swipe: boolean;
@@ -26,7 +28,19 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
                 onMouseLeave={() => setVisible(false)}
             >
                 <Nav>
-                    <h3>Навигация по CSS</h3>
+                    <NavigationHead>
+                        <h3>Навигация по CSS</h3>
+                        <motion.img
+                            whileHover={{ scale: 1.2, rotate: 90 }}
+                            whileTap={{
+                                scale: 0.8,
+                                rotate: -90,
+                                borderRadius: "100%"
+                            }}
+                            src={settings}
+                            alt="settings"
+                        />
+                    </NavigationHead>
                     <ul>
                         <li><Link to={'/'}>Селекторы</Link></li>
                         <li><Link to={'/measurement'}>Единицы измерения</Link></li>
@@ -52,7 +66,7 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
                         <li><Link to={'/other'}>Прочее</Link></li>
                     </ul>
                 </Nav>
-                <Ver>v1.6</Ver>
+                <Ver>v1.7</Ver>
                 <GradientLine $vertical width={'5px'}/>
             </Content>
             <Background $isVisible={visible} onClick={() => setVisible(false)}/>
@@ -68,10 +82,21 @@ const Content = styled.aside<{$isVisible: boolean}>`
   display: flex;
   position: fixed;
   // left: ${props => props.$isVisible ? 0 : `clamp(min(-1 * (280px - 5px), -1 *(20vw - 5px)), props.swipe px, 0px)`};
-  left: ${props => props.$isVisible ? 0 : 'min(-1 * (280px - 5px), -1 *(20vw - 5px))'};
-  width: max(280px, 20vw);
+  left: ${props => props.$isVisible ? 0 : 'calc(-1 * (280px - 5px))'};
+  //left: ${true ? 0 : '280px'};
+  width: 280px;
   z-index: 3;
   transition: left 250ms ease-in-out;`
+
+const NavigationHead = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }`
 
 const Background = styled.div<{$isVisible: boolean}>`
   position: fixed;
@@ -94,8 +119,10 @@ const Ver = styled.p`
 
 const Nav = styled.nav`
   padding: 15px;
+  width: calc(100% - (15px * 2) - 5px);
   ul {
     padding-left: 20px;
+    margin: 0;
   }`
 
 const GradientLine = styled(Gradient)`
