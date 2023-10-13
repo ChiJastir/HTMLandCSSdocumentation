@@ -3,7 +3,6 @@ import CodeExample from "../components/codeExample";
 import {Container, Code, Example} from "../UI/components";
 import BoxElements from "../components/boxElements";
 import styled, {css} from "styled-components";
-import {baseTheme} from "../styles/theme";
 import Page from "../components/page";
 
 const PageWithDisplayOther = () => {
@@ -56,7 +55,7 @@ interface DisplayNoneProps {
 
 const DisplayNone = styled.div<DisplayNoneProps>`
   height: 100px;
-  background-color: ${baseTheme.colors.primary};
+  background-color: ${props => props.theme.colors.primary};
   margin-bottom: 10px;
   ${props => !props.$visible && 'display: none'}`
 

@@ -1,7 +1,6 @@
 import CodeExample from "../components/codeExample";
 import {Container, Code, Example} from "../UI/components";
 import styled from "styled-components";
-import {baseTheme} from "../styles/theme";
 import Page from "../components/page";
 
 const PageWithFrames = () => {
@@ -57,14 +56,14 @@ const PageWithFrames = () => {
 
 const Border = styled.div`
   height: 100px;
-  border: 15px ${baseTheme.colors.primary} solid;`
+  border: 15px ${props => props.theme.colors.primary} solid;`
 
 const Outline = styled.div`
   height: 100px;
-  outline: 15px ${baseTheme.colors.primary} solid;`
+  outline: 15px ${props => props.theme.colors.primary} solid;`
 
 const BorderRadius = styled.div`
-  background-color: ${baseTheme.colors.primary};
+  background-color: ${props => props.theme.colors.primary};
   width: 200px;
   height: 100px;
   border-radius: 15px;`

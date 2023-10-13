@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import {baseTheme} from "../styles/theme";
 
 export const Code = styled.code`
-  background-color: rgba(255, 255, 255, 0.05);`
+  background-color: ${props => props.theme.type === 'light' ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.05)'};`
 
 export const Container = styled.div`
   padding: 40px; 
@@ -12,7 +11,7 @@ export const ParagraphBorder = styled.p<{color?: string}>`
   margin-top: 0;
   margin-bottom: 10px;
   padding: 10px;
-  border: ${({color = baseTheme.colors.primary}) => color} 1px solid;`
+  border: ${props => props.theme.colors.primary} 1px solid;`
 
 export const Example = styled.div`
   padding: 10px 0;

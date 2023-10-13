@@ -1,7 +1,6 @@
 import CodeExample from "../components/codeExample";
 import {Container, Code, Example} from "../UI/components";
 import styled from "styled-components";
-import {baseTheme} from "../styles/theme";
 import Page from "../components/page";
 
 const PageWithIndents = () => {
@@ -54,7 +53,7 @@ const PageWithIndents = () => {
 
 const IndentsContainer = styled.div`
   height: 100px;
-  border: ${baseTheme.colors.primary} 1px solid;`
+  border: ${props => props.theme.colors.primary} 1px solid;`
 
 const IndentsElem = styled.div`
   border: #e50000 1px solid;

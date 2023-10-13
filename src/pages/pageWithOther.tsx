@@ -3,7 +3,6 @@ import CodeExample, {languages} from "../components/codeExample";
 import {Container, Code, Example} from "../UI/components";
 import img from '../assets/react.svg'
 import styled from "styled-components";
-import {baseTheme} from "../styles/theme";
 import Elem from '../components/boxElem'
 import Page from "../components/page";
 
@@ -188,12 +187,12 @@ const ZIndexElem = styled.div`
 
 const ZIndexElem1 = styled(ZIndexElem)<{$ZIndex?: number}>`
   z-index: ${props => props.$ZIndex};
-  background-color: ${baseTheme.colors.secondary};`
+  background-color: ${props => props.theme.colors.secondary};`
 
 const ZIndexElem2 = styled(ZIndexElem)`
   left: 50px;
   top: 50px;
-  background-color: ${baseTheme.colors.primary}`
+  background-color: ${props => props.theme.colors.primary}`
 
 const Buttons = styled.div`
   display: flex;
@@ -202,7 +201,7 @@ const Buttons = styled.div`
   }`
 
 const BoxShadow = styled.div`
-  background-color: ${baseTheme.colors.primary};
+  background-color: ${props => props.theme.colors.primary};
   width: 100px;
   height: 100px;`
 
@@ -219,12 +218,12 @@ const OpacityExample = styled.div<{opacity: number}>`
     height: 100px; 
     position: absolute; 
     top: 0; 
-    background-color: ${baseTheme.colors.secondary}; 
+    background-color: ${props => props.theme.colors.secondary}; 
     opacity: ${props => props.opacity};
   }`
 
 const AlignItemsExample = styled.div`
-  border: ${baseTheme.colors.primary} 1px solid; 
+  border: ${props => props.theme.colors.primary} 1px solid; 
   padding: 5px; 
   display: flex; 
   align-items: center`
@@ -239,10 +238,10 @@ const CursorElem = styled.div`
   justify-content: center;
   align-items: center;
   margin: 10px;
-  background-color: ${baseTheme.colors.secondary};
+  background-color: ${props => props.theme.colors.secondary};
   cursor: pointer;
   &+&{
-    background-color: ${baseTheme.colors.primary};
+    background-color: ${props => props.theme.colors.primary};
     cursor: grab;
   }`
 
@@ -252,7 +251,7 @@ interface VisibilityProps {
 
 const Visibility = styled.div<VisibilityProps>`
   height: 100px;
-  background-color: ${baseTheme.colors.primary};
+  background-color: ${props => props.theme.colors.primary};
   margin-bottom: 10px;
   cursor: pointer;
   ${props => !props.$visible && 'visibility: hidden'}`

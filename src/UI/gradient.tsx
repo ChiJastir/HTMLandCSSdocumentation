@@ -1,5 +1,4 @@
 import styled, {keyframes} from "styled-components";
-import {baseTheme} from "../styles/theme";
 
 const gradientVerAnim = keyframes`
   0% {
@@ -28,6 +27,6 @@ interface GradientProps{
 export const Gradient = styled.div<GradientProps>`
   height: ${props => props.height || '100%'};
   width: ${props => props.width || '100%'};
-  background: linear-gradient(${props => props.$horizontal && '90deg, ' || props.$vertical && ''}${baseTheme.colors.brightSecondary}, ${baseTheme.colors.brightPrimary}, ${baseTheme.colors.brightSecondary});
+  background: linear-gradient(${props => props.$horizontal && '90deg, ' || props.$vertical && ''}${props => props.theme.colors.brightSecondary}, ${props => props.theme.colors.brightPrimary}, ${props => props.theme.colors.brightSecondary});
   background-size: ${props => props.$horizontal && '300% 100%' || props.$vertical && '100% 300%'};
   animation: ${props => props.$horizontal && gradientHorAnim || props.$vertical && gradientVerAnim} ${props => props.speed || '10s'} linear infinite;`

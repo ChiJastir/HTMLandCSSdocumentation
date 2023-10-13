@@ -4,6 +4,10 @@ import {Link} from "react-router-dom";
 import {Gradient} from "../UI/gradient";
 import {motion} from "framer-motion";
 import settings from '../assets/settings.svg'
+import ModalWindow from "../UI/modalWindow";
+import Switch from "../UI/switch";
+import {useAppDispatch, useAppSelector} from "../hooks/redux";
+import {onDark, onLight} from "../features/themeSlice";
 
 type NavigationProps = {
     swipe: boolean;
@@ -11,17 +15,41 @@ type NavigationProps = {
 }
 
 const Navigation = ({swipe, setSwipe}: NavigationProps) => {
+    const themeValue = useAppSelector((store) => store.themeSlice.themeValue)
+
     const [visible, setVisible] = useState(false)
+    const [modalVisible, setModalVisible] = useState(false)
+    const [themeType, setThemeType] = useState(themeValue.type === 'light');
+
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
         setVisible(swipe)
     }, [swipe])
+
     useEffect(() => {
         setSwipe(visible)
     }, [visible])
 
+    useEffect(() => {
+        if (themeType){
+            dispatch(onLight())
+        } else {
+            dispatch(onDark())
+        }
+    }, [themeType])
+
     return (
         <div>
+            <ModalWindow isVisible={modalVisible} setIsVisible={setModalVisible}>
+                <Settings>
+                    <h3>Настройки</h3>
+                    <div>
+                        <p>Тема:</p>
+                        <Switch checked={themeType} setChecked={setThemeType}/>
+                    </div>
+                </Settings>
+            </ModalWindow>
             <Content
                 $isVisible={visible}
                 onMouseEnter={() => setVisible(true)}
@@ -35,10 +63,10 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
                             whileTap={{
                                 scale: 0.8,
                                 rotate: -90,
-                                borderRadius: "100%"
                             }}
                             src={settings}
                             alt="settings"
+                            onTap={() => {setModalVisible(true); setVisible(false)}}
                         />
                     </NavigationHead>
                     <ul>
@@ -66,7 +94,7 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
                         <li><Link to={'/other'}>Прочее</Link></li>
                     </ul>
                 </Nav>
-                <Ver>v1.7</Ver>
+                <Ver>v1.8</Ver>
                 <GradientLine $vertical width={'5px'}/>
             </Content>
             <Background $isVisible={visible} onClick={() => setVisible(false)}/>
@@ -77,7 +105,7 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
 // CSS
 
 const Content = styled.aside<{$isVisible: boolean}>`
-  background-color: #1f1f1f;
+  background-color: ${props => props.theme.colors.bg};
   height: 100vh;
   display: flex;
   position: fixed;
@@ -96,6 +124,7 @@ const NavigationHead = styled.div`
     width: 30px;
     height: 30px;
     cursor: pointer;
+    filter: brightness(0) ${props => props.theme.type !== 'light' && 'invert(1)'};
   }`
 
 const Background = styled.div<{$isVisible: boolean}>`
@@ -129,5 +158,16 @@ const GradientLine = styled(Gradient)`
   position: absolute;
   right: 0;
   left: auto;`
+
+const Settings = styled.div`
+  h3{
+    margin: 0 0 10px 0; 
+    text-align: center;
+  }
+  & > div{
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+  }`
 
 export default Navigation;

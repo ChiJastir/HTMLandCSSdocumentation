@@ -1,7 +1,6 @@
 import CodeExample from "../components/codeExample";
 import {Container, Code, Example} from "../UI/components";
 import styled from "styled-components";
-import {baseTheme} from "../styles/theme";
 import Page from "../components/page";
 
 const PageWithSize = () => {
@@ -36,7 +35,7 @@ const PageWithSize = () => {
                     <Example>
                         <CodeExample>{sizeLimit}</CodeExample>
                         <SizeLimit>
-                            <textarea/>
+                            <Textarea/>
                         </SizeLimit>
                     </Example>
                 </div>
@@ -48,7 +47,7 @@ const PageWithSize = () => {
 const HeightAndWidth = styled.div`
   height: 200px;
   width: 100px;
-  background-color: ${baseTheme.colors.primary};`
+  background-color: ${props => props.theme.colors.primary};`
 
 const SizeLimit = styled.div`
   min-height: 100px;
@@ -57,6 +56,9 @@ const SizeLimit = styled.div`
   max-width: 300px;
   display: inline-block;
   padding: 10px;
-  background-color: ${baseTheme.colors.primary};`
+  background-color: ${props => props.theme.colors.primary};`
+
+const Textarea = styled.textarea`
+  background-color: ${props => props.theme.colors.bg};`
 
 export default PageWithSize;

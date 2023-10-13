@@ -1,5 +1,4 @@
 import {createGlobalStyle} from "styled-components";
-import {baseTheme} from "./theme";
 
 export const GlobalStyles =  createGlobalStyle`
   :root {
@@ -8,8 +7,8 @@ export const GlobalStyles =  createGlobalStyle`
     font-weight: 400;
 
     color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    color: ${props => props.theme.colors.text};
+    background-color: ${props => props.theme.colors.bg};
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -20,11 +19,10 @@ export const GlobalStyles =  createGlobalStyle`
 
   a {
     font-weight: 500;
-    color: ${baseTheme.colors.primary};
+    color: ${props => props.theme.colors.primary};
     text-decoration: inherit;
   }
   a:hover {
-    color: ${baseTheme.colors.primary};
     filter: brightness(80%);
   }
 
@@ -40,18 +38,19 @@ export const GlobalStyles =  createGlobalStyle`
   }
 
   button {
+    color: ${props => props.theme.colors.text};
     border-radius: 8px;
     border: 1px solid transparent;
     padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background-color: ${props => props.theme.colors.btn};
     cursor: pointer;
     transition: border-color 0.25s;
   }
   button:hover {
-    border-color: ${baseTheme.colors.primary}
+    border-color: ${props => props.theme.colors.primary}
   }
   button:focus,
   button:focus-visible {

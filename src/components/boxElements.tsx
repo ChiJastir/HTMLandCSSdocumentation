@@ -1,6 +1,5 @@
 import Elem, {styleType} from "./boxElem";
 import styled, {css} from "styled-components";
-import {baseTheme} from "../styles/theme";
 
 export enum displayType{
     flex = 'flex',
@@ -30,7 +29,7 @@ const BoxElements = ({length, $containerStyle, color, styleType, height, width, 
 };
 
 const Container = styled.div<ContainerProps>`
-  border: ${baseTheme.colors.primary} 1px solid;
+  border: ${props => props.theme.colors.primary} 1px solid;
   ${props => css`${props.$containerStyle}`}`
 
 export default BoxElements;

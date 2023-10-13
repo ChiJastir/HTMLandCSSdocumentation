@@ -2,7 +2,6 @@ import styled, {keyframes} from "styled-components";
 import CodeExample from "../components/codeExample.tsx"
 import {Container, Code, Example} from "../UI/components";
 import {Gradient} from "../UI/gradient";
-import {baseTheme} from "../styles/theme";
 import Page from "../components/page";
 
 const PageWithAnimation = () => {
@@ -88,11 +87,12 @@ p:hover{
 };
 
 const TransitionExample = styled.p`
+  color: ${props => props.theme.colors.text};
   padding: 15px;
-  background-color: ${baseTheme.colors.primary};
+  background-color: ${props => props.theme.colors.primary};
   transition: background-color 800ms;
   &:hover{
-    background-color: ${baseTheme.colors.secondary};
+    background-color: ${props => props.theme.colors.secondary};
   }`
 
 const move = keyframes`
@@ -118,7 +118,7 @@ const Keyframe = styled.div`
     width: 50px;
     height: 50px;
     border-radius: 100%;
-    background-color: ${baseTheme.colors.primary};
+    background-color: ${props => props.theme.colors.primary};
 
     animation: ${move} 10s linear infinite;
   }`

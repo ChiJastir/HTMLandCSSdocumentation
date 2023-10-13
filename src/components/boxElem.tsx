@@ -1,10 +1,9 @@
 import styled, {css} from "styled-components";
-import {baseTheme} from "../styles/theme";
 
 const Elem = styled.div<ElemProps>`
   width: ${props => props.width || '50px'};
   height: ${props => props.height || '50px'};
-  ${props => props.styleType === styleType.primary ? css`background-color: ${props.color || baseTheme.colors.secondary}` : css`border: ${props.color || baseTheme.colors.secondary} 1px solid`};
+  ${props => props.styleType === styleType.primary ? css`background-color: ${props.color || props.theme.colors.secondary}` : css`border: ${props.color || props.theme.colors.secondary} 1px solid`};
   display: flex;
   justify-content: center;
   align-items: center;

@@ -3,7 +3,6 @@ import {Container, Code, Example} from "../UI/components";
 import BoxElements from "../components/boxElements";
 import styled, {css} from "styled-components";
 import BoxElem from "../components/boxElem";
-import {baseTheme} from "../styles/theme";
 import Page from "../components/page";
 
 const PageWithDisplayGrid = () => {
@@ -107,7 +106,7 @@ const GridTemplateAreas = styled.div`
     "nav content";
   grid-template-columns: 25% 1fr;
   grid-template-rows: 50px 150px;
-  border: ${baseTheme.colors.primary} 1px solid;
+  border: ${props => props.theme.colors.primary} 1px solid;
   padding: 5px;`
 
 const Gap = css`
