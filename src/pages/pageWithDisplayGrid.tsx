@@ -1,11 +1,14 @@
 import CodeExample, {languages} from "../components/codeExample.tsx";
-import {Container, Code, Example} from "../UI/components";
+import {Container, Example} from "../UI/components";
 import BoxElements from "../components/boxElements";
 import styled, {css} from "styled-components";
 import BoxElem from "../components/boxElem";
 import Page from "../components/page";
+import {useTranslation} from "react-i18next";
 
 const PageWithDisplayGrid = () => {
+    const {t} = useTranslation()
+
     const displayGrid = `div{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -51,9 +54,9 @@ const PageWithDisplayGrid = () => {
             <Container>
                 <h1>Display</h1>
                 <div>
-                    <h2>display: grid, grid-template-columns, grid-template-rows и единица измерения fr</h2>
-                    <p><Code>display: grid</Code> ведёт себя как <Code>display: block</Code>, но открывает доступ к интересным CSS-свойствам, которые позволяют создать сетку(grid) на странице, а также к единице измерения <Code>fr</Code>. <Code>fr</Code> можно условно назвать "часть". Запись <Code>repeat(3, 1fr)</Code> означает "поделить блок на 3 равные части". <Code>repeat(5, 1fr)</Code> соответственно "поделить блок на 5 равных частей". <Code>30% 60% 1fr</Code> знает что всё доступное пространство делится на 3 неравные части. Одна часть занимает 30%, вторая часть 60%, а третья то, что останется. В данном примере это 10%.</p>
-                    <p><Code>grid-template-columns</Code> и <Code>grid-template-rows</Code> соответственно означают деление на столбики и строки. Получается что-то вроде таблицы</p>
+                    <h2>{t("displayGridT1")}</h2>
+                    <p>{t("displayGridP1")}</p>
+                    <p>{t("displayGridP2")}</p>
                     <Example>
                         <CodeExample>{displayGrid}</CodeExample>
                         <BoxElements width={'100%'} $containerStyle={DGrid} length={5}/>
@@ -64,8 +67,8 @@ const PageWithDisplayGrid = () => {
                     </Example>
                 </div>
                 <div>
-                    <h2>grid-template-areas и grid-area</h2>
-                    <p><Code>grid-template-areas</Code> это общее свойство для колонок и строк. Имеет специфический синтаксис, но позволяет задавать нестандартную сетку. Для маркировки элементов сетки используется <Code>grid-area</Code></p>
+                    <h2>{t("gridAreasT")}</h2>
+                    <p>{t("gridAreasP1")}</p>
                     <Example>
                         <CodeExample language={languages.html}>{gridTemplateAreasHTML}</CodeExample>
                         <CodeExample>{gridTemplateAreasCSS}</CodeExample>
@@ -78,7 +81,7 @@ const PageWithDisplayGrid = () => {
                 </div>
                 <div>
                     <h2>gap</h2>
-                    <p><Code>gap</Code> это зазоры между элементами сетки, но далеко не всегда они работают так, как нам хочется</p>
+                    <p>{t("gapP1")}</p>
                     <Example>
                         <CodeExample>{gap}</CodeExample>
                         <BoxElements width={'100%'} $containerStyle={Gap} length={5}/>

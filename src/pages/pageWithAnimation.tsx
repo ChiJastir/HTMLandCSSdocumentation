@@ -1,10 +1,13 @@
 import styled, {keyframes} from "styled-components";
 import CodeExample from "../components/codeExample.tsx"
-import {Container, Code, Example} from "../UI/components";
+import {Container, Example} from "../UI/components";
 import {Gradient} from "../UI/gradient";
 import Page from "../components/page";
+import {useTranslation} from "react-i18next";
 
 const PageWithAnimation = () => {
+    const {t} = useTranslation()
+
     const transition = `p{
     padding: 15px;
     background-color: #535bf2;
@@ -59,23 +62,23 @@ p:hover{
     return (
         <Page>
             <Container>
-                <h1>Анимация</h1>
+                <h1>{t("AnimationT")}</h1>
                 <div>
                     <h2>Transition</h2>
-                    <p><Code>transition</Code> позволяет добавить плавное изменение CSS-свойства. Указывается небходимое свойство (можно указать <Code>all</Code>), а также время в миллисекундах или секундах. Можно указать задержку перед началом анимации и кривую анимации</p>
+                    <p>{t("transitionP1")}</p>
                     <Example>
                         <CodeExample>{transition}</CodeExample>
                         <TransitionExample>Hello world</TransitionExample>
                     </Example>
                 </div>
                 <div>
-                    <h2>@keyframes и animation</h2>
-                    <p><Code>@keyframes</Code> позволяет нам создать анимацию с помощью ключивых кадров и дать ей название. Ключивые кадры задаются процентами от анимации. С помощью <Code>animation</Code> мы применяем созданную анимацию и указываем дополнительные параметры, такие как время, задержка, кривая анимации, повторяемость и др</p>
+                    <h2>{t("keyframesAndAnimationT")}</h2>
+                    <p>{t("keyframesAndAnimationP1")}</p>
                     <Example>
                         <CodeExample>{keyframesAndAnimation}</CodeExample>
                         <Keyframe><div/></Keyframe>
                     </Example>
-                    <p>Для интереса, примерно так реализован градиент:</p>
+                    <p>{t("keyframesAndAnimationP2")}</p>
                     <Example>
                         <CodeExample>{gradient}</CodeExample>
                         <Gradient $horizontal height={'50px'}/>

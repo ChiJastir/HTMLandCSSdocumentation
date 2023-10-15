@@ -5,9 +5,8 @@ import {Gradient} from "../UI/gradient";
 import {motion} from "framer-motion";
 import settings from '../assets/settings.svg'
 import ModalWindow from "../UI/modalWindow";
-import Switch from "../UI/switch";
-import {useAppDispatch, useAppSelector} from "../hooks/redux";
-import {onDark, onLight} from "../features/themeSlice";
+import Settings from "./settings";
+import {useTranslation} from "react-i18next";
 
 type NavigationProps = {
     swipe: boolean;
@@ -15,13 +14,10 @@ type NavigationProps = {
 }
 
 const Navigation = ({swipe, setSwipe}: NavigationProps) => {
-    const themeValue = useAppSelector((store) => store.themeSlice.themeValue)
-
     const [visible, setVisible] = useState(false)
     const [modalVisible, setModalVisible] = useState(false)
-    const [themeType, setThemeType] = useState(themeValue.type === 'light');
 
-    const dispatch = useAppDispatch()
+    const { t } = useTranslation()
 
     useEffect(() => {
         setVisible(swipe)
@@ -31,24 +27,10 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
         setSwipe(visible)
     }, [visible])
 
-    useEffect(() => {
-        if (themeType){
-            dispatch(onLight())
-        } else {
-            dispatch(onDark())
-        }
-    }, [themeType])
-
     return (
         <div>
             <ModalWindow isVisible={modalVisible} setIsVisible={setModalVisible}>
-                <Settings>
-                    <h3>Настройки</h3>
-                    <div>
-                        <p>Тема:</p>
-                        <Switch checked={themeType} setChecked={setThemeType}/>
-                    </div>
-                </Settings>
+                <Settings/>
             </ModalWindow>
             <Content
                 $isVisible={visible}
@@ -57,7 +39,7 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
             >
                 <Nav>
                     <NavigationHead>
-                        <h3>Навигация по CSS</h3>
+                        <h3>{t("cssNav")}</h3>
                         <motion.img
                             whileHover={{ scale: 1.2, rotate: 90 }}
                             whileTap={{
@@ -70,31 +52,31 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
                         />
                     </NavigationHead>
                     <ul>
-                        <li><Link to={'/'}>Селекторы</Link></li>
-                        <li><Link to={'/measurement'}>Единицы измерения</Link></li>
-                        <li><Link to={'/pseudoClasses'}>Псевдоклассы</Link></li>
-                        <li><Link to={'/pseudoElements'}>Псевдоэлементы</Link></li>
-                        <li><Link to={'/math'}>Математика</Link></li>
-                        <li><Link to={'/size'}>Размеры</Link></li>
-                        <li><Link to={'/text'}>Текст</Link></li>
-                        <li><Link to={'/colorAndBackground'}>Цвет и фон</Link></li>
+                        <li><Link to={'/'}>{t("selectorsT")}</Link></li>
+                        <li><Link to={'/measurement'}>{t("measurementUnitsT")}</Link></li>
+                        <li><Link to={'/pseudoClasses'}>{t("pseudoClassesT")}</Link></li>
+                        <li><Link to={'/pseudoElements'}>{t("pseudoElementsT")}</Link></li>
+                        <li><Link to={'/math'}>{t("mathematicsT")}</Link></li>
+                        <li><Link to={'/size'}>{t("sizesT")}</Link></li>
+                        <li><Link to={'/text'}>{t("textT")}</Link></li>
+                        <li><Link to={'/colorAndBackground'}>{t("colorAndBackgroundT")}</Link></li>
                         <li>
                             <Link to={'/displayFlex'}>Display</Link>
                             <ul>
                                 <li><Link to={'/displayFlex'}>Flex</Link></li>
                                 <li><Link to={'/displayGrid'}>Grid</Link></li>
-                                <li><Link to={'/displayOther'}>Другие</Link></li>
+                                <li><Link to={'/displayOther'}>None, block</Link></li>
                             </ul>
                         </li>
                         <li><Link to={'/position'}>Position</Link></li>
                         <li><Link to={'/transform'}>Transform</Link></li>
-                        <li><Link to={'/animation'}>Анимация</Link></li>
-                        <li><Link to={'/frames'}>Рамки</Link></li>
-                        <li><Link to={'/indents'}>Отступы</Link></li>
-                        <li><Link to={'/other'}>Прочее</Link></li>
+                        <li><Link to={'/animation'}>{t("AnimationT")}</Link></li>
+                        <li><Link to={'/frames'}>{t("framesT")}</Link></li>
+                        <li><Link to={'/indents'}>{t("indentsT")}</Link></li>
+                        <li><Link to={'/other'}>{t("otherT")}</Link></li>
                     </ul>
                 </Nav>
-                <Ver>v1.8</Ver>
+                <Ver>v1.9</Ver>
                 <GradientLine $vertical width={'5px'}/>
             </Content>
             <Background $isVisible={visible} onClick={() => setVisible(false)}/>
@@ -158,16 +140,5 @@ const GradientLine = styled(Gradient)`
   position: absolute;
   right: 0;
   left: auto;`
-
-const Settings = styled.div`
-  h3{
-    margin: 0 0 10px 0; 
-    text-align: center;
-  }
-  & > div{
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-  }`
 
 export default Navigation;

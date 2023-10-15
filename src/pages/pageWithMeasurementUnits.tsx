@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import CodeExample from "../components/codeExample.tsx"
-import {Container, Code, Example} from "../UI/components";
+import {Container, Example} from "../UI/components";
 import Page from "../components/page";
+import {useTranslation} from "react-i18next";
 
 const PageWithMeasurementUnits = () => {
+    const { t } = useTranslation()
+
     const pixels = `p {
     font-size: 20px;
 }`
@@ -23,38 +26,34 @@ const PageWithMeasurementUnits = () => {
     return (
         <Page>
             <Container>
-                <h1>Единицы измерения</h1>
-                {/*<div>*/}
-                {/*    <h2>Абсолютные</h2>*/}
-                {/*    <p>Абсолютные единицы измерения задают конкретные показатели свойствам. К примеру, если мы указываем размеры блока в абсолютных единицах и на вашем компьютере они будут смотреться хорошо, то на маленьких эранах (например телефонах) он скорее всего будет слишком большим</p>*/}
-                {/*</div>*/}
+                <h1>{t("measurementUnitsT")}</h1>
                 <div>
-                    <h2>Пиксели</h2>
-                    <p><Code>px</Code> - наиболее распространенная единица измерения, которая определяет размеры элементов на экране. Один пиксель представляет собой наименьшую отдельную точку на экране</p>
+                    <h2>{t("pixelsT")}</h2>
+                    <p>{t("pixelsP1")}</p>
                     <Example>
                         <CodeExample>{pixels}</CodeExample>
                         <Pixels>Hello world?</Pixels>
                     </Example>
                 </div>
                 <div>
-                    <h2>Проценты</h2>
-                    <p><Code>%</Code> - используются для определения размеров элементов относительно размера родительского элемента или контейнера</p>
+                    <h2>{t("percentsT")}</h2>
+                    <p>{t("percentsP1")}</p>
                     <Example>
                         <CodeExample>{percent}</CodeExample>
                         <Percent>Hello world!</Percent>
                     </Example>
                 </div>
                 <div>
-                    <h2>em и rem</h2>
-                    <p><Code>em</Code> - относительная единица измерения, которая зависит от размера шрифта родительского элемента. Значение 1em равно текущему размеру шрифта. <Code>rem</Code> аналогичен единице измерения EM, но значение 1rem всегда равно размеру шрифта корневого элемента (обычно это {'<html>'})</p>
+                    <h2>{t("emAndRemT")}</h2>
+                    <p>{t("emAndRemP1")}</p>
                     <Example>
                         <CodeExample>{emAndRem}</CodeExample>
                         <EmAndRem>Hello world!</EmAndRem>
                     </Example>
                 </div>
                 <div>
-                    <h2>Вьюпорт</h2>
-                    <p><Code>vw</Code> и <Code>vh</Code> - относительные единицы измерения, которые определяются относительно размеров видимой области (viewport) браузера. 1vw равен 1% ширины видимой области, а 1vh равен 1% высоты видимой области</p>
+                    <h2>{t("viewportT")}</h2>
+                    <p>{t("viewportP1")}</p>
                     <Example>
                         <CodeExample>{vwAndVh}</CodeExample>
                         <VwAndVh>Hello world!</VwAndVh>

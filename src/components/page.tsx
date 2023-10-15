@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import {useSwipeable} from "react-swipeable";
 import Navigation from "./navigation";
@@ -18,6 +18,10 @@ const Page = ({children}: PageProps) => {
             setSwipe(eventData.deltaX >= 100)
         },
     });
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <PageStyle {...handlers}>

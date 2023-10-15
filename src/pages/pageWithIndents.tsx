@@ -1,9 +1,12 @@
 import CodeExample from "../components/codeExample";
-import {Container, Code, Example} from "../UI/components";
+import {Container, Example} from "../UI/components";
 import styled from "styled-components";
 import Page from "../components/page";
+import {useTranslation} from "react-i18next";
 
 const PageWithIndents = () => {
+    const {t} = useTranslation()
+
     const padding = `div{
     padding: 5px 20px 35px 50px;
 }`
@@ -18,10 +21,10 @@ const PageWithIndents = () => {
     return (
         <Page>
             <Container>
-                <h1>Отступы</h1>
+                <h1>{t("indentsT")}</h1>
                 <div>
                     <h2>padding</h2>
-                    <p><Code>padding</Code> добавляет внутренние отступы для элемента.</p>
+                    <p>{t("paddingP1")}</p>
                     <Example>
                         <CodeExample>{padding}</CodeExample>
                         <IndentsContainer>
@@ -31,14 +34,14 @@ const PageWithIndents = () => {
                 </div>
                 <div>
                     <h2>margin</h2>
-                    <p><Code>margin</Code> добавляет внешние отступы для элемента.</p>
+                    <p>{t("marginP1")}</p>
                     <Example>
                         <CodeExample>{margin}</CodeExample>
                         <IndentsContainer>
                             <MarginElem>margin</MarginElem>
                         </IndentsContainer>
                     </Example>
-                    <p>Значение <Code>auto</Code> можно использовать как метод центрирования</p>
+                    <p>{t("marginP2")}</p>
                     <Example>
                         <CodeExample>{marginAuto}</CodeExample>
                         <IndentsContainer>

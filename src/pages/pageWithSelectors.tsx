@@ -1,112 +1,115 @@
 import CodeExample from "../components/codeExample.tsx"
-import {Container, Example, Code} from "../UI/components"
+import {Container, Example} from "../UI/components"
 import Page from "../components/page";
+import { useTranslation } from "react-i18next";
 
 const PageWithSelectors = () => {
+    const { t } = useTranslation()
+
     const tagSelectorExample = `p {
-    /* Стили будут применены ко всем <p> на странице */
+    /* ${t("typeSelectorsC")} */
 }`
 
     const classSelectorExample = `.title {
-    /* Стили будут применены ко всем элементом с классом title на странице */
+    /* ${t("classSelectorsC")} */
 }`
 
     const idSelectorExample = `#button {
-    /* Стили будут применены к одному элементу с идентификатором button */
+    /* ${t("idSelectorsC")} */
 }`
 
     const attrsSelectorExample = `input[type=radio] {
-    /* Стили будут применены ко всем input на страдице для которых установлен атрибут type="radio" */
+    /* ${t("attributeSelectorsC")} */
 }`
 
     const allSelectorExample = `* {
-    /* Стили будут применены ко всем элементам на страдице */
+    /* ${t("universalSelectorC")} */
 }`
 
     const neighboringRelatedCombinator = `li + li {
-    /* Стили будут применены ко всем тэгам <li>, перед которыми есть другой тэг <li> */
+    /* ${t("neighboringRelatedCombinatorC")} */
 }`
 
     const childCombinator = `.container > p {
-    /* Стили будут применены ко всем тэгам <p>, которые являются детьми первого уровня элементов с классом container */
+    /* ${t("childCombinatorC")} */
 }`
 
     const commonRelatedCombinator = `.container ~ p {
-    /* Стили будут применены ко всем тэгам <p> кроме первого, которые являются детьми первого уровня элементов с классом container */
+    /* ${t("commonRelatedCombinatorC")} */
 }`
 
     const flowCombinator = `div p {
-    /* Стили будут применены ко всем тэгам <p> внутри тэгов <div> */
+    /* ${t("descendantCombinatorC")} */
 }`
 
     return (
         <Page>
             <Container>
-                <h1>Селекторы</h1>
+                <h1>{t("selectorsT")}</h1>
                 <div>
-                    <h2>Вводная информация</h2>
-                    <p>Селекторы - это шаблоны, которые используются для привязки стилевых свойств к элементам в документе.</p>
-                    <p>У всех селекторов есть свой вес. Чем больше вес, тем главнее селектор. Вес каждого селектора зубрить смысла нет. Просто задумайтесь у какого селектора меньше выборка. Чем меньше выборка - тем больше вес</p>
+                    <h2>{t("selectorsIntroductoryInformationT")}</h2>
+                    <p>{t("selectorsIntroductoryInformationP1")}</p>
+                    <p>{t("selectorsIntroductoryInformationP2")}</p>
                 </div>
                 <div>
-                    <h2>Селекторы типа</h2>
-                    <p>Селекторы типа это самые простые селекторы из возможных. Выбирают все элементы на странице определённого тэга. Следовательно имеют очень маленький вес</p>
+                    <h2>{t("typeSelectorsT")}</h2>
+                    <p>{t("typeSelectorsP1")}</p>
                     <Example>
                         <CodeExample>{tagSelectorExample}</CodeExample>
                     </Example>
                 </div>
                 <div>
-                    <h2>Селекторы класса</h2>
-                    <p>Селекторы класса более продвинутые селекторы. Выбирают все элементы на странице определённого класса. Имеют средний вес</p>
+                    <h2>{t("classSelectorsT")}</h2>
+                    <p>{t("classSelectorsP1")}</p>
                     <Example>
                         <CodeExample>{classSelectorExample}</CodeExample>
                     </Example>
                 </div>
                 <div>
-                    <h2>Селекторы идентификатора</h2>
-                    <p>Селектор идентификатора выбирает один элемент на странице по уникальному id. Из-за такой маленькой выборки имеют огромный вес который очень сложно перебить. Использование селекторов идентификатора сегодня считается плохой практикой</p>
+                    <h2>{t("idSelectorsT")}</h2>
+                    <p>{t("idSelectorsP1")}</p>
                     <Example>
                         <CodeExample>{idSelectorExample}</CodeExample>
                     </Example>
                 </div>
                 <div>
-                    <h2>Селекторы наличия и значения атрибута</h2>
-                    <p>Селекторы наличия и значения атрибута выбирают все элементы по определённому атрибуту и его значению. Очень часто их можно встретить при стилизации input`ов</p>
+                    <h2>{t("attributeSelectorsT")}</h2>
+                    <p>{t("attributeSelectorsP1")}</p>
                     <Example>
                         <CodeExample>{attrsSelectorExample}</CodeExample>
                     </Example>
                 </div>
                 <div>
-                    <h2>Универсальный селектор</h2>
-                    <p>Универсальный селектор добавляет стили для всех элементов на странице</p>
+                    <h2>{t("universalSelectorT")}</h2>
+                    <p>{t("universalSelectorP1")}</p>
                     <Example>
                         <CodeExample>{allSelectorExample}</CodeExample>
                     </Example>
                 </div>
                 <div>
-                    <h2>Соседний родственный комбинатор</h2>
-                    <p>Вглядит как <Code>selector1 + selector2</Code>. Стили будут применены ко всем элементам, проходящих выборку selector2, перед которыми в DOM-дереве находится элемент, проходящих выборку selector1. Часто можно встретить при стилизации списков</p>
+                    <h2>{t("neighboringRelatedCombinatorT")}</h2>
+                    <p>{t("neighboringRelatedCombinatorP1")}</p>
                     <Example>
                         <CodeExample>{neighboringRelatedCombinator}</CodeExample>
                     </Example>
                 </div>
                 <div>
-                    <h2>Дочерний комбинатор</h2>
-                    <p>Вглядит как <Code>selector1 {'>'} selector2</Code>. Стили будут применены ко всем элементам, проходящих выборку selector2, являющихся прямыми потомками элементов, проходящих выборку selector1. Встречается нечасто</p>
+                    <h2>{t("childCombinatorT")}</h2>
+                    <p>{t("childCombinatorP1")}</p>
                     <Example>
                         <CodeExample>{childCombinator}</CodeExample>
                     </Example>
                 </div>
                 <div>
-                    <h2>Общий родственный комбинатор</h2>
-                    <p>Вглядит как <Code>selector1 ~ selector2</Code>. Стили будут применены ко всем элементам, проходящих выборку selector2, перед которыми в DOM-дереве находится элемент, проходящих выборку selector1. Оба элемента должны принадлежать одному родителю. Этот селектор отличается от соседнего селектора тем, что между элементами selector1  и selector2 могут находиться другие элементы. Встречается нечасто</p>
+                    <h2>{t("commonRelatedCombinatorT")}</h2>
+                    <p>{t("commonRelatedCombinatorP1")}</p>
                     <Example>
                         <CodeExample>{commonRelatedCombinator}</CodeExample>
                     </Example>
                 </div>
                 <div>
-                    <h2>Комбинатор потомка</h2>
-                    <p>Вглядит как <Code>selector1 selector2</Code>. Находит все соответствующие selector2 потомки элемента, который подходит под selector1, и применяет к ним стили. Используется повсеместно</p>
+                    <h2>{t("descendantCombinatorT")}</h2>
+                    <p>{t("descendantCombinatorP1")}</p>
                     <Example>
                         <CodeExample>{flowCombinator}</CodeExample>
                     </Example>

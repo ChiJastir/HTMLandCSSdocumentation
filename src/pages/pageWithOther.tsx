@@ -1,15 +1,18 @@
 import React, {useState} from 'react';
 import CodeExample, {languages} from "../components/codeExample";
-import {Container, Code, Example} from "../UI/components";
+import {Container, Example} from "../UI/components";
 import img from '../assets/react.svg'
 import styled from "styled-components";
 import Elem from '../components/boxElem'
 import Page from "../components/page";
+import {useTranslation} from "react-i18next";
 
 const PageWithOther = () => {
     const [zValue, setZValue] = useState(1)
     const [opacityValue, setOpacityValue] = useState(1)
     const [isVisible, setIsVisible] = useState(true)
+
+    const {t} = useTranslation()
 
     const zIndexHTML = `<div class="container">
     <div class="elem1"/>
@@ -22,7 +25,7 @@ const PageWithOther = () => {
 .elem1{
     position: absolute;
     
-    z-index: ${zValue}; /*Кнопки меняют значение*/
+    z-index: ${zValue}; /* ${t("zIndexC")} */
 }
 
 .elem2{
@@ -81,10 +84,10 @@ const PageWithOther = () => {
     return (
         <Page>
             <Container>
-                <h1>Прочее</h1>
+                <h1>{t("otherT")}</h1>
                 <div>
                     <h2>z-index</h2>
-                    <p><Code>z-index</Code> это аналог слоёв в фотошопе. Чем больше значение, тем выше слой.</p>
+                    <p>{t("zIndexP1")}</p>
                     <Example>
                         <CodeExample language={languages.html}>{zIndexHTML}</CodeExample>
                         <CodeExample>{zIndexCSS}</CodeExample>
@@ -100,7 +103,7 @@ const PageWithOther = () => {
                 </div>
                 <div>
                     <h2>box-shadow</h2>
-                    <p><Code>box-shadow</Code> это копия <Code>text-shadow</Code>, но для блочных элементов</p>
+                    <p>{t("boxShadowP1")}</p>
                     <Example>
                         <CodeExample>{boxShadowWhite}</CodeExample>
                         <BoxShadowWhite/>
@@ -112,7 +115,7 @@ const PageWithOther = () => {
                 </div>
                 <div>
                     <h2>opacity</h2>
-                    <p><Code>opacity</Code> - прозрачность</p>
+                    <p>{t("opacityP1")}</p>
                     <Example>
                         <CodeExample>{opacity}</CodeExample>
                         <OpacityExample opacity={opacityValue}>
@@ -128,7 +131,7 @@ const PageWithOther = () => {
                 </div>
                 <div>
                     <h2>align-items</h2>
-                    <p><Code>align-items</Code> выравнивает элементы в блоке. Обычно используется только <Code>center</Code></p>
+                    <p>{t("alignItemsP1")}</p>
                     <Example>
                         <CodeExample language={languages.html}>{alignItemsHTML}</CodeExample>
                         <CodeExample>{alignItemsCSS}</CodeExample>
@@ -141,7 +144,7 @@ const PageWithOther = () => {
                 </div>
                 <div>
                     <h2>cursor</h2>
-                    <p><Code>cursor</Code> обозначает тип указателя мыши при наведении</p>
+                    <p>{t("cursorP1")}</p>
                     <Example>
                         <CodeExample>{cursor}</CodeExample>
                         <CursorBox>
@@ -152,7 +155,7 @@ const PageWithOther = () => {
                 </div>
                 <div>
                     <h2>visibility</h2>
-                    <p><Code>visibility: hidden</Code> скрывает элемент на странице, но место занимаемое им остаётся занятым. Возможно анимировать</p>
+                    <p>{t("visibilityP1")}</p>
                     <Example>
                         <CodeExample>{visibility}</CodeExample>
                         <Visibility $visible={isVisible}/>
@@ -161,7 +164,7 @@ const PageWithOther = () => {
                 </div>
                 <div>
                     <h2>list-style</h2>
-                    <p><Code>list-style</Code> настраивает стиль указатилей списка. Можно выбрать из множества существующих, а можно указать самому</p>
+                    <p>{t("listStyle")}</p>
                     <Example>
                         <CodeExample>{listStyle}</CodeExample>
                         <ListStyle img={img}>

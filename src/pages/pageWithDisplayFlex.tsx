@@ -1,10 +1,13 @@
 import {css} from "styled-components";
 import CodeExample from "../components/codeExample.tsx";
-import {Container, Code, Example} from "../UI/components";
+import {Container, Example} from "../UI/components";
 import BoxElements from "../components/boxElements.tsx";
 import Page from "../components/page";
+import {useTranslation} from "react-i18next";
 
 const PageWithDisplayFlex = () => {
+    const {t} = useTranslation()
+
     const displayFlex = `div{
     display: flex;
 }`
@@ -33,7 +36,7 @@ const PageWithDisplayFlex = () => {
                 <h1>Display</h1>
                 <div>
                     <h2>display: flex</h2>
-                    <p><Code>display: flex</Code> позволяет сделать элементы в блоке обтекаемыми, а также даёт доступ к другим flex-свойствам. Для сравнения стандартное значение <Code>block</Code></p>
+                    <p>{t("displayFlexP1")}</p>
                     <Example>
                         <CodeExample>{displayBlock}</CodeExample>
                         <BoxElements $elemStyle={MElem} length={3}/>
@@ -45,7 +48,7 @@ const PageWithDisplayFlex = () => {
                 </div>
                 <div>
                     <h2>flex-direction</h2>
-                    <p>С помощью <Code>flex-direction</Code> мы можем указать направление укладки элементов</p>
+                    <p>{t("flexDirectionP1")}</p>
                     <Example>
                         <CodeExample>{directionRowReverse}</CodeExample>
                         <BoxElements $elemStyle={MElem} $containerStyle={FDirection} length={3}/>
@@ -53,7 +56,7 @@ const PageWithDisplayFlex = () => {
                 </div>
                 <div>
                     <h2>flex-wrap</h2>
-                    <p><Code>flex-wrap</Code> отвечает за перенос элементов</p>
+                    <p>{t("flexWrapP1")}</p>
                     <Example>
                         <CodeExample>{flexWrap}</CodeExample>
                         <BoxElements $elemStyle={MElem} $containerStyle={FWrap} length={5}/>
@@ -61,7 +64,7 @@ const PageWithDisplayFlex = () => {
                 </div>
                 <div>
                     <h2>justify-content</h2>
-                    <p><Code>justify-content</Code> отвечает за размещение элементов в блоке. Самые частно используемые значения это <Code>center</Code>, <Code>space-between</Code> и <Code>space-around</Code></p>
+                    <p>{t("justifyContentP1")}</p>
                     <Example>
                         <CodeExample>{justifyContentSpaceBetween}</CodeExample>
                         <BoxElements $elemStyle={MElem} $containerStyle={JC} length={4}/>

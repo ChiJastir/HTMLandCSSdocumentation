@@ -1,9 +1,12 @@
 import CodeExample from "../components/codeExample";
-import {Container, Code, Example} from "../UI/components";
+import {Container, Example} from "../UI/components";
 import styled from "styled-components";
 import Page from "../components/page";
+import {useTranslation} from "react-i18next";
 
 const PageWithMath = () => {
+    const {t} = useTranslation()
+
     const calc = `p {
     font-size: calc(1vw + 15px);
 }`
@@ -18,18 +21,18 @@ const PageWithMath = () => {
     return (
         <Page>
             <Container>
-                <h1>Математика</h1>
+                <h1>{t("mathematicsT")}</h1>
                 <div>
                     <h2>calc</h2>
-                    <p><Code>calc()</Code> позволяет добавить на сайт простейшую математику. Мы можем складывать(+), вычетать(-), умножать(*) и делить(/) разные единицы измерения. Во всех остальных математических функциях мы также можем использовать эти операторы</p>
+                    <p>{t("calcP1")}</p>
                     <Example>
                         <CodeExample>{calc}</CodeExample>
                         <Calc>Hello world!</Calc>
                     </Example>
                 </div>
                 <div>
-                    <h2>min и max</h2>
-                    <p><Code>min(a, b)</Code> и <Code>max(a, b)</Code> выбирает минимальное и максимальное из двух значений соответственно. Являются важными знаниями при адаптивной вёрстке</p>
+                    <h2>{t("minAndMaxT")}</h2>
+                    <p>{t("minAndMaxP1")}</p>
                     <Example>
                         <CodeExample>{minAndMax}</CodeExample>
                         <MinAndMax>Hello world!</MinAndMax>
@@ -37,7 +40,7 @@ const PageWithMath = () => {
                 </div>
                 <div>
                     <h2>clamp</h2>
-                    <p><Code>clamp(a, b, c)</Code> можно представить в виде желаемого значения, ограниченного минимальным и максимальным значением. Тоже крайне нужная вещь при построении адаптива</p>
+                    <p>{t("clampP1")}</p>
                     <Example>
                         <CodeExample>{clamp}</CodeExample>
                         <Clamp>Hello world!</Clamp>

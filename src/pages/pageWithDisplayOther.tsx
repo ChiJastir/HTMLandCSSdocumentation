@@ -1,39 +1,42 @@
 import {useState} from 'react';
 import CodeExample from "../components/codeExample";
-import {Container, Code, Example} from "../UI/components";
+import {Container, Example} from "../UI/components";
 import BoxElements from "../components/boxElements";
 import styled, {css} from "styled-components";
 import Page from "../components/page";
+import {useTranslation} from "react-i18next";
 
 const PageWithDisplayOther = () => {
     const [visible, setVisible] = useState(true)
     const [block, setBlock] = useState(true)
 
+    const {t} = useTranslation()
+
     const displayNone = `div{
     height: 100px;
     background-color: #646cff;
-    ${visible ? '/* Нажатие кнопки добавляет и убирает display: none */' : 'display: none'}
+    ${visible ? `/* ${t("displayNoneC")} */` : 'display: none'}
 }`
 
     const displayBlock = `div{
-    display: ${block ? 'block' : 'flex'} /* Нажатие кнопки меняет значение на ${!block ? 'block' : 'flex'} */
+    display: ${block ? 'block' : 'flex'}
 }`
     return (
         <Page>
             <Container>
-                <h1>None, block</h1>
+                <h1>Display</h1>
                 <div>
                     <h2>display: none</h2>
-                    <p><Code>display: none</Code> полностью уберает блок со страницы так, будто его и нет</p>
+                    <p>{t("displayNoneP1")}</p>
                     <Example>
                         <CodeExample>{displayNone}</CodeExample>
                         <DisplayNone $visible={visible}/>
-                        <button onClick={() => setVisible(!visible)}>Скрыть/показать</button>
+                        <button onClick={() => setVisible(!visible)}>{t("displayNoneB1")}</button>
                     </Example>
                 </div>
                 <div>
                     <h2>display: block</h2>
-                    <p><Code>display: block</Code> Значение <Code>display</Code> по умолчанию. Ничего интересного</p>
+                    <p>{t("displayBlockP1")}</p>
                     <Example>
                         <CodeExample>{displayBlock}</CodeExample>
                         <BoxElements $containerStyle={DisplayBlock + ` display: ${block ? 'block' : 'flex'};`} width={'100px'} height={'100px'} length={2}/>

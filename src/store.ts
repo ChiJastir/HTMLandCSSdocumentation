@@ -10,16 +10,17 @@ import {
     REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'
-// import counterSlice from "./features/counterSlice";
 import themeSlice from "./features/themeSlice";
+import languagesSlice from "./features/languageSlice";
 
 const rootReducer = combineReducers({
-    // counterSlice,
+    languagesSlice,
     themeSlice,
 })
 
 const persistConfig = {
     key: 'root',
+    // whitelist: ['themeSlice'],
     storage,
 }
 

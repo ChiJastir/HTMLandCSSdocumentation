@@ -1,9 +1,12 @@
 import CodeExample from "../components/codeExample";
-import {Container, Code, Example} from "../UI/components";
+import {Container, Example} from "../UI/components";
 import styled from "styled-components";
 import Page from "../components/page";
+import {useTranslation} from "react-i18next";
 
 const PageWithSize = () => {
+    const {t} = useTranslation()
+
     const heightAndWidth = `div {
     height: 200px;
     width: 100px;
@@ -20,18 +23,18 @@ const PageWithSize = () => {
     return (
         <Page>
             <Container>
-                <h1>Размеры</h1>
+                <h1>{t("sizesT")}</h1>
                 <div>
-                    <h2>height и width</h2>
-                    <p><Code>height</Code> - высота, <Code>width</Code> - ширина</p>
+                    <h2>{t("heightAndWidthT")}</h2>
+                    <p>{t("heightAndWidthP1")}</p>
                     <Example>
                         <CodeExample>{heightAndWidth}</CodeExample>
                         <HeightAndWidth/>
                     </Example>
                 </div>
                 <div>
-                    <h2>max-height, min-height и max-width, min-width</h2>
-                    <p>По логике - значания максимальной/минимальной высоты/ширины</p>
+                    <h2>{t("maxHeightMinHeightAndMaxWidthMinWidthT")}</h2>
+                    <p>{t("maxHeightMinHeightAndMaxWidthMinWidthP1")}</p>
                     <Example>
                         <CodeExample>{sizeLimit}</CodeExample>
                         <SizeLimit>

@@ -1,9 +1,12 @@
 import CodeExample from "../components/codeExample";
-import {Container, Code, Example} from "../UI/components";
+import {Container, Example} from "../UI/components";
 import styled from "styled-components";
 import Page from "../components/page";
+import {useTranslation} from "react-i18next";
 
 const PageWithFrames = () => {
+    const {t} = useTranslation()
+
     const border = `div{
     height: 100px;
     border: 15px #646cff solid;
@@ -24,10 +27,10 @@ const PageWithFrames = () => {
     return (
         <Page>
             <Container>
-                <h1>Рамки</h1>
+                <h1>{t("framesT")}</h1>
                 <div>
                     <h2>border</h2>
-                    <p><Code>border</Code> добавляет осязаемую рамку элементу, которая является его частью. Указывается толщина рамки, цвет и стиль рамки. В 90% случаев достаточно сплошной рамки <Code>solid</Code></p>
+                    <p>{t("borderP1")}</p>
                     <Example>
                         <CodeExample>{border}</CodeExample>
                         <Border/>
@@ -35,7 +38,7 @@ const PageWithFrames = () => {
                 </div>
                 <div>
                     <h2>outline</h2>
-                    <p><Code>outline</Code> добавляет неосязаемую рамку элементу, которая не является его частью. Указывается толщина рамки, цвет и стиль рамки. В 90% случаев достаточно сплошной рамки <Code>solid</Code></p>
+                    <p>{t("outlineP1")}</p>
                     <Example>
                         <CodeExample>{outline}</CodeExample>
                         <Outline/>
@@ -43,7 +46,7 @@ const PageWithFrames = () => {
                 </div>
                 <div>
                     <h2>border-radius</h2>
-                    <p><Code>border-radius</Code> скругляет края элемента</p>
+                    <p>{t("borderRadiusP1")}</p>
                     <Example>
                         <CodeExample>{borderRadius}</CodeExample>
                         <BorderRadius/>

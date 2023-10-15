@@ -1,9 +1,12 @@
 import CodeExample from "../components/codeExample.tsx";
-import {Container, Code, Example} from "../UI/components";
+import {Container, Example} from "../UI/components";
 import styled from "styled-components";
 import Page from "../components/page";
+import {useTranslation} from "react-i18next";
 
 const PageWithText = () => {
+    const {t} = useTranslation()
+
     const textExample = 'Hello world'
 
     const fontFamilyArialSansSerif = `p {
@@ -41,10 +44,10 @@ const PageWithText = () => {
     return (
         <Page>
             <Container>
-                <h1>Текст</h1>
+                <h1>{t("textT")}</h1>
                 <div>
                     <h2>font-family</h2>
-                    <p><Code>font-family</Code> задаёт шрифт тексту. Возможно указать несколько значений, шрифты в начале имеют больший приоритет. Также имеются стандартные значения <Code>serif</Code> и <Code>sans-serif</Code>, которые гарантированно есть на всех устройствах</p>
+                    <p>{t("fontFamilyP1")}</p>
                     <Example>
                         <CodeExample>{fontFamilyArialSansSerif}</CodeExample>
                         <FontFamilyArialSansSerif>{textExample}</FontFamilyArialSansSerif>
@@ -52,7 +55,7 @@ const PageWithText = () => {
                 </div>
                 <div>
                     <h2>font-size</h2>
-                    <p><Code>font-size</Code> задаёт размер шрифта</p>
+                    <p>{t("fontSizeP1")}</p>
                     <Example>
                         <CodeExample>{fontSize24px}</CodeExample>
                         <FontSize24px>{textExample}</FontSize24px>
@@ -60,7 +63,7 @@ const PageWithText = () => {
                 </div>
                 <div>
                     <h2>font-weight</h2>
-                    <p><Code>font-weight</Code> определяет толщину шрифта. Можно указывать значение словами <Code>normal</Code>, <Code>bold</Code> и др. Но я предпочитаю использовать числовые значения: 100, 200, 300... 900. От 100 до 900 с шагом в сотню. Указывать единицы измерения не нужно. Ещё следует заметить, что далеко не все шрифты имеют начертания всех типов</p>
+                    <p>{t("fontWeightP1")}</p>
                     <Example>
                         <CodeExample>{fontWeightBold}</CodeExample>
                         <FontWeightBold>{textExample}</FontWeightBold>
@@ -72,7 +75,7 @@ const PageWithText = () => {
                 </div>
                 <div>
                     <h2>text-align</h2>
-                    <p><Code>text-align</Code> это выравнивание текста по одному из краев. Для счастливой жизни достаточно знать <Code>left</Code>, <Code>right</Code>, <Code>center</Code> и <Code>justify</Code></p>
+                    <p>{t("textAlignP1")}</p>
                     <Example>
                         <CodeExample>{textAlignCenter}</CodeExample>
                         <TextAlignCenter>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias dolores enim libero provident quam quo similique? Assumenda debitis inventore laborum minima neque odio reiciendis vel? Culpa cupiditate delectus fugit labore laboriosam laborum magni, maxime nemo quasi quidem repudiandae soluta sunt vero? Aliquam, architecto ipsum itaque laudantium optio reprehenderit repudiandae veritatis!</TextAlignCenter>
@@ -84,7 +87,7 @@ const PageWithText = () => {
                 </div>
                 <div>
                     <h2>text-shadow</h2>
-                    <p><Code>text-shadow</Code> добавляет тень для текста. Указывается цвет и три числовых значения по порядку: сдвиг по X, сдвиг по Y и степень размытия</p>
+                    <p>{t("textShadowP1")}</p>
                     <Example>
                         <CodeExample>{textShadowWhite}</CodeExample>
                         <TextShadowWhite>{textExample}</TextShadowWhite>
@@ -96,7 +99,7 @@ const PageWithText = () => {
                 </div>
                 <div>
                     <h2>text-decoration</h2>
-                    <p><Code>text-decoration</Code> подчёркивает(<Code>underline</Code>), зачёркивает(<Code>line-through</Code>) или надчёркивает(<Code>overline</Code>) текст</p>
+                    <p>{t("textDecorationP1")}</p>
                     <Example>
                         <CodeExample>{textDecorationUnderline}</CodeExample>
                         <TextDecorationUnderline>{textExample}</TextDecorationUnderline>

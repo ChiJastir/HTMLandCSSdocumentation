@@ -1,10 +1,13 @@
 import styled from "styled-components";
 import CodeExample from "../components/codeExample.tsx"
-import {Container, Code, Example} from "../UI/components";
+import {Container, Example} from "../UI/components";
 import Page from "../components/page";
 import img from '../assets/react.svg'
+import {useTranslation} from "react-i18next";
 
 const PageWithColorAndBackground = () => {
+    const {t} = useTranslation()
+
     const color = `p {
     color: #008000;
 }`
@@ -41,20 +44,20 @@ const PageWithColorAndBackground = () => {
     return (
         <Page>
             <Container>
-                <h1>Цвет и фон</h1>
+                <h1>{t("colorAndBackgroundT")}</h1>
                 <div>
-                    <h2>Форматы указания цвета</h2>
+                    <h2>{t("colorIndicationFormatsT")}</h2>
                     <ol style={{paddingLeft: '16px'}}>
-                        <li>Именованные цвета - предопределенные названия цветов, такие как "red", "blue", "green" и т. д.</li>
-                        <li>HEX-коды - шестнадцатеричное представление цвета, состоящее из символов 0-9 и A-F. Например, "#FF0000" представляет красный цвет</li>
-                        <li>RGB - представление цвета в виде комбинации значений красного (R), зеленого (G) и синего (B) компонентов. Например, "rgb(255, 0, 0)" представляет красный цвет.</li>
-                        <li>RGBA - аналогично RGB, но с добавлением альфа-канала, который определяет прозрачность цвета. Например, "rgba(255, 0, 0, 0.5)" представляет полупрозрачный красный цвет.</li>
-                        <li>CSS3 цветовые функции - CSS3 предоставляет функции для создания цветов, такие как linear-gradient() и radial-gradient(). Эти функции позволяют создавать градиенты и другие сложные эффекты цвета.</li>
+                        <li>{t("colorIndicationFormatsP1")}</li>
+                        <li>{t("colorIndicationFormatsP2")}</li>
+                        <li>{t("colorIndicationFormatsP3")}</li>
+                        <li>{t("colorIndicationFormatsP4")}</li>
+                        <li>{t("colorIndicationFormatsP5")}</li>
                     </ol>
                 </div>
                 <div>
                     <h2>Color</h2>
-                    <p><Code>color</Code> задаёт цвет для текста</p>
+                    <p>{t("colorP1")}</p>
                     <Example>
                         <CodeExample>{color}</CodeExample>
                         <Color>Hello world</Color>
@@ -62,7 +65,7 @@ const PageWithColorAndBackground = () => {
                 </div>
                 <div>
                     <h2>Background-color</h2>
-                    <p><Code>background-color</Code> задаёт цвет для фона элемента</p>
+                    <p>{t("backgroundColorP1")}</p>
                     <Example>
                         <CodeExample>{backgroundColor}</CodeExample>
                         <BackgroundColor>Hello world</BackgroundColor>
@@ -70,7 +73,7 @@ const PageWithColorAndBackground = () => {
                 </div>
                 <div>
                     <h2>Background-image</h2>
-                    <p><Code>background-image</Code> задаёт элементу фоновое изображение через <Code>url("URL")</Code></p>
+                    <p>{t("backgroundImageP1")}</p>
                     <Example>
                         <CodeExample>{backgroundImage}</CodeExample>
                         <BackgroundImage img={img}>Hello world</BackgroundImage>
@@ -78,7 +81,7 @@ const PageWithColorAndBackground = () => {
                 </div>
                 <div>
                     <h2>Background-attachment</h2>
-                    <p><Code>background-attachment</Code> устанавливает, будет ли прокручиваться фоновое изображение вместе с содержимым элемента</p>
+                    <p>{t("backgroundAttachmentP1")}</p>
                     <Example>
                         <CodeExample>{backgroundAttachment}</CodeExample>
                         <BackgroundAttachment img={img}>Hello world</BackgroundAttachment>
@@ -86,7 +89,7 @@ const PageWithColorAndBackground = () => {
                 </div>
                 <div>
                     <h2>Background-repeat</h2>
-                    <p><Code>background-repeat</Code> устанавливает способ повторения заднего фона. Основные значения: <Code>repeat</Code>, <Code>round</Code> и <Code>no-repeat</Code></p>
+                    <p>{t("backgroundRepeatP1")}</p>
                     <Example>
                         <CodeExample>{backgroundRepeat}</CodeExample>
                         <BackgroundRepeat img={img}>Hello world</BackgroundRepeat>
@@ -94,7 +97,7 @@ const PageWithColorAndBackground = () => {
                 </div>
                 <div>
                     <h2>Background-size</h2>
-                    <p><Code>background-size</Code> устанавливает размер заднего фона. Основные значения: <Code>contain</Code>, <Code>cover</Code> и произвольное значение</p>
+                    <p>{t("backgroundSizeP1")}</p>
                     <Example>
                         <CodeExample>{backgroundSize}</CodeExample>
                         <BackgroundSize img={img}>Hello world</BackgroundSize>
@@ -102,7 +105,7 @@ const PageWithColorAndBackground = () => {
                 </div>
                 <div>
                     <h2>Background-position</h2>
-                    <p><Code>background-position</Code> устанавливает позицию заднего фона. Значения можно указывать словами, а можно произвольно</p>
+                    <p>{t("backgroundPositionP1")}</p>
                     <Example>
                         <CodeExample>{backgroundPosition}</CodeExample>
                         <BackgroundPosition img={img}>Hello world</BackgroundPosition>

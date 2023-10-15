@@ -18,7 +18,7 @@ export const lightTheme: DefaultTheme = {
     colors: {
         ...baseTheme.colors,
         text: 'rgba(0, 0, 0, 0.87)',
-        bg: '#f6f6f6',
+        bg: '#f2f2f2',
         btn: '#e3e3e3',
         contrast: 'black',
     },
