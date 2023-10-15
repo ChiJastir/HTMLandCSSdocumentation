@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import CodeExample, {languages} from "../components/codeExample";
-import {Container, Example} from "../UI/components";
-import img from '../assets/react.svg'
+import CodeExample, {languages} from "../../components/codeExample";
+import {Container, Example} from "../../UI/components";
+import img from '../../assets/react.svg'
 import styled from "styled-components";
-import Elem from '../components/boxElem'
-import Page from "../components/page";
+import Elem from '../../components/boxElem'
+import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
 
 const PageWithOther = () => {

@@ -12,10 +12,14 @@ import {
 import storage from 'redux-persist/lib/storage'
 import themeSlice from "./features/themeSlice";
 import languagesSlice from "./features/languageSlice";
+import pinMenuSlice from "./features/pinMenuSlice";
+import technologySlice from "./features/technologySlice";
 
 const rootReducer = combineReducers({
     languagesSlice,
     themeSlice,
+    pinMenuSlice,
+    technologySlice,
 })
 
 const persistConfig = {
@@ -25,10 +29,6 @@ const persistConfig = {
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
-
-// export const store = configureStore({
-//     reducer: persistedReducer,
-// })
 
 const store = configureStore({
     reducer: persistedReducer,

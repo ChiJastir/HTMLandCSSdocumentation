@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import CodeExample from "../components/codeExample.tsx"
-import {Container, Example} from "../UI/components";
-import Page from "../components/page";
+import CodeExample from "../../components/codeExample.tsx"
+import {Container, Example} from "../../UI/components";
+import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
 
 const PageWithMeasurementUnits = () => {

@@ -1,9 +1,9 @@
 import {useState} from 'react';
-import CodeExample from "../components/codeExample";
-import {Container, Example} from "../UI/components";
-import BoxElements from "../components/boxElements";
+import CodeExample from "../../components/codeExample";
+import {Container, Example} from "../../UI/components";
+import BoxElements from "../../components/boxElements";
 import styled, {css} from "styled-components";
-import Page from "../components/page";
+import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
 
 const PageWithDisplayOther = () => {

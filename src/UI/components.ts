@@ -8,6 +8,7 @@ export const Container = styled.div`
   width: calc(100% - 40px * 2);`
 
 export const ParagraphBorder = styled.p<{color?: string}>`
+  z-index: 10;
   margin-top: 0;
   margin-bottom: 10px;
   padding: 10px;

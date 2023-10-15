@@ -1,9 +1,9 @@
-import CodeExample, {languages} from "../components/codeExample.tsx";
-import {Container, Example} from "../UI/components";
-import BoxElements from "../components/boxElements";
+import CodeExample, {languages} from "../../components/codeExample.tsx";
+import {Container, Example} from "../../UI/components";
+import BoxElements from "../../components/boxElements";
 import styled, {css} from "styled-components";
-import BoxElem from "../components/boxElem";
-import Page from "../components/page";
+import BoxElem from "../../components/boxElem";
+import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
 
 const PageWithDisplayGrid = () => {

@@ -1,8 +1,8 @@
 import {useState} from 'react';
-import CodeExample from "../components/codeExample";
-import {Container, ParagraphBorder, Example} from "../UI/components";
+import CodeExample from "../../components/codeExample";
+import {Container, ParagraphBorder, Example} from "../../UI/components";
 import styled from "styled-components";
-import Page from "../components/page";
+import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
 
 const PageWithPosition = () => {
