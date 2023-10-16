@@ -43,8 +43,32 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
                         <NavigationHead>
                             <svg style={{position: 'absolute', left: 0, top: 0, width: '100%', height: '100%'}}>
                                 {technology === 'html'
-                                    ? <path d={`M ${(firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0)} ${(firstBtn.current?.offsetTop ?? 0)} L ${(secondBtn.current?.offsetLeft ?? 0)} ${(secondBtn.current?.offsetTop ?? 0) + (secondBtn.current?.offsetHeight ?? 0)}`} stroke="#FFFFFF"/>
-                                    : <path d={`M ${(firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0)} ${(firstBtn.current?.offsetTop ?? 0) + (firstBtn.current?.offsetHeight ?? 0)} L ${(secondBtn.current?.offsetLeft ?? 0)} ${(secondBtn.current?.offsetTop ?? 0)}`} stroke="#FFFFFF"/>
+                                    ? <path d={
+                                        `M ${(firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0)} 
+                                        ${(firstBtn.current?.offsetTop ?? 0) + 1} 
+                                        
+                                        C ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.6 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
+                                        ${(firstBtn.current?.offsetTop ?? 0)} 
+                                        
+                                        ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.4 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
+                                        ${(secondBtn.current?.offsetTop ?? 0) + (secondBtn.current?.offsetHeight ?? 0)} 
+                                        
+                                        ${(secondBtn.current?.offsetLeft ?? 0)} 
+                                        ${(secondBtn.current?.offsetTop ?? 0) + (secondBtn.current?.offsetHeight ?? 0) - 1}`
+                                    }/>
+                                    : <path d={
+                                        `M ${(firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0)} 
+                                        ${(firstBtn.current?.offsetTop ?? 0) + (firstBtn.current?.offsetHeight ?? 0) - 1}
+                                        
+                                        C ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.6 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
+                                        ${(firstBtn.current?.offsetTop ?? 0) + (firstBtn.current?.offsetHeight ?? 0)} 
+                                        
+                                        ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.4 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
+                                        ${(secondBtn.current?.offsetTop ?? 0)}
+                                        
+                                        ${(secondBtn.current?.offsetLeft ?? 0)} 
+                                        ${(secondBtn.current?.offsetTop ?? 0) + 1}`
+                                    }/>
                                 }
                             </svg>
                             <TechnologyButton ref={firstBtn} $isActive={technology === 'html'} onClick={() => dispatch(onHTML())}>HTML</TechnologyButton>
@@ -94,7 +118,9 @@ const NavigationHead = styled.div`
 
   svg{
     path{
-      stroke: ${props => props.theme.colors.contrast};
+      stroke: ${props => props.theme.colors.primary};
+      stroke-width: 2px;
+      fill: rgba(0, 0, 0, 0);
     }
   }`
 
@@ -111,16 +137,18 @@ const TechnologyButton = styled.button<TechnologyButtonProps>`
   border: none;
   border-radius: 0;
   font-size: 24px;
+  font-weight: 600;
   padding: 10px 25px;
   color: ${props => props.$isActive ? props.theme.colors.contrast : 'gray'};
-  ${props => props.$isActive ? 'border-top' : 'border-bottom'}: 1px ${props => props.theme.colors.contrast} solid;
+  ${props => props.$isActive ? 'border-top' : 'border-bottom'}: 2px ${props => props.theme.colors.primary} solid;
   
   &:active,
   &:focus{
     outline: inherit;
   }
   &:hover{
-    border-color: ${props => props.theme.colors.contrast};
+    border-color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.contrast};
   }`
 
 const Background = styled.div<{$isVisible: boolean}>`
