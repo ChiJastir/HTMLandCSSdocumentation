@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import CodeExample from "../../components/codeExample";
+import CSSCodeExample from "../../components/CSSCodeExample";
 import {Container, ParagraphBorder, Example} from "../../UI/components";
 import styled from "styled-components";
 import Page from "../../components/page";
@@ -40,7 +40,7 @@ const PageWithPosition = () => {
                     <h2>position: absolute</h2>
                     <p>{t("positionAbsoluteP1")}</p>
                     <Example>
-                        <CodeExample>{absoluteStyle}</CodeExample>
+                        <CSSCodeExample>{absoluteStyle}</CSSCodeExample>
                         <Position position={absolute ? 'absolute' : 'static'}>{absolute ? 'absolute' : 'static'}</Position>
                         <button onClick={() => setAbsolute(!absolute)}>absolute/static</button>
                     </Example>
@@ -49,7 +49,7 @@ const PageWithPosition = () => {
                     <h2>position: relative</h2>
                     <p>{t("positionRelativeP1")}</p>
                     <Example>
-                        <CodeExample>{relativeStyle}</CodeExample>
+                        <CSSCodeExample>{relativeStyle}</CSSCodeExample>
                         <Position position={relative ? 'relative' : 'static'}>{relative ? 'relative' : 'static'}</Position>
                         <button onClick={() => setRelative(!relative)}>relative/static</button>
                     </Example>
@@ -58,7 +58,7 @@ const PageWithPosition = () => {
                     <h2>position: fixed</h2>
                     <p>{t("positionFixedP1")}</p>
                     <Example>
-                        <CodeExample>{fixedStyle}</CodeExample>
+                        <CSSCodeExample>{fixedStyle}</CSSCodeExample>
                         <Position position={fixed ? 'fixed' : 'static'}>{fixed ? 'fixed' : 'static'}</Position>
                         <button onClick={() => setFixed(!fixed)}>fixed/static</button>
                     </Example>

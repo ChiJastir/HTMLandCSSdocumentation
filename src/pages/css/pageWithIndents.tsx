@@ -1,4 +1,4 @@
-import CodeExample from "../../components/codeExample";
+import CSSCodeExample from "../../components/CSSCodeExample";
 import {Container, Example} from "../../UI/components";
 import styled from "styled-components";
 import Page from "../../components/page";
@@ -26,7 +26,7 @@ const PageWithIndents = () => {
                     <h2>padding</h2>
                     <p>{t("paddingP1")}</p>
                     <Example>
-                        <CodeExample>{padding}</CodeExample>
+                        <CSSCodeExample>{padding}</CSSCodeExample>
                         <IndentsContainer>
                             <PaddingElem>margin</PaddingElem>
                         </IndentsContainer>
@@ -36,14 +36,14 @@ const PageWithIndents = () => {
                     <h2>margin</h2>
                     <p>{t("marginP1")}</p>
                     <Example>
-                        <CodeExample>{margin}</CodeExample>
+                        <CSSCodeExample>{margin}</CSSCodeExample>
                         <IndentsContainer>
                             <MarginElem>margin</MarginElem>
                         </IndentsContainer>
                     </Example>
                     <p>{t("marginP2")}</p>
                     <Example>
-                        <CodeExample>{marginAuto}</CodeExample>
+                        <CSSCodeExample>{marginAuto}</CSSCodeExample>
                         <IndentsContainer>
                             <MarginAutoElem>margin</MarginAutoElem>
                         </IndentsContainer>

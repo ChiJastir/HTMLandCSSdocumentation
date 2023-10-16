@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CodeExample from "../../components/codeExample.tsx"
+import CSSCodeExample from "../../components/CSSCodeExample.tsx"
 import {Container, Example} from "../../UI/components";
 import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
@@ -31,7 +31,7 @@ const PageWithMeasurementUnits = () => {
                     <h2>{t("pixelsT")}</h2>
                     <p>{t("pixelsP1")}</p>
                     <Example>
-                        <CodeExample>{pixels}</CodeExample>
+                        <CSSCodeExample>{pixels}</CSSCodeExample>
                         <Pixels>Hello world?</Pixels>
                     </Example>
                 </div>
@@ -39,7 +39,7 @@ const PageWithMeasurementUnits = () => {
                     <h2>{t("percentsT")}</h2>
                     <p>{t("percentsP1")}</p>
                     <Example>
-                        <CodeExample>{percent}</CodeExample>
+                        <CSSCodeExample>{percent}</CSSCodeExample>
                         <Percent>Hello world!</Percent>
                     </Example>
                 </div>
@@ -47,7 +47,7 @@ const PageWithMeasurementUnits = () => {
                     <h2>{t("emAndRemT")}</h2>
                     <p>{t("emAndRemP1")}</p>
                     <Example>
-                        <CodeExample>{emAndRem}</CodeExample>
+                        <CSSCodeExample>{emAndRem}</CSSCodeExample>
                         <EmAndRem>Hello world!</EmAndRem>
                     </Example>
                 </div>
@@ -55,7 +55,7 @@ const PageWithMeasurementUnits = () => {
                     <h2>{t("viewportT")}</h2>
                     <p>{t("viewportP1")}</p>
                     <Example>
-                        <CodeExample>{vwAndVh}</CodeExample>
+                        <CSSCodeExample>{vwAndVh}</CSSCodeExample>
                         <VwAndVh>Hello world!</VwAndVh>
                     </Example>
                 </div>

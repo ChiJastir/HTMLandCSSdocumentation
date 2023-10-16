@@ -1,5 +1,5 @@
 import styled, {keyframes} from "styled-components";
-import CodeExample from "../../components/codeExample.tsx"
+import CSSCodeExample from "../../components/CSSCodeExample.tsx"
 import {Container, Example} from "../../UI/components";
 import {Gradient} from "../../UI/gradient";
 import Page from "../../components/page";
@@ -67,7 +67,7 @@ p:hover{
                     <h2>Transition</h2>
                     <p>{t("transitionP1")}</p>
                     <Example>
-                        <CodeExample>{transition}</CodeExample>
+                        <CSSCodeExample>{transition}</CSSCodeExample>
                         <TransitionExample>Hello world</TransitionExample>
                     </Example>
                 </div>
@@ -75,12 +75,12 @@ p:hover{
                     <h2>{t("keyframesAndAnimationT")}</h2>
                     <p>{t("keyframesAndAnimationP1")}</p>
                     <Example>
-                        <CodeExample>{keyframesAndAnimation}</CodeExample>
+                        <CSSCodeExample>{keyframesAndAnimation}</CSSCodeExample>
                         <Keyframe><div/></Keyframe>
                     </Example>
                     <p>{t("keyframesAndAnimationP2")}</p>
                     <Example>
-                        <CodeExample>{gradient}</CodeExample>
+                        <CSSCodeExample>{gradient}</CSSCodeExample>
                         <Gradient $horizontal height={'50px'}/>
                     </Example>
                 </div>

@@ -1,4 +1,4 @@
-import CodeExample from "../../components/codeExample.tsx";
+import CSSCodeExample from "../../components/CSSCodeExample.tsx";
 import {Container, Example} from "../../UI/components";
 import styled from "styled-components";
 import Page from "../../components/page";
@@ -49,7 +49,7 @@ const PageWithText = () => {
                     <h2>font-family</h2>
                     <p>{t("fontFamilyP1")}</p>
                     <Example>
-                        <CodeExample>{fontFamilyArialSansSerif}</CodeExample>
+                        <CSSCodeExample>{fontFamilyArialSansSerif}</CSSCodeExample>
                         <FontFamilyArialSansSerif>{textExample}</FontFamilyArialSansSerif>
                     </Example>
                 </div>
@@ -57,7 +57,7 @@ const PageWithText = () => {
                     <h2>font-size</h2>
                     <p>{t("fontSizeP1")}</p>
                     <Example>
-                        <CodeExample>{fontSize24px}</CodeExample>
+                        <CSSCodeExample>{fontSize24px}</CSSCodeExample>
                         <FontSize24px>{textExample}</FontSize24px>
                     </Example>
                 </div>
@@ -65,11 +65,11 @@ const PageWithText = () => {
                     <h2>font-weight</h2>
                     <p>{t("fontWeightP1")}</p>
                     <Example>
-                        <CodeExample>{fontWeightBold}</CodeExample>
+                        <CSSCodeExample>{fontWeightBold}</CSSCodeExample>
                         <FontWeightBold>{textExample}</FontWeightBold>
                     </Example>
                     <Example>
-                        <CodeExample>{fontWeight100}</CodeExample>
+                        <CSSCodeExample>{fontWeight100}</CSSCodeExample>
                         <FontWeight100>{textExample}</FontWeight100>
                     </Example>
                 </div>
@@ -77,11 +77,11 @@ const PageWithText = () => {
                     <h2>text-align</h2>
                     <p>{t("textAlignP1")}</p>
                     <Example>
-                        <CodeExample>{textAlignCenter}</CodeExample>
+                        <CSSCodeExample>{textAlignCenter}</CSSCodeExample>
                         <TextAlignCenter>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias dolores enim libero provident quam quo similique? Assumenda debitis inventore laborum minima neque odio reiciendis vel? Culpa cupiditate delectus fugit labore laboriosam laborum magni, maxime nemo quasi quidem repudiandae soluta sunt vero? Aliquam, architecto ipsum itaque laudantium optio reprehenderit repudiandae veritatis!</TextAlignCenter>
                     </Example>
                     <Example>
-                        <CodeExample>{textAlignJustify}</CodeExample>
+                        <CSSCodeExample>{textAlignJustify}</CSSCodeExample>
                         <TextAlignJustify>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias dolores enim libero provident quam quo similique? Assumenda debitis inventore laborum minima neque odio reiciendis vel? Culpa cupiditate delectus fugit labore laboriosam laborum magni, maxime nemo quasi quidem repudiandae soluta sunt vero? Aliquam, architecto ipsum itaque laudantium optio reprehenderit repudiandae veritatis!</TextAlignJustify>
                     </Example>
                 </div>
@@ -89,11 +89,11 @@ const PageWithText = () => {
                     <h2>text-shadow</h2>
                     <p>{t("textShadowP1")}</p>
                     <Example>
-                        <CodeExample>{textShadowWhite}</CodeExample>
+                        <CSSCodeExample>{textShadowWhite}</CSSCodeExample>
                         <TextShadowWhite>{textExample}</TextShadowWhite>
                     </Example>
                     <Example>
-                        <CodeExample>{textShadowRed}</CodeExample>
+                        <CSSCodeExample>{textShadowRed}</CSSCodeExample>
                         <TextShadowRed>{textExample}</TextShadowRed>
                     </Example>
                 </div>
@@ -101,7 +101,7 @@ const PageWithText = () => {
                     <h2>text-decoration</h2>
                     <p>{t("textDecorationP1")}</p>
                     <Example>
-                        <CodeExample>{textDecorationUnderline}</CodeExample>
+                        <CSSCodeExample>{textDecorationUnderline}</CSSCodeExample>
                         <TextDecorationUnderline>{textExample}</TextDecorationUnderline>
                     </Example>
                 </div>

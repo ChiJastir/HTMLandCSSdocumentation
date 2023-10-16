@@ -1,4 +1,4 @@
-import CodeExample from "../../components/codeExample";
+import CSSCodeExample from "../../components/CSSCodeExample";
 import {Container, Example} from "../../UI/components";
 import styled from "styled-components";
 import Page from "../../components/page";
@@ -26,7 +26,7 @@ const PageWithMath = () => {
                     <h2>calc</h2>
                     <p>{t("calcP1")}</p>
                     <Example>
-                        <CodeExample>{calc}</CodeExample>
+                        <CSSCodeExample>{calc}</CSSCodeExample>
                         <Calc>Hello world!</Calc>
                     </Example>
                 </div>
@@ -34,7 +34,7 @@ const PageWithMath = () => {
                     <h2>{t("minAndMaxT")}</h2>
                     <p>{t("minAndMaxP1")}</p>
                     <Example>
-                        <CodeExample>{minAndMax}</CodeExample>
+                        <CSSCodeExample>{minAndMax}</CSSCodeExample>
                         <MinAndMax>Hello world!</MinAndMax>
                     </Example>
                 </div>
@@ -42,7 +42,7 @@ const PageWithMath = () => {
                     <h2>clamp</h2>
                     <p>{t("clampP1")}</p>
                     <Example>
-                        <CodeExample>{clamp}</CodeExample>
+                        <CSSCodeExample>{clamp}</CSSCodeExample>
                         <Clamp>Hello world!</Clamp>
                     </Example>
                 </div>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CodeExample from "../../components/codeExample.tsx"
+import CSSCodeExample from "../../components/CSSCodeExample.tsx"
 import {Container, Example} from "../../UI/components";
 import Page from "../../components/page";
 import img from '../../assets/react.svg'
@@ -59,7 +59,7 @@ const PageWithColorAndBackground = () => {
                     <h2>Color</h2>
                     <p>{t("colorP1")}</p>
                     <Example>
-                        <CodeExample>{color}</CodeExample>
+                        <CSSCodeExample>{color}</CSSCodeExample>
                         <Color>Hello world</Color>
                     </Example>
                 </div>
@@ -67,7 +67,7 @@ const PageWithColorAndBackground = () => {
                     <h2>Background-color</h2>
                     <p>{t("backgroundColorP1")}</p>
                     <Example>
-                        <CodeExample>{backgroundColor}</CodeExample>
+                        <CSSCodeExample>{backgroundColor}</CSSCodeExample>
                         <BackgroundColor>Hello world</BackgroundColor>
                     </Example>
                 </div>
@@ -75,7 +75,7 @@ const PageWithColorAndBackground = () => {
                     <h2>Background-image</h2>
                     <p>{t("backgroundImageP1")}</p>
                     <Example>
-                        <CodeExample>{backgroundImage}</CodeExample>
+                        <CSSCodeExample>{backgroundImage}</CSSCodeExample>
                         <BackgroundImage img={img}>Hello world</BackgroundImage>
                     </Example>
                 </div>
@@ -83,7 +83,7 @@ const PageWithColorAndBackground = () => {
                     <h2>Background-attachment</h2>
                     <p>{t("backgroundAttachmentP1")}</p>
                     <Example>
-                        <CodeExample>{backgroundAttachment}</CodeExample>
+                        <CSSCodeExample>{backgroundAttachment}</CSSCodeExample>
                         <BackgroundAttachment img={img}>Hello world</BackgroundAttachment>
                     </Example>
                 </div>
@@ -91,7 +91,7 @@ const PageWithColorAndBackground = () => {
                     <h2>Background-repeat</h2>
                     <p>{t("backgroundRepeatP1")}</p>
                     <Example>
-                        <CodeExample>{backgroundRepeat}</CodeExample>
+                        <CSSCodeExample>{backgroundRepeat}</CSSCodeExample>
                         <BackgroundRepeat img={img}>Hello world</BackgroundRepeat>
                     </Example>
                 </div>
@@ -99,7 +99,7 @@ const PageWithColorAndBackground = () => {
                     <h2>Background-size</h2>
                     <p>{t("backgroundSizeP1")}</p>
                     <Example>
-                        <CodeExample>{backgroundSize}</CodeExample>
+                        <CSSCodeExample>{backgroundSize}</CSSCodeExample>
                         <BackgroundSize img={img}>Hello world</BackgroundSize>
                     </Example>
                 </div>
@@ -107,7 +107,7 @@ const PageWithColorAndBackground = () => {
                     <h2>Background-position</h2>
                     <p>{t("backgroundPositionP1")}</p>
                     <Example>
-                        <CodeExample>{backgroundPosition}</CodeExample>
+                        <CSSCodeExample>{backgroundPosition}</CSSCodeExample>
                         <BackgroundPosition img={img}>Hello world</BackgroundPosition>
                     </Example>
                 </div>

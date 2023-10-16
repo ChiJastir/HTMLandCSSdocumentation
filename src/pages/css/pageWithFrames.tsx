@@ -1,4 +1,4 @@
-import CodeExample from "../../components/codeExample";
+import CSSCodeExample from "../../components/CSSCodeExample";
 import {Container, Example} from "../../UI/components";
 import styled from "styled-components";
 import Page from "../../components/page";
@@ -32,7 +32,7 @@ const PageWithFrames = () => {
                     <h2>border</h2>
                     <p>{t("borderP1")}</p>
                     <Example>
-                        <CodeExample>{border}</CodeExample>
+                        <CSSCodeExample>{border}</CSSCodeExample>
                         <Border/>
                     </Example>
                 </div>
@@ -40,7 +40,7 @@ const PageWithFrames = () => {
                     <h2>outline</h2>
                     <p>{t("outlineP1")}</p>
                     <Example>
-                        <CodeExample>{outline}</CodeExample>
+                        <CSSCodeExample>{outline}</CSSCodeExample>
                         <Outline/>
                     </Example>
                 </div>
@@ -48,7 +48,7 @@ const PageWithFrames = () => {
                     <h2>border-radius</h2>
                     <p>{t("borderRadiusP1")}</p>
                     <Example>
-                        <CodeExample>{borderRadius}</CodeExample>
+                        <CSSCodeExample>{borderRadius}</CSSCodeExample>
                         <BorderRadius/>
                     </Example>
                 </div>

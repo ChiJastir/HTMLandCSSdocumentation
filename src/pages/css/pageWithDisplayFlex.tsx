@@ -1,5 +1,5 @@
 import {css} from "styled-components";
-import CodeExample from "../../components/codeExample.tsx";
+import CSSCodeExample from "../../components/CSSCodeExample.tsx";
 import {Container, Example} from "../../UI/components";
 import BoxElements from "../../components/boxElements.tsx";
 import Page from "../../components/page";
@@ -38,11 +38,11 @@ const PageWithDisplayFlex = () => {
                     <h2>display: flex</h2>
                     <p>{t("displayFlexP1")}</p>
                     <Example>
-                        <CodeExample>{displayBlock}</CodeExample>
+                        <CSSCodeExample>{displayBlock}</CSSCodeExample>
                         <BoxElements $elemStyle={MElem} length={3}/>
                     </Example>
                     <Example>
-                        <CodeExample>{displayFlex}</CodeExample>
+                        <CSSCodeExample>{displayFlex}</CSSCodeExample>
                         <BoxElements $elemStyle={MElem} $containerStyle={DFlex} length={3}/>
                     </Example>
                 </div>
@@ -50,7 +50,7 @@ const PageWithDisplayFlex = () => {
                     <h2>flex-direction</h2>
                     <p>{t("flexDirectionP1")}</p>
                     <Example>
-                        <CodeExample>{directionRowReverse}</CodeExample>
+                        <CSSCodeExample>{directionRowReverse}</CSSCodeExample>
                         <BoxElements $elemStyle={MElem} $containerStyle={FDirection} length={3}/>
                     </Example>
                 </div>
@@ -58,7 +58,7 @@ const PageWithDisplayFlex = () => {
                     <h2>flex-wrap</h2>
                     <p>{t("flexWrapP1")}</p>
                     <Example>
-                        <CodeExample>{flexWrap}</CodeExample>
+                        <CSSCodeExample>{flexWrap}</CSSCodeExample>
                         <BoxElements $elemStyle={MElem} $containerStyle={FWrap} length={5}/>
                     </Example>
                 </div>
@@ -66,7 +66,7 @@ const PageWithDisplayFlex = () => {
                     <h2>justify-content</h2>
                     <p>{t("justifyContentP1")}</p>
                     <Example>
-                        <CodeExample>{justifyContentSpaceBetween}</CodeExample>
+                        <CSSCodeExample>{justifyContentSpaceBetween}</CSSCodeExample>
                         <BoxElements $elemStyle={MElem} $containerStyle={JC} length={4}/>
                     </Example>
                 </div>

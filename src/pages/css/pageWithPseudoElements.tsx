@@ -1,4 +1,4 @@
-import CodeExample from "../../components/codeExample.tsx"
+import CSSCodeExample from "../../components/CSSCodeExample.tsx"
 import {Container, Example} from "../../UI/components"
 import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
@@ -32,21 +32,21 @@ const PageWithPseudoElements = () => {
                     <h2>::before</h2>
                     <p>{t("beforeP1")}</p>
                     <Example>
-                        <CodeExample>{before}</CodeExample>
+                        <CSSCodeExample>{before}</CSSCodeExample>
                     </Example>
                 </div>
                 <div>
                     <h2>::after</h2>
                     <p>{t("afterP1")}</p>
                     <Example>
-                        <CodeExample>{after}</CodeExample>
+                        <CSSCodeExample>{after}</CSSCodeExample>
                     </Example>
                 </div>
                 <div>
                     <h2>::placeholder</h2>
                     <p>{t("placeholderP1")}</p>
                     <Example>
-                        <CodeExample>{placeholder}</CodeExample>
+                        <CSSCodeExample>{placeholder}</CSSCodeExample>
                     </Example>
                 </div>
             </Container>

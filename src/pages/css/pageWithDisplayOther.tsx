@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import CodeExample from "../../components/codeExample";
+import CSSCodeExample from "../../components/CSSCodeExample";
 import {Container, Example} from "../../UI/components";
 import BoxElements from "../../components/boxElements";
 import styled, {css} from "styled-components";
@@ -29,7 +29,7 @@ const PageWithDisplayOther = () => {
                     <h2>display: none</h2>
                     <p>{t("displayNoneP1")}</p>
                     <Example>
-                        <CodeExample>{displayNone}</CodeExample>
+                        <CSSCodeExample>{displayNone}</CSSCodeExample>
                         <DisplayNone $visible={visible}/>
                         <button onClick={() => setVisible(!visible)}>{t("displayNoneB1")}</button>
                     </Example>
@@ -38,7 +38,7 @@ const PageWithDisplayOther = () => {
                     <h2>display: block</h2>
                     <p>{t("displayBlockP1")}</p>
                     <Example>
-                        <CodeExample>{displayBlock}</CodeExample>
+                        <CSSCodeExample>{displayBlock}</CSSCodeExample>
                         <BoxElements $containerStyle={DisplayBlock + ` display: ${block ? 'block' : 'flex'};`} width={'100px'} height={'100px'} length={2}/>
                         <button onClick={() => setBlock(!block)}>block/flex</button>
                     </Example>

@@ -1,4 +1,4 @@
-import CodeExample from "../../components/codeExample";
+import CSSCodeExample from "../../components/CSSCodeExample";
 import {Container, Example} from "../../UI/components";
 import styled from "styled-components";
 import Page from "../../components/page";
@@ -28,7 +28,7 @@ const PageWithSize = () => {
                     <h2>{t("heightAndWidthT")}</h2>
                     <p>{t("heightAndWidthP1")}</p>
                     <Example>
-                        <CodeExample>{heightAndWidth}</CodeExample>
+                        <CSSCodeExample>{heightAndWidth}</CSSCodeExample>
                         <HeightAndWidth/>
                     </Example>
                 </div>
@@ -36,7 +36,7 @@ const PageWithSize = () => {
                     <h2>{t("maxHeightMinHeightAndMaxWidthMinWidthT")}</h2>
                     <p>{t("maxHeightMinHeightAndMaxWidthMinWidthP1")}</p>
                     <Example>
-                        <CodeExample>{sizeLimit}</CodeExample>
+                        <CSSCodeExample>{sizeLimit}</CSSCodeExample>
                         <SizeLimit>
                             <Textarea/>
                         </SizeLimit>

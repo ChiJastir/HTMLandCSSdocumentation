@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import CodeExample, {languages} from "../../components/codeExample";
+import CSSCodeExample from "../../components/CSSCodeExample";
 import {Container, Example} from "../../UI/components";
 import img from '../../assets/react.svg'
 import styled from "styled-components";
 import Elem from '../../components/boxElem'
 import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
+import HTMLCodeExample from "../../components/HTMLCodeExample";
 
 const PageWithOther = () => {
     const [zValue, setZValue] = useState(1)
@@ -89,8 +90,8 @@ const PageWithOther = () => {
                     <h2>z-index</h2>
                     <p>{t("zIndexP1")}</p>
                     <Example>
-                        <CodeExample language={languages.html}>{zIndexHTML}</CodeExample>
-                        <CodeExample>{zIndexCSS}</CodeExample>
+                        <HTMLCodeExample>{zIndexHTML}</HTMLCodeExample>
+                        <CSSCodeExample>{zIndexCSS}</CSSCodeExample>
                         <ZIndexContainer>
                             <ZIndexElem1 $ZIndex={zValue}/>
                             <ZIndexElem2/>
@@ -105,11 +106,11 @@ const PageWithOther = () => {
                     <h2>box-shadow</h2>
                     <p>{t("boxShadowP1")}</p>
                     <Example>
-                        <CodeExample>{boxShadowWhite}</CodeExample>
+                        <CSSCodeExample>{boxShadowWhite}</CSSCodeExample>
                         <BoxShadowWhite/>
                     </Example>
                     <Example>
-                        <CodeExample>{boxShadowRed}</CodeExample>
+                        <CSSCodeExample>{boxShadowRed}</CSSCodeExample>
                         <BoxShadowRed/>
                     </Example>
                 </div>
@@ -117,7 +118,7 @@ const PageWithOther = () => {
                     <h2>opacity</h2>
                     <p>{t("opacityP1")}</p>
                     <Example>
-                        <CodeExample>{opacity}</CodeExample>
+                        <CSSCodeExample>{opacity}</CSSCodeExample>
                         <OpacityExample opacity={opacityValue}>
                             <img src={img} width='100px' height='100px'/>
                             <div/>
@@ -133,8 +134,8 @@ const PageWithOther = () => {
                     <h2>align-items</h2>
                     <p>{t("alignItemsP1")}</p>
                     <Example>
-                        <CodeExample language={languages.html}>{alignItemsHTML}</CodeExample>
-                        <CodeExample>{alignItemsCSS}</CodeExample>
+                        <HTMLCodeExample>{alignItemsHTML}</HTMLCodeExample>
+                        <CSSCodeExample>{alignItemsCSS}</CSSCodeExample>
                         <AlignItemsExample>
                             <Elem width={'calc(100% / 3)'} height={'100px'}>1</Elem>
                             <Elem width={'calc(100% / 3)'} height={'150px'}>2</Elem>
@@ -146,7 +147,7 @@ const PageWithOther = () => {
                     <h2>cursor</h2>
                     <p>{t("cursorP1")}</p>
                     <Example>
-                        <CodeExample>{cursor}</CodeExample>
+                        <CSSCodeExample>{cursor}</CSSCodeExample>
                         <CursorBox>
                             <CursorElem>.pointer</CursorElem>
                             <CursorElem>.grab</CursorElem>
@@ -157,7 +158,7 @@ const PageWithOther = () => {
                     <h2>visibility</h2>
                     <p>{t("visibilityP1")}</p>
                     <Example>
-                        <CodeExample>{visibility}</CodeExample>
+                        <CSSCodeExample>{visibility}</CSSCodeExample>
                         <Visibility $visible={isVisible}/>
                         <button onClick={() => setIsVisible(!isVisible)}>Скрыть/показать</button>
                     </Example>
@@ -166,7 +167,7 @@ const PageWithOther = () => {
                     <h2>list-style</h2>
                     <p>{t("listStyle")}</p>
                     <Example>
-                        <CodeExample>{listStyle}</CodeExample>
+                        <CSSCodeExample>{listStyle}</CSSCodeExample>
                         <ListStyle img={img}>
                             <li>1</li>
                             <li>2</li>

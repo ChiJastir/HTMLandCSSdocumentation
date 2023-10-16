@@ -1,10 +1,11 @@
-import CodeExample, {languages} from "../../components/codeExample.tsx";
+import CSSCodeExample from "../../components/CSSCodeExample.tsx";
 import {Container, Example} from "../../UI/components";
 import BoxElements from "../../components/boxElements";
 import styled, {css} from "styled-components";
 import BoxElem from "../../components/boxElem";
 import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
+import HTMLCodeExample from "../../components/HTMLCodeExample";
 
 const PageWithDisplayGrid = () => {
     const {t} = useTranslation()
@@ -58,11 +59,11 @@ const PageWithDisplayGrid = () => {
                     <p>{t("displayGridP1")}</p>
                     <p>{t("displayGridP2")}</p>
                     <Example>
-                        <CodeExample>{displayGrid}</CodeExample>
+                        <CSSCodeExample>{displayGrid}</CSSCodeExample>
                         <BoxElements width={'100%'} $containerStyle={DGrid} length={5}/>
                     </Example>
                     <Example>
-                        <CodeExample>{gridTemplateColumns}</CodeExample>
+                        <CSSCodeExample>{gridTemplateColumns}</CSSCodeExample>
                         <BoxElements width={'100%'} $containerStyle={GridTemplateColumns} length={3}/>
                     </Example>
                 </div>
@@ -70,8 +71,8 @@ const PageWithDisplayGrid = () => {
                     <h2>{t("gridAreasT")}</h2>
                     <p>{t("gridAreasP1")}</p>
                     <Example>
-                        <CodeExample language={languages.html}>{gridTemplateAreasHTML}</CodeExample>
-                        <CodeExample>{gridTemplateAreasCSS}</CodeExample>
+                        <HTMLCodeExample>{gridTemplateAreasHTML}</HTMLCodeExample>
+                        <CSSCodeExample>{gridTemplateAreasCSS}</CSSCodeExample>
                         <GridTemplateAreas>
                             <BoxElem width={'auto'} height={'auto'} $elemStyle={'grid-area: header;'}>header</BoxElem>
                             <BoxElem width={'auto'} height={'auto'} $elemStyle={'grid-area: nav;'}>nav</BoxElem>
@@ -83,7 +84,7 @@ const PageWithDisplayGrid = () => {
                     <h2>gap</h2>
                     <p>{t("gapP1")}</p>
                     <Example>
-                        <CodeExample>{gap}</CodeExample>
+                        <CSSCodeExample>{gap}</CSSCodeExample>
                         <BoxElements width={'100%'} $containerStyle={Gap} length={5}/>
                     </Example>
                 </div>

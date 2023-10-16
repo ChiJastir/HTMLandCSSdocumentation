@@ -1,4 +1,4 @@
-import CodeExample from "../../components/codeExample.tsx"
+import CSSCodeExample from "../../components/CSSCodeExample.tsx"
 import {Container, Example} from "../../UI/components"
 import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
@@ -34,28 +34,28 @@ const PageWithPseudoClasses = () => {
                     <h2>:hover</h2>
                     <p>{t("hoverP1")}</p>
                     <Example>
-                        <CodeExample>{hover}</CodeExample>
+                        <CSSCodeExample>{hover}</CSSCodeExample>
                     </Example>
                 </div>
                 <div>
                     <h2>:active</h2>
                     <p>{t("activeP1")}</p>
                     <Example>
-                        <CodeExample>{active}</CodeExample>
+                        <CSSCodeExample>{active}</CSSCodeExample>
                     </Example>
                 </div>
                 <div>
                     <h2>:focus</h2>
                     <p>{t("focusP1")}</p>
                     <Example>
-                        <CodeExample>{focus}</CodeExample>
+                        <CSSCodeExample>{focus}</CSSCodeExample>
                     </Example>
                 </div>
                 <div>
                     <h2>:visited</h2>
                     <p>{t("visitedP1")}</p>
                     <Example>
-                        <CodeExample>{visited}</CodeExample>
+                        <CSSCodeExample>{visited}</CSSCodeExample>
                     </Example>
                 </div>
             </Container>
