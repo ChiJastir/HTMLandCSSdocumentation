@@ -30,6 +30,15 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
         setSwipe(visible)
     }, [visible])
 
+    useEffect(() => {
+        const htmlReg = /html/
+        if (htmlReg.test(window.location.pathname)){
+            dispatch(onHTML())
+        } else {
+            dispatch(onCSS())
+        }
+    }, [])
+
     return (
         <div>
             <Content

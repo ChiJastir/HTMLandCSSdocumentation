@@ -62,7 +62,7 @@ p:hover{
     return (
         <Page>
             <Container>
-                <h1>{t("AnimationT")}</h1>
+                <h1>{t("animationT")}</h1>
                 <div>
                     <h2>Transition</h2>
                     <p>{t("transitionP1")}</p>

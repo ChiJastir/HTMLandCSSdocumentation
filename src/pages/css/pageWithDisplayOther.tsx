@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import CSSCodeExample from "../../components/CSSCodeExample";
-import {Container, Example} from "../../UI/components";
+import {Button, Container, Example} from "../../UI/components";
 import BoxElements from "../../components/boxElements";
 import styled, {css} from "styled-components";
 import Page from "../../components/page";
@@ -31,7 +31,7 @@ const PageWithDisplayOther = () => {
                     <Example>
                         <CSSCodeExample>{displayNone}</CSSCodeExample>
                         <DisplayNone $visible={visible}/>
-                        <button onClick={() => setVisible(!visible)}>{t("displayNoneB1")}</button>
+                        <Button onClick={() => setVisible(!visible)}>{t("displayNoneB1")}</Button>
                     </Example>
                 </div>
                 <div>
@@ -40,7 +40,7 @@ const PageWithDisplayOther = () => {
                     <Example>
                         <CSSCodeExample>{displayBlock}</CSSCodeExample>
                         <BoxElements $containerStyle={DisplayBlock + ` display: ${block ? 'block' : 'flex'};`} width={'100px'} height={'100px'} length={2}/>
-                        <button onClick={() => setBlock(!block)}>block/flex</button>
+                        <Button onClick={() => setBlock(!block)}>block/flex</Button>
                     </Example>
                 </div>
             </Container>

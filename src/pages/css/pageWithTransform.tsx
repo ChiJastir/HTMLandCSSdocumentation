@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import styled from "styled-components";
 import CSSCodeExample from "../../components/CSSCodeExample";
-import {Container, ParagraphBorder, Example} from "../../UI/components";
+import {Container, ParagraphBorder, Example, Button} from "../../UI/components";
 import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
 
@@ -36,7 +36,7 @@ const PageWithTransform = () => {
                     <Example>
                         <CSSCodeExample>{translateStyle}</CSSCodeExample>
                         <Transform transform={translate ? 'translate(5px, 5px)' : 'translate(0, 0)'}>{translate ? 'transform: translate(5px, 5px)' : 'transform: translate(0, 0)'}</Transform>
-                        <button onClick={() => setTranslate(!translate)}>on/off</button>
+                        <Button onClick={() => setTranslate(!translate)}>on/off</Button>
                     </Example>
                 </div>
                 <div>
@@ -45,7 +45,7 @@ const PageWithTransform = () => {
                     <Example>
                         <CSSCodeExample>{rotateStyle}</CSSCodeExample>
                         <Transform transform={rotate ? 'rotate(27deg)' : 'rotate(0)'}>{rotate ? 'transform: rotate(27deg)' : 'transform: rotate(0)'}</Transform>
-                        <button onClick={() => setRotate(!rotate)}>on/off</button>
+                        <Button onClick={() => setRotate(!rotate)}>on/off</Button>
                     </Example>
                 </div>
                 <div>
@@ -54,7 +54,7 @@ const PageWithTransform = () => {
                     <Example>
                         <CSSCodeExample>{scaleStyle}</CSSCodeExample>
                         <Transform transform={scale ? 'scale(0.5, 1.5)' : 'scale(1, 1)'}>{scale ? 'transform: scale(0.5, 1.5)' : 'transform: scale(1, 1)'}</Transform>
-                        <button onClick={() => setScale(!scale)}>on/off</button>
+                        <Button onClick={() => setScale(!scale)}>on/off</Button>
                     </Example>
                 </div>
             </Container>

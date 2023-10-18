@@ -6,25 +6,14 @@ const NavigationHTML = () => {
 
     return (
         <ul>
-            <li><Link to={'/'}>{t("selectorsT")}</Link></li>
-            <li><Link to={'/measurement'}>{t("measurementUnitsT")}</Link></li>
-            <li><Link to={'/pseudoClasses'}>{t("pseudoClassesT")}</Link></li>
-            <li><Link to={'/pseudoElements'}>{t("pseudoElementsT")}</Link></li>
-            <li><Link to={'/colorAndBackground'}>{t("colorAndBackgroundT")}</Link></li>
-            <li>
-                <Link to={'/displayFlex'}>Display</Link>
-                <ul>
-                    <li><Link to={'/displayFlex'}>Flex</Link></li>
-                    <li><Link to={'/displayGrid'}>Grid</Link></li>
-                    <li><Link to={'/displayOther'}>None, block</Link></li>
-                </ul>
-            </li>
-            <li><Link to={'/position'}>Position</Link></li>
-            <li><Link to={'/transform'}>Transform</Link></li>
-            <li><Link to={'/animation'}>{t("AnimationT")}</Link></li>
-            <li><Link to={'/frames'}>{t("framesT")}</Link></li>
-            <li><Link to={'/indents'}>{t("indentsT")}</Link></li>
-            <li><Link to={'/other'}>{t("otherT")}</Link></li>
+            <li><Link to={'/'}>{t("introductionToHTMLT")}</Link></li>
+            <li><Link to={'/html/tagsInHead'}>{t("tagsInHeadT")}</Link></li>
+            <li><Link to={'/html/textTags'}>{t("textTagsT")}</Link></li>
+            <li><Link to={'/html/lists'}>{t("listsT")}</Link></li>
+            <li><Link to={'/html/blockElements'}>{t("blockElementsT")}</Link></li>
+            <li><Link to={'/html/inputs'}>{t("inputsT")}</Link></li>
+            <li><Link to={'/html/otherTags'}>{t("otherTagsT")}</Link></li>
+            <li><Link to={'/html/styleAttrs'}>{t("styleAttrsT")}</Link></li>
         </ul>
     );
 };

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import CSSCodeExample from "../../components/CSSCodeExample";
-import {Container, Example} from "../../UI/components";
+import {Button, Container, Example} from "../../UI/components";
 import img from '../../assets/react.svg'
 import styled from "styled-components";
 import Elem from '../../components/boxElem'
@@ -97,8 +97,8 @@ const PageWithOther = () => {
                             <ZIndexElem2/>
                         </ZIndexContainer>
                         <Buttons>
-                            <button onClick={() => setZValue(zValue+1)}>z-index++</button>
-                            <button onClick={() => setZValue(zValue-1)}>z-index--</button>
+                            <Button onClick={() => setZValue(zValue+1)}>z-index++</Button>
+                            <Button onClick={() => setZValue(zValue-1)}>z-index--</Button>
                         </Buttons>
                     </Example>
                 </div>
@@ -160,7 +160,7 @@ const PageWithOther = () => {
                     <Example>
                         <CSSCodeExample>{visibility}</CSSCodeExample>
                         <Visibility $visible={isVisible}/>
-                        <button onClick={() => setIsVisible(!isVisible)}>Скрыть/показать</button>
+                        <Button onClick={() => setIsVisible(!isVisible)}>Скрыть/показать</Button>
                     </Example>
                 </div>
                 <div>
