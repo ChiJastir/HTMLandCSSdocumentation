@@ -23,32 +23,38 @@ import PageWithBlocksTags from "../pages/html/pageWithBlocksTags";
 import PageWithInputs from "../pages/html/pageWithInputs";
 import PageWithOtherTags from "../pages/html/pageWithOtherTags";
 import PageWithStyleAttrs from "../pages/html/pageWithStyleAttrs";
+import MainPage from "../pages/mainPage";
+import Page404 from "../pages/Page404";
 
 export const routes = [
-    {path: '/', component: <PageWithHTMLIntroduction/>},
-    {path: '/html/tagsInHead', component: <PageWithTagsInHead/>},
-    {path: '/html/textTags', component: <PageWithTextTags/>},
+    {path: '/', component: <MainPage/>},
+
+    {path: '/html/introduction-to-HTML', component: <PageWithHTMLIntroduction/>},
+    {path: '/html/tags-in-head', component: <PageWithTagsInHead/>},
+    {path: '/html/text-tags', component: <PageWithTextTags/>},
     {path: '/html/lists', component: <PageWithLists/>},
-    {path: '/html/blockElements', component: <PageWithBlocksTags/>},
+    {path: '/html/block-elements', component: <PageWithBlocksTags/>},
     {path: '/html/inputs', component: <PageWithInputs/>},
-    {path: '/html/otherTags', component: <PageWithOtherTags/>},
-    {path: '/html/styleAttrs', component: <PageWithStyleAttrs/>},
+    {path: '/html/other-tags', component: <PageWithOtherTags/>},
+    {path: '/html/style-attrs', component: <PageWithStyleAttrs/>},
 
     {path: '/css/selectors', component: <PageWithSelectors/>},
     {path: '/css/size', component: <PageWithSize/>},
-    {path: '/css/colorAndBackground', component: <PageWithColorAndBackground/>},
+    {path: '/css/color-and-background', component: <PageWithColorAndBackground/>},
     {path: '/css/measurement', component: <PageWithMeasurementUnits/>},
-    {path: '/css/pseudoClasses', component: <PageWithPseudoClasses/>},
-    {path: '/css/pseudoElements', component: <PageWithPseudoElements/>},
+    {path: '/css/pseudo-classes', component: <PageWithPseudoClasses/>},
+    {path: '/css/pseudo-elements', component: <PageWithPseudoElements/>},
     {path: '/css/math', component: <PageWithMath/>},
     {path: '/css/text', component: <PageWithText/>},
     {path: '/css/animation', component: <PageWithAnimation/>},
-    {path: '/css/displayFlex', component: <PageWithDisplayFlex/>},
-    {path: '/css/displayGrid', component: <PageWithDisplayGrid/>},
-    {path: '/css/displayOther', component: <PageWithDisplayOther/>},
+    {path: '/css/display-flex', component: <PageWithDisplayFlex/>},
+    {path: '/css/display-grid', component: <PageWithDisplayGrid/>},
+    {path: '/css/display-other', component: <PageWithDisplayOther/>},
     {path: '/css/position', component: <PageWithPosition/>},
     {path: '/css/transform', component: <PageWithTransform/>},
     {path: '/css/frames', component: <PageWithFrames/>},
     {path: '/css/indents', component: <PageWithIndents/>},
     {path: '/css/other', component: <PageWithOther/>},
+
+    {path: '*', component: <Page404/>},
 ]

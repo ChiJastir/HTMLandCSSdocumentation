@@ -48,47 +48,49 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
                 onMouseLeave={() => setVisible(false)}
             >
                 <Placeholder>
-                    <Nav>
-                        <NavigationHead>
-                            <svg style={{position: 'absolute', left: 0, top: 0, width: '100%', height: '100%'}}>
-                                {technology === 'html'
-                                    ? <path d={
-                                        `M ${(firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0)} 
-                                        ${(firstBtn.current?.offsetTop ?? 0) + 1} 
-                                        
-                                        C ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.6 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
-                                        ${(firstBtn.current?.offsetTop ?? 0)} 
-                                        
-                                        ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.4 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
-                                        ${(secondBtn.current?.offsetTop ?? 0) + (secondBtn.current?.offsetHeight ?? 0)} 
-                                        
-                                        ${(secondBtn.current?.offsetLeft ?? 0)} 
-                                        ${(secondBtn.current?.offsetTop ?? 0) + (secondBtn.current?.offsetHeight ?? 0) - 1}`
-                                    }/>
-                                    : <path d={
-                                        `M ${(firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0)} 
-                                        ${(firstBtn.current?.offsetTop ?? 0) + (firstBtn.current?.offsetHeight ?? 0) - 1}
-                                        
-                                        C ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.6 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
-                                        ${(firstBtn.current?.offsetTop ?? 0) + (firstBtn.current?.offsetHeight ?? 0)} 
-                                        
-                                        ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.4 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
-                                        ${(secondBtn.current?.offsetTop ?? 0)}
-                                        
-                                        ${(secondBtn.current?.offsetLeft ?? 0)} 
-                                        ${(secondBtn.current?.offsetTop ?? 0) + 1}`
-                                    }/>
-                                }
-                            </svg>
-                            <TechnologyButton ref={firstBtn} $isActive={technology === 'html'} onClick={() => dispatch(onHTML())}>HTML</TechnologyButton>
-                            <TechnologyButton ref={secondBtn} $isActive={technology === 'css'} onClick={() => dispatch(onCSS())}>CSS</TechnologyButton>
-                        </NavigationHead>
-                        {technology === 'html'
-                            ? <NavigationHTML/>
-                            : <NavigationCSS/>
-                        }
-                    </Nav>
-                    <SettingsMenu menuVisible={setVisible}/>
+                    <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column', height: '100%'}}>
+                        <Nav>
+                            <NavigationHead>
+                                <svg style={{position: 'absolute', left: 0, top: 0, width: '100%', height: '100%'}}>
+                                    {technology === 'html'
+                                        ? <path d={
+                                            `M ${(firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0)} 
+                                            ${(firstBtn.current?.offsetTop ?? 0) + 1} 
+                                            
+                                            C ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.6 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
+                                            ${(firstBtn.current?.offsetTop ?? 0)} 
+                                            
+                                            ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.4 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
+                                            ${(secondBtn.current?.offsetTop ?? 0) + (secondBtn.current?.offsetHeight ?? 0)} 
+                                            
+                                            ${(secondBtn.current?.offsetLeft ?? 0)} 
+                                            ${(secondBtn.current?.offsetTop ?? 0) + (secondBtn.current?.offsetHeight ?? 0) - 1}`
+                                        }/>
+                                        : <path d={
+                                            `M ${(firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0)} 
+                                            ${(firstBtn.current?.offsetTop ?? 0) + (firstBtn.current?.offsetHeight ?? 0) - 1}
+                                            
+                                            C ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.6 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
+                                            ${(firstBtn.current?.offsetTop ?? 0) + (firstBtn.current?.offsetHeight ?? 0)} 
+                                            
+                                            ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.4 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
+                                            ${(secondBtn.current?.offsetTop ?? 0)}
+                                            
+                                            ${(secondBtn.current?.offsetLeft ?? 0)} 
+                                            ${(secondBtn.current?.offsetTop ?? 0) + 1}`
+                                        }/>
+                                    }
+                                </svg>
+                                <TechnologyButton ref={firstBtn} $isActive={technology === 'html'} onClick={() => dispatch(onHTML())}>HTML</TechnologyButton>
+                                <TechnologyButton ref={secondBtn} $isActive={technology === 'css'} onClick={() => dispatch(onCSS())}>CSS</TechnologyButton>
+                            </NavigationHead>
+                            {technology === 'html'
+                                ? <NavigationHTML/>
+                                : <NavigationCSS/>
+                            }
+                        </Nav>
+                        <SettingsMenu menuVisible={setVisible}/>
+                    </div>
                 </Placeholder>
                 <GradientLine $vertical width={'5px'}/>
             </Content>

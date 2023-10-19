@@ -35,4 +35,27 @@ export const GlobalStyles =  createGlobalStyle`
     line-height: 1.1;
     margin: 0;
     overflow-wrap: break-word;
+  }
+  
+  .hljs{
+    background-color: ${props => props.theme.colors.btn};
+  }
+  .hljs-name,
+  .hljs-selector-tag{
+    color: ${props => props.theme.colors.primary};
+  }
+  .hljs-attr,
+  .hljs-selector-pseudo{
+    color: ${props => props.theme.colors.brightPrimary};
+  }
+  .hljs-string,
+  .hljs-attribute,
+  .hljs-selector-attr{
+    color: ${props => props.theme.colors.secondary};
+  }
+  .hljs-number{
+    color: ${props => props.theme.colors.primary};
+  }
+  .hljs-comment{
+    color: gray;
   }`

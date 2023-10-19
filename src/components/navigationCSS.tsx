@@ -8,18 +8,18 @@ const NavigationCSS = () => {
         <ul>
             <li><Link to={'/css/selectors'}>{t("selectorsT")}</Link></li>
             <li><Link to={'/css/measurement'}>{t("measurementUnitsT")}</Link></li>
-            <li><Link to={'/css/pseudoClasses'}>{t("pseudoClassesT")}</Link></li>
-            <li><Link to={'/css/pseudoElements'}>{t("pseudoElementsT")}</Link></li>
+            <li><Link to={'/css/pseudo-classes'}>{t("pseudoClassesT")}</Link></li>
+            <li><Link to={'/css/pseudo-elements'}>{t("pseudoElementsT")}</Link></li>
             <li><Link to={'/css/math'}>{t("mathematicsT")}</Link></li>
             <li><Link to={'/css/size'}>{t("sizesT")}</Link></li>
             <li><Link to={'/css/text'}>{t("textT")}</Link></li>
-            <li><Link to={'/css/colorAndBackground'}>{t("colorAndBackgroundT")}</Link></li>
+            <li><Link to={'/css/color-and-background'}>{t("colorAndBackgroundT")}</Link></li>
             <li>
-                <Link to={'/css/displayFlex'}>Display</Link>
+                <Link to={'/css/display-flex'}>Display</Link>
                 <ul>
-                    <li><Link to={'/css/displayFlex'}>Flex</Link></li>
-                    <li><Link to={'/css/displayGrid'}>Grid</Link></li>
-                    <li><Link to={'/css/displayOther'}>None, block</Link></li>
+                    <li><Link to={'/css/display-flex'}>Flex</Link></li>
+                    <li><Link to={'/css/display-grid'}>Grid</Link></li>
+                    <li><Link to={'/css/display-other'}>None, block</Link></li>
                 </ul>
             </li>
             <li><Link to={'/css/position'}>Position</Link></li>

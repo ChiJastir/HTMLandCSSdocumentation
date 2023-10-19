@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import Settings from "./settings";
 import ModalWindow from "../UI/modalWindow";
 import settings from "../assets/settings.svg";

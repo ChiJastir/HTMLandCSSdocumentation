@@ -23,12 +23,14 @@ function App() {
 
     return (
         <Suspense>
-            <ThemeProvider theme={themeValue} {...handlers}>
-                <Navigation swipe={swipe} setSwipe={setSwipe}/>
-                <Routes>
-                    {routes.map(route => <Route path={route.path} element={route.component} key={route.path}/>)}
-                </Routes>
-                <GlobalStyles/>
+            <ThemeProvider theme={themeValue}>
+                <div {...handlers} style={{all: 'unset'}}>
+                    {window.location.pathname !== '/' && <Navigation swipe={swipe} setSwipe={setSwipe}/>}
+                    <Routes>
+                        {routes.map(route => <Route path={route.path} element={route.component} key={route.path}/>)}
+                    </Routes>
+                    <GlobalStyles/>
+                </div>
             </ThemeProvider>
         </Suspense>
     )

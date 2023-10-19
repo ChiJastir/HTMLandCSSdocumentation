@@ -28,11 +28,10 @@ const Settings = () => {
 
     useEffect(() => {
         if (window.innerWidth <= 768) {
-            console.log(window.innerWidth)
             dispatch(unpinMenu())
         }
 
-        if (pinNav && window.innerWidth >= 768){
+        if (pinNav && window.innerWidth > 768){
             dispatch(pinMenu())
         } else {
             dispatch(unpinMenu())

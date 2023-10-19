@@ -59,7 +59,7 @@ const IndentsContainer = styled.div`
   border: ${props => props.theme.colors.primary} 1px solid;`
 
 const IndentsElem = styled.div`
-  border: #e50000 1px solid;
+  border: ${props => props.theme.colors.secondary} 1px solid;
   width: 50px;`
 
 const PaddingElem = styled(IndentsElem)`

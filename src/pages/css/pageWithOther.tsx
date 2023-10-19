@@ -7,6 +7,7 @@ import Elem from '../../components/boxElem'
 import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
 import HTMLCodeExample from "../../components/HTMLCodeExample";
+import store from "../../store";
 
 const PageWithOther = () => {
     const [zValue, setZValue] = useState(1)
@@ -39,7 +40,7 @@ const PageWithOther = () => {
     box-shadow: white 0 0 5px;
 }`
     const boxShadowRed = `div{
-    box-shadow: red 5px 10px;
+    box-shadow: ${store.getState().themeSlice.themeValue.colors.secondary} 5px 10px;
 }`
 
     const opacity = `div{
@@ -213,7 +214,7 @@ const BoxShadowWhite = styled(BoxShadow)`
   box-shadow: white 0 0 5px`
 
 const BoxShadowRed = styled(BoxShadow)`
-  box-shadow: red 5px 10px`
+  box-shadow: ${props => props.theme.colors.secondary} 5px 10px`
 
 const OpacityExample = styled.div<{opacity: number}>`
   position: relative;
