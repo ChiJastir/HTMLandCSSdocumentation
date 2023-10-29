@@ -6,6 +6,7 @@ export interface ITheme {
         brightSecondary?: string,
         text?: string,
         bg?: string,
+        bgSecond?: string,
         btn?: string,
         contrast?: string,
     }

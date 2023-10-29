@@ -7,6 +7,7 @@ import Select, {Item} from "../UI/select";
 import { useTranslation } from "react-i18next";
 import {inEnglish, inRussian} from "../features/languageSlice";
 import {pinMenu, unpinMenu} from "../features/pinMenuSlice";
+import {useResize} from "../hooks/useResize";
 
 const Settings = () => {
     const themeValue = useAppSelector((store) => store.themeSlice.themeValue)
@@ -15,6 +16,7 @@ const Settings = () => {
 
     const [themeType, setThemeType] = useState(themeValue.type === 'light');
     const [pinNav, setPinNav] = useState(isMenuPin);
+    const [width] = useResize();
 
     const { t, i18n } = useTranslation()
 
@@ -27,16 +29,16 @@ const Settings = () => {
     }, [themeType])
 
     useEffect(() => {
-        if (window.innerWidth <= 768) {
+        if (width <= 768) {
             dispatch(unpinMenu())
         }
 
-        if (pinNav && window.innerWidth > 768){
+        if (pinNav && width > 768){
             dispatch(pinMenu())
         } else {
             dispatch(unpinMenu())
         }
-    }, [pinNav])
+    }, [pinNav, width])
 
     const languages: Item[] = [
         {

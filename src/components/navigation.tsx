@@ -54,7 +54,7 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
                                 <svg style={{position: 'absolute', left: 0, top: 0, width: '100%', height: '100%'}}>
                                     {technology === 'html'
                                         ? <path d={
-                                            `M ${(firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0)} 
+                                            `M ${(firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0) -1} 
                                             ${(firstBtn.current?.offsetTop ?? 0) + 1} 
                                             
                                             C ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.6 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
@@ -63,11 +63,11 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
                                             ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.4 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
                                             ${(secondBtn.current?.offsetTop ?? 0) + (secondBtn.current?.offsetHeight ?? 0)} 
                                             
-                                            ${(secondBtn.current?.offsetLeft ?? 0)} 
+                                            ${(secondBtn.current?.offsetLeft ?? 0) + 1} 
                                             ${(secondBtn.current?.offsetTop ?? 0) + (secondBtn.current?.offsetHeight ?? 0) - 1}`
                                         }/>
                                         : <path d={
-                                            `M ${(firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0)} 
+                                            `M ${(firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0) - 1} 
                                             ${(firstBtn.current?.offsetTop ?? 0) + (firstBtn.current?.offsetHeight ?? 0) - 1}
                                             
                                             C ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.6 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
@@ -76,7 +76,7 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
                                             ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.4 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 
                                             ${(secondBtn.current?.offsetTop ?? 0)}
                                             
-                                            ${(secondBtn.current?.offsetLeft ?? 0)} 
+                                            ${(secondBtn.current?.offsetLeft ?? 0) + 1} 
                                             ${(secondBtn.current?.offsetTop ?? 0) + 1}`
                                         }/>
                                     }

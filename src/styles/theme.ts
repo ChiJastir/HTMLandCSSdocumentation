@@ -20,7 +20,8 @@ export const lightTheme: DefaultTheme = {
         ...baseTheme.colors,
         text: 'rgba(0, 0, 0, 0.87)',
         bg: '#f2f2f2',
-        btn: '#e3e3e3',
+        bgSecond: '#e3e3e3',
+        btn: '#dedede',
         contrast: 'black',
     },
 }
@@ -35,7 +36,10 @@ export const darkTheme: DefaultTheme = {
         // bg: '#242424',
         bg: '#10161f',
         // btn: '#1a1a1a',
-        btn: '#0e121a',
+        // btn: '#0e121a',
+        btn: '#090d15',
+        bgSecond: '#0e121a',
+        // btn: '#151718',
         contrast: 'white',
     },
 }

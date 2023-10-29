@@ -1,5 +1,6 @@
 import styled, {keyframes} from "styled-components";
 import React from "react";
+import store from "../store";
 
 export enum ButtonType {
     primary = 'primary',
@@ -10,13 +11,13 @@ interface GradientButtonProps{
     children?: React.ReactNode,
     $styleType?: ButtonType,
     onClick?: () => void,
-
+    bg?: string,
 }
 
-const GradientButton = ({children, $styleType = ButtonType.outlined, onClick}: GradientButtonProps) => {
+const GradientButton = ({children, $styleType = ButtonType.outlined, onClick, bg = store.getState().themeSlice.themeValue.colors.bg}: GradientButtonProps) => {
     return (
         <Stage>
-            <Btn onClick={onClick} $styleType={$styleType}>{children}</Btn>
+            <Btn onClick={onClick} $styleType={$styleType} bg={bg}>{children}</Btn>
         </Stage>
     );
 };
@@ -38,15 +39,15 @@ const Stage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${props => props.theme.colors.bg};`
+  background-color: rgba(0, 0, 0, 0);`
 
-const Btn = styled.button<{$styleType: ButtonType}>`
-  padding: 20px 30px;
+const Btn = styled.button<{$styleType: ButtonType, bg: string | undefined}>`
+  padding: 15px 30px;
   font-size: 18px;
   border: none;
   outline: none;
   background: rgba(0, 0, 0, 0);
-  color: white;
+  color: ${props => props.$styleType === ButtonType.outlined ? props.theme.colors.contrast : 'white'};
   font-weight: 700;
   cursor: pointer;
   position: relative;
@@ -73,7 +74,7 @@ const Btn = styled.button<{$styleType: ButtonType}>`
     border-radius: 1000px;
   }
   &:hover::before {
-    animation: ${move} 20s linear infinite;
+    animation: ${move} 10s linear infinite;
     ${props => props.$styleType === ButtonType.outlined && 'filter: blur(5px);'}
   }
   &::after{
@@ -83,7 +84,7 @@ const Btn = styled.button<{$styleType: ButtonType}>`
     position: absolute;
     width: 100%;
     height: 100%;
-    background: ${props => props.theme.colors.bg};
+    background: ${props => props.bg ?? props.theme.colors.bg};
     left: 0;
     top: 0;
     border-radius: 1000px;
