@@ -39,7 +39,8 @@ const Stage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0);`
+  background-color: rgba(0, 0, 0, 0);
+  width: max-content`
 
 const Btn = styled.button<{$styleType: ButtonType, bg: string | undefined}>`
   padding: 15px 30px;

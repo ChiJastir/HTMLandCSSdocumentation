@@ -43,7 +43,7 @@ const Card = ({information, children, style, cardPropItem}: CardProps) => {
 
 const CardBody = styled.div`
   border-radius: 10px;
-  background-color: ${props => props.theme.colors.btn};
+  background-color: ${props => props.theme.colors.bgSecond};
   box-shadow: ${props => props.theme.colors.primary} 0 0 1px;
   color: ${props => props.theme.colors.contrast};
   text-align: left;
@@ -75,7 +75,7 @@ const Img = styled.div`
   border-radius: 100%;
   padding: 15px;
   background:
-          linear-gradient(${props => props.theme.colors.btn} 0 0) padding-box,
+          linear-gradient(${props => props.theme.colors.bgSecond} 0 0) padding-box,
           linear-gradient(90deg, ${props => props.theme.colors.secondary}, ${props => props.theme.colors.primary}) border-box;
   border: 1px solid transparent;
   img{

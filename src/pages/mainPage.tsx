@@ -16,9 +16,10 @@ import Card, {CardInfo} from "../UI/card";
 import hexagon from '../assets/hexagon.svg'
 import support from '../assets/support.svg'
 import update from '../assets/update.svg'
-import {useEffect, useRef} from "react";
+import {useRef, useState} from "react";
 import {useAppSelector} from "../hooks/redux";
 import {useResize} from "../hooks/useResize";
+import BurgerButton from "../UI/burgerButton";
 
 const _HTML_PLACEHOLDER = `<!DOCTYPE html>
 <html>
@@ -113,9 +114,12 @@ const cardItemLeftTop = {
 const MainPage = () => {
     const colors = useAppSelector((store) => store.themeSlice.themeValue.colors)
 
+    const [menuOpened, setMenuOpened] = useState(false)
+    const mobileMenu = useRef<HTMLUListElement | null>(null)
+
     const [width] = useResize()
 
-    const cardsElem = useRef(null)
+    const cardsElem = useRef<HTMLElement>(null)
     const { scrollYProgress } = useScroll({target: cardsElem, offset: ['start end', 'end end']})
     const xPosition = useTransform(scrollYProgress, [0, 1], ['-15%', '0%']);
 
@@ -128,17 +132,18 @@ const MainPage = () => {
         }
     };
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+    // useEffect(() => {
+    //     window.scrollTo(0, 0)
+    // }, [])
 
     return (
         <div>
             <GridBlock>
                 <MainContainer>
                     <motion.div
-                        initial={{ translateY: '-100%', scale: 0 }}
-                        animate={{ translateY: 0, scale: 1 }}
+                        initial={{ translateY: '-50%', scale: 0 }}
+                        whileInView={{ translateY: 0, scale: 1 }}
+                        viewport={{ once: true }}
                         transition={{
                             type: "spring",
                             stiffness: 260,
@@ -147,15 +152,26 @@ const MainPage = () => {
                         }}
                     >
                         <Header>
-                            <img src={store.getState().themeSlice.themeValue.type === ThemeEnum.dark ? whiteFullLogo : blackFullLogo} alt="Noushi"/>
-                            <ul>
-                                <li><a href="#">Company</a></li>
-                                <li><a href="#">Product</a></li>
-                                <li><a href="#">Tools</a></li>
-                                <li><a href="#">Case study</a></li>
-                                <li><a href="#">Blog</a></li>
+                            <div>
+                                <img src={store.getState().themeSlice.themeValue.type === ThemeEnum.dark ? whiteFullLogo : blackFullLogo} alt="Noushi"/>
+                                {width > 960 && <ul>
+                                    <li><a href="#company">Company</a></li>
+                                    <li><a href="#product">Product</a></li>
+                                    <li><a href="#advantages">Advantages</a></li>
+                                    <li><a href="#tools">Tools</a></li>
+                                </ul>}
+                                {width > 960
+                                    ? <GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} $styleType={ButtonType.outlined}>Start For Free</GradientButton>
+                                    : <div style={{width: '50px'}} onClick={() => setMenuOpened(!menuOpened)}>
+                                        <BurgerButton/>
+                                    </div>}
+                            </div>
+                            <ul ref={mobileMenu} style={{maxHeight: menuOpened ? mobileMenu.current?.offsetWidth : 0}}>
+                                <li><a href="#company">Company</a></li>
+                                <li><a href="#product">Product</a></li>
+                                <li><a href="#advantages">Advantages</a></li>
+                                <li><a href="#tools">Tools</a></li>
                             </ul>
-                            <GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} $styleType={ButtonType.outlined}>Start For Free</GradientButton>
                         </Header>
                     </motion.div>
                     <motion.div
@@ -163,6 +179,7 @@ const MainPage = () => {
                         whileInView="visible"
                         initial="hidden"
                         viewport={{ once: true }}
+                        id={'company'}
                     >
                         <MainBlock>
                             <motion.h2 variants={item}>Unlock your full potential today</motion.h2>
@@ -171,7 +188,7 @@ const MainPage = () => {
                             <motion.div variants={item}>
                                 <Buttons>
                                     <GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} $styleType={ButtonType.primary}>Get Started For Free</GradientButton>
-                                    <GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} $styleType={ButtonType.outlined}>Book A Demo</GradientButton>
+                                    {/*<GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} $styleType={ButtonType.outlined}>Book A Demo</GradientButton>*/}
                                 </Buttons>
                             </motion.div>
                             <motion.div variants={item}>
@@ -186,7 +203,7 @@ const MainPage = () => {
                     </motion.div>
                 </MainContainer>
             </GridBlock>
-            <WhyNoushi ref={cardsElem}>
+            <WhyNoushi ref={cardsElem} id={'product'}>
                 <MainContainer>
                     <motion.div
                         variants={container}
@@ -210,51 +227,59 @@ const MainPage = () => {
                     </motion.div>
                 </MainContainer>
             </WhyNoushi>
-            <LeftInfoBlock style={{backgroundColor: colors.bgSecond}}>
-                <MainContainer>
-                    <div>
-                        <h2>Are you also infuriated by the incredible amount of vacuity when searching for information?</h2>
-                        <p>With our product, you won't have to go through that. You will be able to gain knowledge easily and simply</p>
-                        <h3>Take a look at what we are proud of</h3>
-                        <ul>
-                            <li>No vacuity, just the right information</li>
-                            <li>Structuring and division into topics</li>
-                            <li>Code examples and its visualization</li>
-                            <li>All the necessary minimum can be mastered in a matter of moments</li>
-                        </ul>
-                        <div style={{width: 'max-content'}}>
-                            <GradientButton bg={colors.bgSecond} $styleType={ButtonType.outlined}>Read Our Basic Guide</GradientButton>
+            <LeftInfoBlock style={{backgroundColor: colors.bgSecond}} id={'advantages'}>
+                <motion.div
+                    initial={{y: 50, opacity: 0, scale: 0.5}}
+                    whileInView={{y: 0, opacity: 1, scale: 1}}
+                    viewport={{ once: true}}
+                >
+                    <MainContainer>
+                        <div>
+                            <h2>Are you also infuriated by the incredible amount of vacuity when searching for information?</h2>
+                            <p>With our product, you won't have to go through that. You will be able to gain knowledge easily and simply</p>
+                            <h3>Take a look at what we are proud of</h3>
+                            <ul>
+                                <li>No vacuity, just the right information</li>
+                                <li>Structuring and division into topics</li>
+                                <li>Code examples and its visualization</li>
+                                <li>All the necessary minimum can be mastered in a matter of moments</li>
+                            </ul>
+                            <GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} bg={colors.bgSecond} $styleType={ButtonType.outlined}>Start using</GradientButton>
                         </div>
-                    </div>
-                    <div>
-                        <SyntaxHighlighter language={'handlebars'} useInlineStyles={false}>
-                            {_HTML_PLACEHOLDER}
-                        </SyntaxHighlighter>
-                    </div>
-                </MainContainer>
+                        <div>
+                            <SyntaxHighlighter language={'handlebars'} useInlineStyles={false}>
+                                {_HTML_PLACEHOLDER}
+                            </SyntaxHighlighter>
+                        </div>
+                    </MainContainer>
+                </motion.div>
             </LeftInfoBlock>
-            <RightInfoBlock>
-                <MainContainer>
-                    <div>
-                        <h2>Are you tired of the inconvenience of using documentation?</h2>
-                        <p>We care about your comfort, and we want you to enjoy using our documentation. We remember that convenience lies in the little things</p>
-                        <h3>We care about you</h3>
-                        <ul>
-                            <li>Simple and intuitive documentation design</li>
-                            <li>Multiple languages so that more people can learn</li>
-                            <li>Different color themes so you can choose the one you like</li>
-                            <li>Simple writing style</li>
-                        </ul>
-                        <div style={{width: 'max-content'}}>
-                            <GradientButton $styleType={ButtonType.outlined}>Read Our Basic Guide</GradientButton>
+            <RightInfoBlock id={'tools'}>
+                <motion.div
+                    initial={{y: 50, opacity: 0, scale: 0.5}}
+                    whileInView={{y: 0, opacity: 1, scale: 1}}
+                    viewport={{ once: true}}
+                >
+                    <MainContainer>
+                        <div>
+                            <h2>Are you tired of the inconvenience of using documentation?</h2>
+                            <p>We care about your comfort, and we want you to enjoy using our documentation. We remember that convenience lies in the little things</p>
+                            <h3>We care about you</h3>
+                            <ul>
+                                <li>Simple and intuitive documentation design</li>
+                                <li>Multiple languages so that more people can learn</li>
+                                <li>Different color themes so you can choose the one you like</li>
+                                <li>Simple writing style</li>
+                            </ul>
+                            <GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} $styleType={ButtonType.outlined}>Start using</GradientButton>
                         </div>
-                    </div>
-                    <div>
-                        <SyntaxHighlighter language={'handlebars'} useInlineStyles={false}>
-                            {_HTML_PLACEHOLDER}
-                        </SyntaxHighlighter>
-                    </div>
-                </MainContainer>
+                        <div>
+                            <SyntaxHighlighter language={'handlebars'} useInlineStyles={false}>
+                                {_HTML_PLACEHOLDER}
+                            </SyntaxHighlighter>
+                        </div>
+                    </MainContainer>
+                </motion.div>
             </RightInfoBlock>
         </div>
     );
@@ -298,22 +323,40 @@ const MainContainer = styled.div`
   padding: 0 40px;`
 
 const Header = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 0;
+  & > div:first-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+  }
+
+  & > ul:last-child{
+    flex-direction: column; 
+    overflow: hidden;
+    transition: max-height 1s;
+    
+    li{
+      font-size: 30px;
+      text-align: center;
+    }
+  }
+  
   img{
     width: 165px;
     cursor: pointer;
   }
+  
   ul{
     display: flex;
     padding: 0;
     margin: 0;
+    
     li{
       list-style: none;
       margin: 0;
       font-size: 18px;
+      gap: 20px;
+      
       a{
         all: unset;
         cursor: pointer;
@@ -327,9 +370,6 @@ const Header = styled.header`
       a:hover {
         background-size: 100% 2px;
       }
-    }
-    li + li{
-      margin-left: 20px;
     }
   }`
 
@@ -393,10 +433,10 @@ const CreditCartParagraph = styled.p`${CheckText}`
 
 const Buttons = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 25px 0;
-  div+div{
-    margin-left: 20px;
-  }`
+  gap: 20px;`
 
 const WhyNoushi = styled.section`
   text-align: center;
@@ -421,7 +461,6 @@ const Cards = styled.div`
   gap: 15px;
   margin-top: 50px;
   pre{
-    //height: 300px;
     position: relative;
     top: 40px; 
     left: 40px; 
@@ -431,20 +470,23 @@ const Cards = styled.div`
   }`
 
 const InfoBlock = styled.section`
-  padding: 75px 0;
-  & > div:only-child {
+  padding: 40px 0;
+  & > div:only-child > div:only-child {
     display: flex;
-    width: 100%;
+    width: calc(100% - 40px * 2);
     gap: 25px;
     align-items: center;
 
     & > div {
       width: 50%;
+      @media (max-width: 768px){
+        width: 100%;
+      }
     }
 
     & > div:first-child {
       h2 {
-        font-size: clamp(20px, 4vw, 36px);
+        font-size: clamp(20px, 6vw, 36px);
         line-height: clamp(24px, 6vw, 44px);
         margin-top: 0;
       }
@@ -461,6 +503,7 @@ const InfoBlock = styled.section`
       ul {
         padding: 0;
         margin: 0;
+        margin-bottom: 25px;
         list-style: none;
       }
 
@@ -472,6 +515,10 @@ const InfoBlock = styled.section`
     & > div:last-child {
       position: relative;
       z-index: 0;
+      
+      @media (max-width: 768px){
+        display: none;
+      }
     }
     & > div:last-child::before {
       content: '';
@@ -496,9 +543,9 @@ const InfoBlock = styled.section`
 
 const LeftInfoBlock = styled(InfoBlock)``
 const RightInfoBlock = styled(InfoBlock)`
-  & > div:only-child{
+  & > div:only-child > div:only-child{
     flex-direction: row-reverse;
-    & > div:last-child::before {
+    & > div:only-child > div:last-child::before {
       background-color: ${props => props.theme.colors.primary};
     }
   }`
