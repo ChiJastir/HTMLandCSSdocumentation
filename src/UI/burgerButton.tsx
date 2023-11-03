@@ -1,9 +1,11 @@
 import styled, {keyframes} from "styled-components";
-import {useState} from "react";
 
-const BurgerButton = () => {
-    const [isOpen, setIsOpen] = useState(true)
+interface Props{
+    isOpen: boolean,
+    setIsOpen: (isOpen: boolean) => void,
+}
 
+const BurgerButton = ({isOpen, setIsOpen}: Props) => {
     return (
         <Svg $isOpen={isOpen} viewBox="0 0 60 40" onClick={() => setIsOpen(!isOpen)}>
             <g>

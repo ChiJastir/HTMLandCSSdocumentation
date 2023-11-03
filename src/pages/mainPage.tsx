@@ -9,17 +9,18 @@ import bgFirstElem from '../assets/mainBGfirstElement.png'
 import bgSecondElem from '../assets/mainBGsecondElement.png'
 import bgThirdElem from '../assets/mainBGthirdElement.png'
 import SyntaxHighlighter from "react-syntax-highlighter";
-import {motion, useScroll, useTransform} from "framer-motion";
+import {motion, MotionValue, useScroll, useTransform} from "framer-motion";
 import store from "../store";
 import {ThemeEnum} from "../styles/styled";
 import Card, {CardInfo} from "../UI/card";
 import hexagon from '../assets/hexagon.svg'
 import support from '../assets/support.svg'
 import update from '../assets/update.svg'
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {useAppSelector} from "../hooks/redux";
 import {useResize} from "../hooks/useResize";
 import BurgerButton from "../UI/burgerButton";
+import {useTranslation} from "react-i18next";
 
 const _HTML_PLACEHOLDER = `<!DOCTYPE html>
 <html>
@@ -64,24 +65,6 @@ const _HTML_PLACEHOLDER = `<!DOCTYPE html>
 </body>
 </html>`
 
-const _WHY_NOUSHI_INFO: CardInfo[] = [
-    {
-        heading: 'Comprehensive Tutorials',
-        description: 'Our site offers comprehensive tutorials that cover various aspects of web design, providing users with a complete learning experience',
-        image: hexagon,
-    },
-    {
-        heading: 'Beginner-Friendly',
-        description: 'Our tutorials cater to beginners, providing step-by-step instructions and guidance to help them understand and navigate the world of web design',
-        image: support,
-    },
-    {
-        heading: 'Constant Updates',
-        description: 'We stay up-to-date with the latest advancements in web design and regularly update our content to ensure that users have access to the most relevant and cutting-edge information',
-        image: update,
-    },
-]
-
 const container = {
     hidden: { opacity: 1 },
     visible: {
@@ -121,7 +104,28 @@ const MainPage = () => {
 
     const cardsElem = useRef<HTMLElement>(null)
     const { scrollYProgress } = useScroll({target: cardsElem, offset: ['start end', 'end end']})
-    const xPosition = useTransform(scrollYProgress, [0, 1], ['-15%', '0%']);
+    const xPosition = useTransform(scrollYProgress, [0, 1], ['-15%', '0%'])
+    const [xPositionNormalize, setXPositionNormalize] = useState<string | MotionValue>(xPosition)
+
+    const { t } = useTranslation()
+
+    const _WHY_NOUSHI_INFO: CardInfo[] = [
+        {
+            heading: t('whyNoushiCardFirstT'),
+            description: t('whyNoushiCardFirstP1'),
+            image: hexagon,
+        },
+        {
+            heading: t('whyNoushiCardSecondT'),
+            description: t('whyNoushiCardSecondP1'),
+            image: support,
+        },
+        {
+            heading: t('whyNoushiCardThirdT'),
+            description: t('whyNoushiCardThirdP1'),
+            image: update,
+        },
+    ]
 
     const CardPropItem = {
         hidden: {x: 50, y: 100, opacity: 0},
@@ -132,9 +136,11 @@ const MainPage = () => {
         }
     };
 
-    // useEffect(() => {
-    //     window.scrollTo(0, 0)
-    // }, [])
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        if (width > 768) setXPositionNormalize(xPosition)
+        else setXPositionNormalize('0%')
+    }, [width])
 
     return (
         <div>
@@ -155,22 +161,22 @@ const MainPage = () => {
                             <div>
                                 <img src={store.getState().themeSlice.themeValue.type === ThemeEnum.dark ? whiteFullLogo : blackFullLogo} alt="Noushi"/>
                                 {width > 960 && <ul>
-                                    <li><a href="#company">Company</a></li>
-                                    <li><a href="#product">Product</a></li>
-                                    <li><a href="#advantages">Advantages</a></li>
-                                    <li><a href="#tools">Tools</a></li>
+                                    <li><a href="#company">{t('mainHeaderNavCompany')}</a></li>
+                                    <li><a href="#product">{t('mainHeaderNavProduct')}</a></li>
+                                    <li><a href="#advantages">{t('mainHeaderNavAdvantages')}</a></li>
+                                    <li><a href="#tools">{t('mainHeaderNavTools')}</a></li>
                                 </ul>}
                                 {width > 960
-                                    ? <GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} $styleType={ButtonType.outlined}>Start For Free</GradientButton>
+                                    ? <GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} $styleType={ButtonType.outlined}>{t('mainHeaderGetStartedButton')}</GradientButton>
                                     : <div style={{width: '50px'}} onClick={() => setMenuOpened(!menuOpened)}>
-                                        <BurgerButton/>
+                                        <BurgerButton isOpen={!menuOpened} setIsOpen={setMenuOpened}/>
                                     </div>}
                             </div>
-                            <ul ref={mobileMenu} style={{maxHeight: menuOpened ? mobileMenu.current?.offsetWidth : 0}}>
-                                <li><a href="#company">Company</a></li>
-                                <li><a href="#product">Product</a></li>
-                                <li><a href="#advantages">Advantages</a></li>
-                                <li><a href="#tools">Tools</a></li>
+                            <ul ref={mobileMenu} style={{maxHeight: menuOpened ? mobileMenu.current?.offsetWidth : 0}} onClick={() => setMenuOpened(false)}>
+                                <li><a href="#company">{t('mainHeaderNavCompany')}</a></li>
+                                <li><a href="#product">{t('mainHeaderNavProduct')}</a></li>
+                                <li><a href="#advantages">{t('mainHeaderNavAdvantages')}</a></li>
+                                <li><a href="#tools">{t('mainHeaderNavTools')}</a></li>
                             </ul>
                         </Header>
                     </motion.div>
@@ -182,17 +188,17 @@ const MainPage = () => {
                         id={'company'}
                     >
                         <MainBlock>
-                            <motion.h2 variants={item}>Unlock your full potential today</motion.h2>
-                            <motion.h1 variants={item}>Unleash your <GradientText>greatness</GradientText> with magic documentation</motion.h1>
-                            <motion.p variants={item}>Decode the secrets of digital alchemy and become a web wizard, wielding the power to conjure <span>stunning websites</span> that defy logic and enchant all who visit.</motion.p>
+                            <motion.h2 variants={item}>{t('mainPageShortSlogan')}</motion.h2>
+                            <motion.h1 variants={item}>{t('mainPageTH1')} <GradientText>{t('mainPageTH2')}</GradientText> {t('mainPageTH3')}</motion.h1>
+                            <motion.p variants={item}>{t('mainPageP1H1')} <span>{t('mainPageP1H2')}</span> {t('mainPageP1H3')}</motion.p>
                             <motion.div variants={item}>
                                 <Buttons>
-                                    <GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} $styleType={ButtonType.primary}>Get Started For Free</GradientButton>
+                                    <GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} $styleType={ButtonType.primary}>{t('mainPageGetStartedButton')}</GradientButton>
                                     {/*<GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} $styleType={ButtonType.outlined}>Book A Demo</GradientButton>*/}
                                 </Buttons>
                             </motion.div>
                             <motion.div variants={item}>
-                                <CreditCartParagraph>No Credit or Debit Card Required</CreditCartParagraph>
+                                <CreditCartParagraph>{t('mainPageNoCredit')}</CreditCartParagraph>
                             </motion.div>
                             <motion.div variants={item} style={{width: '100%'}}>
                                 <SyntaxHighlighter language={'handlebars'} useInlineStyles={false}>
@@ -211,14 +217,14 @@ const MainPage = () => {
                         whileInView="visible"
                         viewport={{ once: true}}
                     >
-                        <motion.h2 variants={cardItemLeftTop}>Why you choose <GradientText>Noushi</GradientText></motion.h2>
-                        <motion.p variants={cardItemLeftTop}>Our site itself serves as a visual example of effective web design, inspiring users and showcasing the potential of their own creations</motion.p>
+                        <motion.h2 variants={cardItemLeftTop}>{t('whyNoushiTH1')} <GradientText>{t('whyNoushiTH2')}</GradientText></motion.h2>
+                        <motion.p variants={cardItemLeftTop}>{t('whyNoushiP1')}</motion.p>
                         <motion.div
-                            style={{ translateX: width > 768 ? xPosition : 0 }}
+                            style={{ translateX: xPositionNormalize}}
                         >
                             <Cards>
                                 {_WHY_NOUSHI_INFO.map(card => <Card key={card.heading} information={card} cardPropItem={CardPropItem}>
-                                    <SyntaxHighlighter language={'handlebars'} useInlineStyles={false}>
+                                    <SyntaxHighlighter language={'handlebars'} useInlineStyles={false} customStyle={{overflow: 'hidden'}}>
                                         {_HTML_PLACEHOLDER}
                                     </SyntaxHighlighter>
                                 </Card>)}
@@ -235,16 +241,16 @@ const MainPage = () => {
                 >
                     <MainContainer>
                         <div>
-                            <h2>Are you also infuriated by the incredible amount of vacuity when searching for information?</h2>
-                            <p>With our product, you won't have to go through that. You will be able to gain knowledge easily and simply</p>
-                            <h3>Take a look at what we are proud of</h3>
+                            <h2>{t('mainFirstInfoBlockT1')}</h2>
+                            <p>{t('mainFirstInfoBlockP1')}</p>
+                            <h3>{t('mainFirstInfoBlockT2')}</h3>
                             <ul>
-                                <li>No vacuity, just the right information</li>
-                                <li>Structuring and division into topics</li>
-                                <li>Code examples and its visualization</li>
-                                <li>All the necessary minimum can be mastered in a matter of moments</li>
+                                <li>{t('mainFirstInfoBlockListElem1')}</li>
+                                <li>{t('mainFirstInfoBlockListElem2')}</li>
+                                <li>{t('mainFirstInfoBlockListElem3')}</li>
+                                <li>{t('mainFirstInfoBlockListElem4')}</li>
                             </ul>
-                            <GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} bg={colors.bgSecond} $styleType={ButtonType.outlined}>Start using</GradientButton>
+                            <GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} bg={colors.bgSecond} $styleType={ButtonType.outlined}>{t('mainFirstInfoBlockGetStartedButton')}</GradientButton>
                         </div>
                         <div>
                             <SyntaxHighlighter language={'handlebars'} useInlineStyles={false}>
@@ -262,16 +268,16 @@ const MainPage = () => {
                 >
                     <MainContainer>
                         <div>
-                            <h2>Are you tired of the inconvenience of using documentation?</h2>
-                            <p>We care about your comfort, and we want you to enjoy using our documentation. We remember that convenience lies in the little things</p>
-                            <h3>We care about you</h3>
+                            <h2>{t('mainSecondInfoBlockT1')}</h2>
+                            <p>{t('mainSecondInfoBlockP1')}</p>
+                            <h3>{t('mainSecondInfoBlockT2')}</h3>
                             <ul>
-                                <li>Simple and intuitive documentation design</li>
-                                <li>Multiple languages so that more people can learn</li>
-                                <li>Different color themes so you can choose the one you like</li>
-                                <li>Simple writing style</li>
+                                <li>{t('mainSecondInfoBlockListElem1')}</li>
+                                <li>{t('mainSecondInfoBlockListElem2')}</li>
+                                <li>{t('mainSecondInfoBlockListElem3')}</li>
+                                <li>{t('mainSecondInfoBlockListElem4')}</li>
                             </ul>
-                            <GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} $styleType={ButtonType.outlined}>Start using</GradientButton>
+                            <GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} $styleType={ButtonType.outlined}>{t('mainSecondInfoBlockGetStartedButton')}</GradientButton>
                         </div>
                         <div>
                             <SyntaxHighlighter language={'handlebars'} useInlineStyles={false}>
@@ -281,6 +287,12 @@ const MainPage = () => {
                     </MainContainer>
                 </motion.div>
             </RightInfoBlock>
+            <Footer>
+                <MainContainer>
+                    <img src={store.getState().themeSlice.themeValue.type === ThemeEnum.dark ? whiteFullLogo : blackFullLogo} alt="Noushi"/>
+                    <GradientButton onClick={() => window.location.replace("/html/introduction-to-HTML")} $styleType={ButtonType.outlined}>{t('footerGetStartedButton')}</GradientButton>
+                </MainContainer>
+            </Footer>
         </div>
     );
 };
@@ -386,7 +398,7 @@ const MainBlock = styled.main`
     font-size: 16px;
     font-weight: 500;
     display: inline-block;
-    padding-right: 33px;
+    //padding-right: 33px;
     &::after{
       content: "";
       width: 28px;
@@ -548,6 +560,21 @@ const RightInfoBlock = styled(InfoBlock)`
     & > div:only-child > div:last-child::before {
       background-color: ${props => props.theme.colors.primary};
     }
+  }`
+
+const Footer = styled.footer`
+  background-color: ${props => props.theme.colors.btn};
+  padding: 50px 0;
+  & > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  img{
+    width: 165px;
+    cursor: pointer;
   }`
 
 export default MainPage;

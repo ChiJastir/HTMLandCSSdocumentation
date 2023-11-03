@@ -38,6 +38,10 @@ export const GlobalStyles =  createGlobalStyle`
     overflow-wrap: break-word;
   }
   
+  pre{
+    overflow-x: auto;
+  }
+  
   .hljs{
     background-color: ${props => props.theme.colors.btn};
   }

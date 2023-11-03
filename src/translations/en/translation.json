@@ -6,6 +6,54 @@
     "menuPin": "Pin the menu",
 
 
+    "mainHeaderNavCompany": "Company",
+    "mainHeaderNavProduct": "Product",
+    "mainHeaderNavAdvantages": "Advantages",
+    "mainHeaderNavTools": "Tools",
+    "mainHeaderGetStartedButton": "Start For Free",
+
+    "mainPageTH1": "Unleash your",
+    "mainPageTH2": "greatness",
+    "mainPageTH3": "with magic documentation",
+    "mainPageP1H1": "Decode the secrets of digital alchemy and become a web wizard, wielding the power to conjure",
+    "mainPageP1H2": "stunning websites",
+    "mainPageP1H3": "that defy logic and enchant all who visit.",
+    "mainPageShortSlogan": "Unlock your full potential today",
+    "mainPageNoCredit": "No Credit or Debit Card Required",
+    "mainPageGetStartedButton": "Get Started For Free",
+
+    "whyNoushiTH1": "Why you choose",
+    "whyNoushiTH2": "Noushi",
+    "whyNoushiP1": "Our site itself serves as a visual example of effective web design, inspiring users and showcasing the potential of their own creations",
+    "whyNoushiCardFirstT": "Comprehensive Tutorials",
+    "whyNoushiCardFirstP1": "Our site offers comprehensive tutorials that cover various aspects of web design, providing users with a complete learning experience",
+    "whyNoushiCardSecondT": "Beginner-Friendly",
+    "whyNoushiCardSecondP1": "Our tutorials cater to beginners, providing step-by-step instructions and guidance to help them understand and navigate the world of web design",
+    "whyNoushiCardThirdT": "Constant Updates",
+    "whyNoushiCardThirdP1": "We stay up-to-date with the latest advancements in web design and regularly update our content to ensure that users have access to the most relevant and cutting-edge information",
+
+    "mainFirstInfoBlockT1": "Are you also infuriated by the incredible amount of vacuity when searching for information?",
+    "mainFirstInfoBlockP1": "With our product, you won't have to go through that. You will be able to gain knowledge easily and simply",
+    "mainFirstInfoBlockT2": "Take a look at what we are proud of",
+    "mainFirstInfoBlockListElem1": "No vacuity, just the right information",
+    "mainFirstInfoBlockListElem2": "Structuring and division into topics",
+    "mainFirstInfoBlockListElem3": "Code examples and its visualization",
+    "mainFirstInfoBlockListElem4": "All the necessary minimum can be mastered in a matter of moments",
+    "mainFirstInfoBlockGetStartedButton": "Start Using",
+
+
+    "mainSecondInfoBlockT1": "Are you tired of the inconvenience of using documentation?",
+    "mainSecondInfoBlockP1": "We care about your comfort, and we want you to enjoy using our documentation. We remember that convenience lies in the little things",
+    "mainSecondInfoBlockT2": "We care about you",
+    "mainSecondInfoBlockListElem1": "Simple and intuitive documentation design",
+    "mainSecondInfoBlockListElem2": "Multiple languages so that more people can learn",
+    "mainSecondInfoBlockListElem3": "Different color themes so you can choose the one you like",
+    "mainSecondInfoBlockListElem4": "Simple writing style",
+    "mainSecondInfoBlockGetStartedButton": "Start Using",
+
+    "footerGetStartedButton": "Start For Free",
+
+
     "introductionToHTMLT": "Introduction To HTML",
     "definitionT": "Definition",
     "definitionP1": "HTML (HyperText Markup Language) it is a hypertext markup language. In simple terms, this means that it is needed to add any elements to the page. Whether it's text, pictures, buttons, input fields, etc.",

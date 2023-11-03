@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import {inEnglish, inRussian} from "../features/languageSlice";
 import {pinMenu, unpinMenu} from "../features/pinMenuSlice";
 import {useResize} from "../hooks/useResize";
+import GradientButton from "../UI/gradientButton";
 
 const Settings = () => {
     const themeValue = useAppSelector((store) => store.themeSlice.themeValue)
@@ -78,6 +79,9 @@ const Settings = () => {
                 <p>{t("language")}:</p>
                 <Select onClickFun={changeLanguage} items={languages}/>
             </SettingsItem>
+            <ButtonDiv>
+                <GradientButton onClick={() => window.location.replace("/")} color={'black'} bg={'white'}>На главную</GradientButton>
+            </ButtonDiv>
         </SettingsMenu>
     );
 };
@@ -95,5 +99,10 @@ const SettingsItem = styled.div`
   p{
     margin: 10px 0;
   }`
+
+const ButtonDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 15px`
 
 export default Settings;

@@ -1,6 +1,5 @@
 import styled, {keyframes} from "styled-components";
 import React from "react";
-import store from "../store";
 
 export enum ButtonType {
     primary = 'primary',
@@ -12,12 +11,13 @@ interface GradientButtonProps{
     $styleType?: ButtonType,
     onClick?: () => void,
     bg?: string,
+    color?: string,
 }
 
-const GradientButton = ({children, $styleType = ButtonType.outlined, onClick, bg = store.getState().themeSlice.themeValue.colors.bg}: GradientButtonProps) => {
+const GradientButton = ({children, $styleType = ButtonType.outlined, onClick, bg, color}: GradientButtonProps) => {
     return (
         <Stage>
-            <Btn onClick={onClick} $styleType={$styleType} bg={bg}>{children}</Btn>
+            <Btn onClick={onClick} $styleType={$styleType} $bg={bg} $customColor={color}>{children}</Btn>
         </Stage>
     );
 };
@@ -42,13 +42,13 @@ const Stage = styled.div`
   background-color: rgba(0, 0, 0, 0);
   width: max-content`
 
-const Btn = styled.button<{$styleType: ButtonType, bg: string | undefined}>`
+const Btn = styled.button<{$styleType: ButtonType, $bg: string | undefined, $customColor: string | undefined}>`
   padding: 15px 30px;
   font-size: 18px;
   border: none;
   outline: none;
   background: rgba(0, 0, 0, 0);
-  color: ${props => props.$styleType === ButtonType.outlined ? props.theme.colors.contrast : 'white'};
+  color: ${props => props.$customColor ? props.$customColor : props.$styleType === ButtonType.outlined ? props.theme.colors.contrast : 'white'};
   font-weight: 700;
   cursor: pointer;
   position: relative;
@@ -85,7 +85,7 @@ const Btn = styled.button<{$styleType: ButtonType, bg: string | undefined}>`
     position: absolute;
     width: 100%;
     height: 100%;
-    background: ${props => props.bg ?? props.theme.colors.bg};
+    background: ${props => props.$bg ?? props.theme.colors.bg};
     left: 0;
     top: 0;
     border-radius: 1000px;
