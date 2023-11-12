@@ -1,5 +1,5 @@
 import styled, {keyframes} from "styled-components";
-import CSSCodeExample from "../../components/CSSCodeExample.tsx"
+import CSSCodeExample from "../../components/code/CSSCodeExample.tsx"
 import {Container, Example} from "../../UI/components";
 import {Gradient} from "../../UI/gradient";
 import Page from "../../components/page";

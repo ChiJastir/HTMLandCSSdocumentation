@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import styled from "styled-components";
-import CSSCodeExample from "../../components/CSSCodeExample";
+import CSSCodeExample from "../../components/code/CSSCodeExample";
 import {Container, ParagraphBorder, Example, Button} from "../../UI/components";
 import Page from "../../components/page";
 import {useTranslation} from "react-i18next";

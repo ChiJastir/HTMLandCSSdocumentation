@@ -1,14 +1,14 @@
 import {useEffect, useState} from 'react';
-import Switch from "../UI/switch";
+import Switch from "../../UI/switch";
 import styled from "styled-components";
-import {onDark, onLight} from "../features/themeSlice";
-import {useAppDispatch, useAppSelector} from "../hooks/redux";
-import Select, {Item} from "../UI/select";
+import {onDark, onLight} from "../../shared/store/model/slices/themeSlice";
+import {useAppDispatch, useAppSelector} from "@/shared";
+import Select, {Item} from "../../UI/select";
 import { useTranslation } from "react-i18next";
-import {inEnglish, inRussian} from "../features/languageSlice";
-import {pinMenu, unpinMenu} from "../features/pinMenuSlice";
-import {useResize} from "../hooks/useResize";
-import GradientButton from "../UI/gradientButton";
+import {inEnglish, inRussian} from "../../shared/store/model/slices/languageSlice";
+import {pinMenu, unpinMenu} from "../../shared/store/model/slices/pinMenuSlice";
+import {useResize} from "@/shared";
+import {Button} from "../../shared";
 
 const Settings = () => {
     const themeValue = useAppSelector((store) => store.themeSlice.themeValue)
@@ -80,7 +80,7 @@ const Settings = () => {
                 <Select onClickFun={changeLanguage} items={languages}/>
             </SettingsItem>
             <ButtonDiv>
-                <GradientButton onClick={() => window.location.replace("/")} color={'black'} bg={'white'}>На главную</GradientButton>
+                <Button onClick={() => window.location.replace("/")} color={'black'} bg={'white'}>На главную</Button>
             </ButtonDiv>
         </SettingsMenu>
     );

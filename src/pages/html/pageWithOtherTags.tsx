@@ -1,7 +1,7 @@
 import {Container, Example} from "../../UI/components";
 import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
-import HTMLCodeExample from "../../components/HTMLCodeExample";
+import HTMLCodeExample from "../../components/code/HTMLCodeExample";
 import reactLogo from '../../assets/react.svg'
 
 const PageWithOtherTags = () => {

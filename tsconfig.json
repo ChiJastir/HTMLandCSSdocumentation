@@ -2,10 +2,13 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
-
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -13,13 +16,87 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": [
+        "src/shared/assets/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@features/*": [
+        "src/features/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@router/*": [
+        "src/router/*"
+      ],
+      "@shared/*": [
+        "src/shared/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@UI/*": [
+        "src/UI/*"
+      ],
+      "@/*": [
+        "src/*"
+      ],
+      "@widgets/*": [
+        "src/widgets/*"
+      ],
+      "@slices/*": [
+        "src/slices/*"
+      ],
+      "@entities/*": [
+        "src/entities/*"
+      ],
+      "@header/*": [
+        "src/widgets/header/*"
+      ],
+      "@burgerButton/*": [
+        "src/shared/burgerButton/*"
+      ],
+      "@store/*": [
+        "src/shared/store/*"
+      ],
+      "@types/*": [
+        "src/shared/types/*"
+      ],
+      "@consts/*": [
+        "src/shared/consts/*"
+      ],
+      "@mainBlock/*": [
+        "src/widgets/mainBlock/*"
+      ],
+      "@checkedText/*": [
+        "src/shared/checkedText/*"
+      ],
+      "@whyNoushi/*": [
+        "src/widgets/whyNoushi/*"
+      ],
+      "@card/*": [
+        "src/entities/card/*"
+      ]
+    }
   },
-  "include": ["src/**/*"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

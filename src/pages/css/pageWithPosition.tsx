@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import CSSCodeExample from "../../components/CSSCodeExample";
+import CSSCodeExample from "../../components/code/CSSCodeExample";
 import {Container, ParagraphBorder, Example, Button} from "../../UI/components";
 import styled from "styled-components";
 import Page from "../../components/page";

@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import styled from "styled-components";
-import {useAppSelector} from "../hooks/redux";
+import {useAppSelector} from "@/shared";
 
 interface PageProps {
     children?: React.ReactNode

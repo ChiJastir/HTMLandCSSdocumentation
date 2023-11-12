@@ -1,4 +1,4 @@
-import CSSCodeExample from "../../components/CSSCodeExample";
+import CSSCodeExample from "../../components/code/CSSCodeExample";
 import {Container, Example} from "../../UI/components";
 import styled from "styled-components";
 import Page from "../../components/page";

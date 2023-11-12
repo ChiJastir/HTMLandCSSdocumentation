@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import Settings from "./settings";
-import ModalWindow from "../UI/modalWindow";
-import settings from "../assets/settings.svg";
+import ModalWindow from "../../UI/modalWindow";
+import settings from "../../assets/settings.svg";
 import {motion} from "framer-motion";
 import styled from "styled-components";
 

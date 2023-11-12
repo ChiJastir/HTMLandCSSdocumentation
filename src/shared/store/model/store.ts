@@ -10,10 +10,10 @@ import {
     REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'
-import themeSlice from "./features/themeSlice";
-import languagesSlice from "./features/languageSlice";
-import pinMenuSlice from "./features/pinMenuSlice";
-import technologySlice from "./features/technologySlice";
+import themeSlice from "@shared/store/model/slices/themeSlice";
+import languagesSlice from "@shared/store/model/slices/languageSlice";
+import pinMenuSlice from "@shared/store/model/slices/pinMenuSlice";
+import technologySlice from "@shared/store/model/slices/technologySlice";
 
 const rootReducer = combineReducers({
     languagesSlice,
@@ -30,7 +30,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-const store = configureStore({
+export const store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
@@ -41,7 +41,6 @@ const store = configureStore({
 })
 
 export const persistor = persistStore(store);
-export default store;
 
 export type RootReducer = ReturnType<typeof rootReducer>
 export type RootState = ReturnType<typeof store.getState>

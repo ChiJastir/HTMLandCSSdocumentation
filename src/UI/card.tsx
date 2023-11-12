@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {ThemeEnum} from "../styles/styled";
+import {ThemeEnum} from "@shared/types/lib/styled";
 import {motion, Variants} from "framer-motion";
 
 export type CardInfo = {
@@ -13,10 +13,10 @@ interface CardProps{
     information: CardInfo,
     children?: React.ReactNode,
     style?: object,
-    cardPropItem?: Variants,
+    cardAnimation?: Variants,
 }
 
-const Card = ({information, children, style, cardPropItem}: CardProps) => {
+const Card = ({information, children, style, cardAnimation}: CardProps) => {
     return (
             <CardBody style={style}>
                 <CardContent>
@@ -32,7 +32,7 @@ const Card = ({information, children, style, cardPropItem}: CardProps) => {
                 </CardContent>
                 <Children>
                     <motion.div
-                        variants={cardPropItem}
+                        variants={cardAnimation}
                     >
                         {children}
                     </motion.div>

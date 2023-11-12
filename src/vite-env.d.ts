@@ -1,9 +1,4 @@
-// <reference types="vite/client" />
-
-declare module "*.module.css" {
-    const content: Record<string, string>;
-    export default content;
-}
+/// <reference types="vite-plugin-svgr/client" />
 
 declare module '*.jpg';
 declare module '*.png';

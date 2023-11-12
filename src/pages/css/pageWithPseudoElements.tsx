@@ -1,4 +1,4 @@
-import CSSCodeExample from "../../components/CSSCodeExample.tsx"
+import CSSCodeExample from "../../components/code/CSSCodeExample.tsx"
 import {Container, Example} from "../../UI/components"
 import Page from "../../components/page";
 import {useTranslation} from "react-i18next";

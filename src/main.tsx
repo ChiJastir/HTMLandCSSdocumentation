@@ -4,7 +4,7 @@ import {BrowserRouter} from "react-router-dom";
 import App from './App.tsx'
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import store, {persistor} from './store';
+import {store, persistor} from '@/shared';
 import './i18n'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

@@ -1,4 +1,4 @@
-import {ITheme, ThemeEnum} from "./styled";
+import {ITheme, ThemeEnum} from "@shared/types/lib/styled";
 import {DefaultTheme} from "styled-components";
 
 export const baseTheme: ITheme = {

@@ -1,11 +1,11 @@
-import CSSCodeExample from "../../components/CSSCodeExample.tsx";
+import CSSCodeExample from "../../components/code/CSSCodeExample.tsx";
 import {Container, Example} from "../../UI/components";
-import BoxElements from "../../components/boxElements";
+import BoxElements from "../../components/boxes/boxElements";
 import styled, {css} from "styled-components";
-import BoxElem from "../../components/boxElem";
+import BoxElem from "../../components/boxes/boxElem";
 import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
-import HTMLCodeExample from "../../components/HTMLCodeExample";
+import HTMLCodeExample from "../../components/code/HTMLCodeExample";
 
 const PageWithDisplayGrid = () => {
     const {t} = useTranslation()

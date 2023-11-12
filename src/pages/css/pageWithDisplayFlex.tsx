@@ -1,7 +1,7 @@
 import {css} from "styled-components";
-import CSSCodeExample from "../../components/CSSCodeExample.tsx";
+import CSSCodeExample from "../../components/code/CSSCodeExample.tsx";
 import {Container, Example} from "../../UI/components";
-import BoxElements from "../../components/boxElements.tsx";
+import BoxElements from "../../components/boxes/boxElements.tsx";
 import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
 

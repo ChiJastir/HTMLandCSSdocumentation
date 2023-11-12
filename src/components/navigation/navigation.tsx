@@ -1,9 +1,9 @@
 import {useEffect, useRef, useState} from 'react';
 import styled from "styled-components";
-import {Gradient} from "../UI/gradient";
-import {useAppDispatch, useAppSelector} from "../hooks/redux";
-import SettingsMenu from "./settingsMenu";
-import {onCSS, onHTML} from "../features/technologySlice";
+import {Gradient} from "@UI/gradient";
+import {useAppDispatch, useAppSelector} from "@/shared";
+import SettingsMenu from "../settings/settingsMenu";
+import {onCSS, onHTML} from "@/shared";
 import NavigationCSS from "./navigationCSS";
 import NavigationHTML from "./navigationHTML";
 

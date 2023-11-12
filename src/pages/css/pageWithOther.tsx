@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import CSSCodeExample from "../../components/CSSCodeExample";
+import CSSCodeExample from "../../components/code/CSSCodeExample";
 import {Button, Container, Example} from "../../UI/components";
 import img from '../../assets/react.svg'
 import styled from "styled-components";
-import Elem from '../../components/boxElem'
+import Elem from '../../components/boxes/boxElem'
 import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
-import HTMLCodeExample from "../../components/HTMLCodeExample";
-import store from "../../store";
+import HTMLCodeExample from "../../components/code/HTMLCodeExample";
+import {store} from "@/shared";
 
 const PageWithOther = () => {
     const [zValue, setZValue] = useState(1)
