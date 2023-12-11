@@ -42,9 +42,3 @@ const SettingsItem = styled.div`
     margin: 10px 0;
   }
 `
-
-const ButtonDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 15px
-`

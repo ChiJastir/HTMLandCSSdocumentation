@@ -1,5 +1,5 @@
 import {useTranslation} from "react-i18next";
-import {CardInfo} from "@UI/card";
+import {CardInfo} from "@/shared";
 import hexagon from "@/shared/assets/ui/hexagon.svg";
 import support from "@/shared/assets/ui/support.svg";
 import update from "@/shared/assets/ui/update.svg";

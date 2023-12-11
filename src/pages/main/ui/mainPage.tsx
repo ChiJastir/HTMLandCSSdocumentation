@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import grid from '@/shared/assets/ui/gird.svg'
+import grid from '@shared/assets/ui/gird.svg'
 import bgFirstElem from '@shared/assets/ui/mainBGfirstElement.png'
 import bgSecondElem from '@shared/assets/ui/mainBGsecondElement.png'
 import bgThirdElem from '@shared/assets/ui/mainBGthirdElement.png'
