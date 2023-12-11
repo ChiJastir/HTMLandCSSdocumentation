@@ -1,13 +1,13 @@
-import {Route, Routes, useLocation} from "react-router-dom";
-import {routes} from './router';
-import {ThemeProvider} from "styled-components";
-import {useAppSelector} from "@/shared";
-import {GlobalStyles} from "@styles/global";
-import {Suspense, useEffect, useState} from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { routes } from '@/app/router';
+import { ThemeProvider } from "styled-components";
+import { useAppSelector } from "@/shared";
+import { GlobalStyles } from "@/app/styles/global";
+import { Suspense, useEffect, useState } from "react";
 import { Navigation } from "@/widgets";
-import {useSwipeable} from "react-swipeable";
-import {useAppDispatch} from "@/shared";
-import {inRussian} from "@/shared";
+import { useSwipeable } from "react-swipeable";
+import { useAppDispatch } from "@/shared";
+import { inRussian } from "@/shared";
 
 function App() {
     const themeValue = useAppSelector((store) => store.themeSlice.themeValue)

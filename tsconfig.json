@@ -1,36 +1,21 @@
 {
     "compilerOptions": {
+        "jsx": "react-jsx",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
         "baseUrl": ".",
         "paths": {
-            "@assets/*": [
-                "src/assets/*"
-            ],
-            "@components/*": [
-                "src/components/*"
-            ],
             "@entities/*": [
                 "src/entities/*"
             ],
-            "@hooks/*": [
-                "src/hooks/*"
-            ],
-            "@newPages/*": [
-                "src/newPages/*"
+            "@features/*": [
+                "src/features/*"
             ],
             "@pages/*": [
                 "src/pages/*"
             ],
-            "@router/*": [
-                "src/router/*"
-            ],
             "@shared/*": [
                 "src/shared/*"
-            ],
-            "@styles/*": [
-                "src/styles/*"
-            ],
-            "@UI/*": [
-                "src/UI/*"
             ],
             "@widgets/*": [
                 "src/widgets/*"
@@ -38,62 +23,41 @@
             "@/*": [
                 "src/*"
             ],
-            "@pageFrame/*": [
-                "src/shared/pageFrame/*"
+            "@app/*": [
+                "src/app/*"
             ],
-            "@page404/*": [
-                "src/newPages/page404/*"
+            "@components/*": [
+                "src/components/*"
             ],
-            "@css/*": [
-                "src/newPages/css/*"
+            "@hooks/*": [
+                "src/hooks/*"
+            ],
+            "@newPages/*": [
+                "src/newPages/*"
+            ],
+            "@router/*": [
+                "src/app/router/*"
+            ],
+            "@styles/*": [
+                "src/shared/styles/*"
+            ],
+            "@UI/*": [
+                "src/UI/*"
             ],
             "@cssPages/*": [
-                "src/newPages/cssPages/*"
-            ],
-            "@gradient/*": [
-                "src/shared/gradient/*"
-            ],
-            "@cssCodeExample/*": [
-                "src/entities/cssCodeExample/*"
-            ],
-            "@boxes/*": [
-                "src/components/boxes/*"
-            ],
-            "@htmlCodeExample/*": [
-                "src/entities/htmlCodeExample/*"
+                "src/pages/cssPages/*"
             ],
             "@htmlPages/*": [
-                "src/newPages/htmlPages/*"
+                "src/pages/htmlPages/*"
             ],
-            "@modalWindow/*": [
-                "src/shared/modalWindow/*"
+            "@mainPage/*": [
+                "src/pages/mainPage/*"
             ],
-            "@feature/*": [
-                "src/feature/*"
+            "@page404/*": [
+                "src/pages/page404/*"
             ],
-            "@settings/*": [
-                "src/components/settings/*"
-            ],
-            "@switch/*": [
-                "src/shared/switch/*"
-            ],
-            "@select/*": [
-                "src/shared/select/*"
-            ],
-            "@features/*": [
-                "src/features/*"
-            ],
-            "@settingsMenu/*": [
-                "src/widgets/settingsMenu/*"
-            ],
-            "@navigation/*": [
-                "src/components/navigation/*"
-            ],
-            "@code/*": [
-                "src/components/code/*"
-            ],
-            "@main/*": [
-                "src/components/main/*"
+            "@homeButton/*": [
+                "src/shared/homeButton/*"
             ]
         }
     }

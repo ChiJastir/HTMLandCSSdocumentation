@@ -1,32 +1,32 @@
-import { PageWithText } from "@/newPages";
-import { PageWithAnimation } from "@/newPages";
-import { PageWithDisplayFlex } from "@/newPages";
-import { PageWithDisplayGrid } from "@/newPages";
-import { PageWithDisplayOther } from "@/newPages";
-import { PageWithPosition } from "@/newPages";
-import { PageWithTransform } from "@/newPages";
-import { PageWithFrames } from "@/newPages";
-import { PageWithIndents } from "@/newPages";
-import { PageWithOther } from "@/newPages";
-import { PageWithSelectors } from "@/newPages";
-import { PageWithPseudoClasses } from "@/newPages";
-import { PageWithPseudoElements } from "@/newPages";
-import { PageWithMath } from "@/newPages";
-import { PageWithMeasurementUnits } from "@/newPages";
-import { PageWithColorAndBackground } from "@/newPages";
-import { PageWithSize } from "@/newPages";
+import { PageWithText } from "@/pages";
+import { PageWithAnimation } from "@/pages";
+import { PageWithDisplayFlex } from "@/pages";
+import { PageWithDisplayGrid } from "@/pages";
+import { PageWithDisplayOther } from "@/pages";
+import { PageWithPosition } from "@/pages";
+import { PageWithTransform } from "@/pages";
+import { PageWithFrames } from "@/pages";
+import { PageWithIndents } from "@/pages";
+import { PageWithOther } from "@/pages";
+import { PageWithSelectors } from "@/pages";
+import { PageWithPseudoClasses } from "@/pages";
+import { PageWithPseudoElements } from "@/pages";
+import { PageWithMath } from "@/pages";
+import { PageWithMeasurementUnits } from "@/pages";
+import { PageWithColorAndBackground } from "@/pages";
+import { PageWithSize } from "@/pages";
 
-import { PageWithTagsInHead } from "@/newPages";
-import { PageWithHtmlIntroduction } from "@/newPages";
-import { PageWithTextTags } from "@/newPages";
-import { PageWithLists } from "@/newPages";
-import { PageWithBlocksTags } from "@/newPages";
-import { PageWithInputs } from "@/newPages";
-import { PageWithOtherTags } from "@/newPages";
-import { PageWithStyleAttrs } from "@/newPages";
+import { PageWithTagsInHead } from "@/pages";
+import { PageWithHtmlIntroduction } from "@/pages";
+import { PageWithTextTags } from "@/pages";
+import { PageWithLists } from "@/pages";
+import { PageWithBlocksTags } from "@/pages";
+import { PageWithInputs } from "@/pages";
+import { PageWithOtherTags } from "@/pages";
+import { PageWithStyleAttrs } from "@/pages";
 
-import { MainPage } from "@/newPages";
-import { Page404 } from "@/newPages";
+import { MainPage } from "@/pages";
+import { Page404 } from "@/pages";
 
 export const routes = [
     {path: '/', component: <MainPage/>},

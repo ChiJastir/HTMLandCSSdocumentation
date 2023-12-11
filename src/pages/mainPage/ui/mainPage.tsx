@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import grid from '@assets/gird.svg'
+import grid from '@/shared/assets/ui/gird.svg'
 import bgFirstElem from '@shared/assets/ui/mainBGfirstElement.png'
 import bgSecondElem from '@shared/assets/ui/mainBGsecondElement.png'
 import bgThirdElem from '@shared/assets/ui/mainBGthirdElement.png'
-import {motion} from "framer-motion";
-import {useAppSelector} from "@/shared";
-import {Header, OurCare, OurPride, Footer, WhyNoushi, MainBlock} from "@/widgets";
-import {InfoBlock, InfoBlockTypes} from "@/entities";
+import { motion } from "framer-motion";
+import { useAppSelector } from "@/shared";
+import { Header, OurCare, OurPride, Footer, WhyNoushi, MainBlock } from "@/widgets";
+import { InfoBlock, InfoBlockTypes } from "@/entities";
 
 const container = {
     hidden: { opacity: 1 },

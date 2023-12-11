@@ -2,7 +2,6 @@ import { Switch} from "@/shared";
 import styled from "styled-components";
 import { Select } from "@/shared";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/shared";
 import { useSettings } from "../model/useSettings";
 
 export const Settings = () => {
@@ -24,9 +23,6 @@ export const Settings = () => {
                 <p>{t("language")}:</p>
                 <Select onClickFun={changeLanguage} items={languages}/>
             </SettingsItem>
-            <ButtonDiv>
-                <Button onClick={() => window.location.replace("/")} color={'black'} bg={'white'}>На главную</Button>
-            </ButtonDiv>
         </SettingsMenu>
     );
 };

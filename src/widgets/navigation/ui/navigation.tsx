@@ -6,6 +6,8 @@ import NavigationCSS from "./navigationCSS";
 import NavigationHTML from "./navigationHTML";
 import SettingsMenu from "./settingsMenu";
 import { useSiteNavigation } from "../model/useSiteNavigation";
+import HomeButton from "@shared/homeButton/ui/homeButton";
+import { useNavigate } from "react-router-dom";
 
 interface NavigationProps extends HTMLAttributes<HTMLDivElement>{
     swipe: boolean;
@@ -22,6 +24,8 @@ export const Navigation: React.FC<NavigationProps> = ({swipe, setSwipe, ...props
         dispatch,
         technology
     } = useSiteNavigation(swipe, setSwipe)
+
+    const navigate = useNavigate()
 
     return (
         <div {...props}>
@@ -73,7 +77,10 @@ export const Navigation: React.FC<NavigationProps> = ({swipe, setSwipe, ...props
                                 : <NavigationCSS/>
                             }
                         </Nav>
-                        <SettingsMenu menuVisible={setVisible}/>
+                        <ButtonsContainer>
+                            <SettingsMenu menuVisible={setVisible}/>
+                            <HomeButton onClick={() => navigate('/')}/>
+                        </ButtonsContainer>
                     </div>
                 </Placeholder>
                 <GradientLine $vertical width={'5px'}/>
@@ -172,4 +179,10 @@ const GradientLine = styled(Gradient)`
   position: absolute;
   right: 0;
   left: auto;
+`
+
+const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 5px);
 `
