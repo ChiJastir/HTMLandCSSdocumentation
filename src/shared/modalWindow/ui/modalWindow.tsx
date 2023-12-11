@@ -1,15 +1,15 @@
-import React, {useEffect} from 'react';
+import React, { HTMLAttributes, useEffect } from 'react';
 import styled from "styled-components";
-import {motion, useAnimationControls} from "framer-motion";
+import { motion, useAnimationControls } from "framer-motion";
 import close from '@/shared/assets/ui/close.svg'
 
-interface ModalWindowProps{
+interface ModalWindowProps extends HTMLAttributes<HTMLDivElement>{
     children?: React.ReactNode,
     isVisible: boolean,
     setIsVisible: (visible: boolean) => void,
 }
 
-const ModalWindow = ({children, isVisible, setIsVisible}: ModalWindowProps) => {
+export const ModalWindow: React.FC<ModalWindowProps> = ({children, isVisible, setIsVisible, ...props}) => {
     const windowAnim = useAnimationControls()
 
     useEffect(() => {
@@ -24,6 +24,7 @@ const ModalWindow = ({children, isVisible, setIsVisible}: ModalWindowProps) => {
         <BG
             $visibility={isVisible}
             onClick={() => setIsVisible(false)}
+            {...props}
         >
             <motion.div
                 initial={{rotate: -180}}
@@ -74,7 +75,7 @@ const BG = styled.div<BGProps>`
   visibility: ${props => props.$visibility ? 'visible' : 'hidden'};
   opacity: ${props => props.$visibility ? 1 : 0};
 
-   transition: opacity 200ms, visibility 200ms ${props => props.$visibility ? 0 : 200}ms;
+  transition: opacity 200ms, visibility 200ms ${props => props.$visibility ? 0 : 200}ms;
 `
 
 const Window = styled.div`
@@ -84,7 +85,8 @@ const Window = styled.div`
   padding: 25px;
   color: black;
   border-radius: 10px;
-  position: relative;`
+  position: relative;
+`
 
 const CloseContainer = styled.div`
   position: absolute;
@@ -93,6 +95,5 @@ const CloseContainer = styled.div`
   img{
     width: 25px;
     height: 25px;
-  }`
-
-export default ModalWindow;
+  }
+`

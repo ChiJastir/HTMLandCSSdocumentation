@@ -1,99 +1,100 @@
 {
-  "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "module": "ESNext",
-    "skipLibCheck": true,
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "baseUrl": ".",
-    "paths": {
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@hooks/*": [
-        "src/hooks/*"
-      ],
-      "@pages/*": [
-        "src/pages/*"
-      ],
-      "@router/*": [
-        "src/router/*"
-      ],
-      "@shared/*": [
-        "src/shared/*"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ],
-      "@UI/*": [
-        "src/UI/*"
-      ],
-      "@/*": [
-        "src/*"
-      ],
-      "@widgets/*": [
-        "src/widgets/*"
-      ],
-      "@entities/*": [
-        "src/entities/*"
-      ],
-      "@newPages/*": [
-        "src/newPages/*"
-      ],
-      "@pageFrame/*": [
-        "src/shared/pageFrame/*"
-      ],
-      "@page404/*": [
-        "src/newPages/page404/*"
-      ],
-      "@css/*": [
-        "src/newPages/css/*"
-      ],
-      "@cssPages/*": [
-        "src/newPages/cssPages/*"
-      ],
-      "@gradient/*": [
-        "src/shared/gradient/*"
-      ],
-      "@cssCodeExample/*": [
-        "src/entities/cssCodeExample/*"
-      ],
-      "@boxes/*": [
-        "src/entities/boxes/*"
-      ],
-      "@htmlCodeExample/*": [
-        "src/entities/htmlCodeExample/*"
-      ],
-      "@htmlPages/*": [
-        "src/newPages/htmlPages/*"
-      ]
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@assets/*": [
+                "src/assets/*"
+            ],
+            "@components/*": [
+                "src/components/*"
+            ],
+            "@entities/*": [
+                "src/entities/*"
+            ],
+            "@hooks/*": [
+                "src/hooks/*"
+            ],
+            "@newPages/*": [
+                "src/newPages/*"
+            ],
+            "@pages/*": [
+                "src/pages/*"
+            ],
+            "@router/*": [
+                "src/router/*"
+            ],
+            "@shared/*": [
+                "src/shared/*"
+            ],
+            "@styles/*": [
+                "src/styles/*"
+            ],
+            "@UI/*": [
+                "src/UI/*"
+            ],
+            "@widgets/*": [
+                "src/widgets/*"
+            ],
+            "@/*": [
+                "src/*"
+            ],
+            "@pageFrame/*": [
+                "src/shared/pageFrame/*"
+            ],
+            "@page404/*": [
+                "src/newPages/page404/*"
+            ],
+            "@css/*": [
+                "src/newPages/css/*"
+            ],
+            "@cssPages/*": [
+                "src/newPages/cssPages/*"
+            ],
+            "@gradient/*": [
+                "src/shared/gradient/*"
+            ],
+            "@cssCodeExample/*": [
+                "src/entities/cssCodeExample/*"
+            ],
+            "@boxes/*": [
+                "src/components/boxes/*"
+            ],
+            "@htmlCodeExample/*": [
+                "src/entities/htmlCodeExample/*"
+            ],
+            "@htmlPages/*": [
+                "src/newPages/htmlPages/*"
+            ],
+            "@modalWindow/*": [
+                "src/shared/modalWindow/*"
+            ],
+            "@feature/*": [
+                "src/feature/*"
+            ],
+            "@settings/*": [
+                "src/components/settings/*"
+            ],
+            "@switch/*": [
+                "src/shared/switch/*"
+            ],
+            "@select/*": [
+                "src/shared/select/*"
+            ],
+            "@features/*": [
+                "src/features/*"
+            ],
+            "@settingsMenu/*": [
+                "src/widgets/settingsMenu/*"
+            ],
+            "@navigation/*": [
+                "src/components/navigation/*"
+            ],
+            "@code/*": [
+                "src/components/code/*"
+            ],
+            "@main/*": [
+                "src/components/main/*"
+            ]
+        }
     }
-  },
-  "include": [
-    "src/**/*"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
 }

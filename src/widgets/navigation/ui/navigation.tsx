@@ -1,46 +1,30 @@
-import { useEffect, useRef, useState } from 'react';
+import React, {HTMLAttributes} from 'react';
 import styled from "styled-components";
-import { Gradient } from "@UI/gradient";
-import { useAppDispatch, useAppSelector } from "@/shared";
-import { SettingsMenu } from "@/widgets";
+import { Gradient } from "@/shared";
 import { onCSS, onHTML } from "@/shared";
 import NavigationCSS from "./navigationCSS";
 import NavigationHTML from "./navigationHTML";
+import SettingsMenu from "./settingsMenu";
+import { useSiteNavigation } from "../model/useSiteNavigation";
 
-type NavigationProps = {
+interface NavigationProps extends HTMLAttributes<HTMLDivElement>{
     swipe: boolean;
     setSwipe: (swipe: boolean) => void;
 }
 
-const Navigation = ({swipe, setSwipe}: NavigationProps) => {
-    const [visible, setVisible] = useState(false)
-
-    const firstBtn = useRef<null | HTMLButtonElement>(null)
-    const secondBtn = useRef<null | HTMLButtonElement>(null)
-
-    const isMenuPin = useAppSelector((store) => store.pinMenuSlice.isMenuPin)
-    const technology = useAppSelector((store) => store.technologySlice.technology)
-    const dispatch = useAppDispatch()
-
-    useEffect(() => {
-        setVisible(swipe)
-    }, [swipe])
-
-    useEffect(() => {
-        setSwipe(visible)
-    }, [visible])
-
-    useEffect(() => {
-        const htmlReg = /html/
-        if (htmlReg.test(window.location.pathname)){
-            dispatch(onHTML())
-        } else {
-            dispatch(onCSS())
-        }
-    }, [])
+export const Navigation: React.FC<NavigationProps> = ({swipe, setSwipe, ...props}) => {
+    const {
+        visible,
+        setVisible,
+        isMenuPin,
+        firstBtn,
+        secondBtn,
+        dispatch,
+        technology
+    } = useSiteNavigation(swipe, setSwipe)
 
     return (
-        <div>
+        <div {...props}>
             <Content
                 $isVisible={visible}
                 $isMenuPin={isMenuPin}
@@ -99,7 +83,6 @@ const Navigation = ({swipe, setSwipe}: NavigationProps) => {
     );
 };
 
-// CSS
 const Content = styled.aside<{$isVisible: boolean, $isMenuPin: boolean}>`
   background-color: ${props => props.theme.colors.bg};
   height: 100vh;
@@ -110,14 +93,16 @@ const Content = styled.aside<{$isVisible: boolean, $isMenuPin: boolean}>`
   width: 280px;
   z-index: 3;
   box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
-  transition: left 250ms ease-in-out;`
+  transition: left 250ms ease-in-out;
+`
 
 const Placeholder = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  width: calc(100% - (15px * 2) - 5px);`
+  width: calc(100% - (15px * 2) - 5px);
+`
 
 const NavigationHead = styled.div`
   display: flex;
@@ -133,7 +118,8 @@ const NavigationHead = styled.div`
       stroke-width: 2px;
       fill: rgba(0, 0, 0, 0);
     }
-  }`
+  }
+`
 
 interface TechnologyButtonProps{
     $isActive: boolean,
@@ -160,7 +146,8 @@ const TechnologyButton = styled.button<TechnologyButtonProps>`
   &:hover{
     border-color: ${props => props.theme.colors.primary};
     color: ${props => props.theme.colors.contrast};
-  }`
+  }
+`
 
 const Background = styled.div<{$isVisible: boolean}>`
   position: fixed;
@@ -171,17 +158,18 @@ const Background = styled.div<{$isVisible: boolean}>`
   bottom: 0;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
-  display: ${props => props.$isVisible ? 'block' : 'none'};`
+  display: ${props => props.$isVisible ? 'block' : 'none'};
+`
 
 const Nav = styled.nav`
   ul {
     padding-left: 20px;
     margin: 0;
-  }`
+  }
+`
 
 const GradientLine = styled(Gradient)`
   position: absolute;
   right: 0;
-  left: auto;`
-
-export default Navigation;
+  left: auto;
+`

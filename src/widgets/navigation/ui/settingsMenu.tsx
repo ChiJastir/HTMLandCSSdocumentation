@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, useState } from 'react';
 import { Settings } from "@/features";
 import { ModalWindow } from "@/shared";
-import settings from "@/shared/assets/ui/settings.svg";
+import settings from "@shared/assets/ui/settings.svg";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 

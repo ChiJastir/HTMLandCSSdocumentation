@@ -4,7 +4,7 @@ import {ThemeProvider} from "styled-components";
 import {useAppSelector} from "@/shared";
 import {GlobalStyles} from "@styles/global";
 import {Suspense, useEffect, useState} from "react";
-import Navigation from "./components/navigation/navigation";
+import { Navigation } from "@/widgets";
 import {useSwipeable} from "react-swipeable";
 import {useAppDispatch} from "@/shared";
 import {inRussian} from "@/shared";
