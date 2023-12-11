@@ -72,16 +72,14 @@ const Btn = styled.button<{$primary: boolean, $bg: string | undefined, $customCo
     background-size: 400%;
     z-index: -1;
     border-radius: 1000px;
-
-    ${props => props.$primary && css`
-      transition: filter 0.3s ease-in-out;
-    `}
+    
+    transition: filter 0.3s ease-in-out;
   }
   
   &:hover::before {
     animation: ${glow} 10s linear infinite;
     
-    ${props => props.$primary && css`
+    ${props => !props.$primary && css`
       filter: blur(5px);
     `}
   }

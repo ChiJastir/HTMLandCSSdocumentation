@@ -1,16 +1,11 @@
 import styled from "styled-components";
-import React, { useRef, useState, HTMLAttributes } from "react";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom"
+import React, {HTMLAttributes, useRef, useState} from "react";
+import {useTranslation} from "react-i18next";
+import {useNavigate} from "react-router-dom"
 
-import { HeaderNavigation } from "@/entities";
+import {HeaderNavigation} from "@/entities";
 
-import { store } from "@/shared";
-import { ThemeEnum } from "@/shared";
-import { BurgerButton } from "@/shared";
-import { useResize } from "@/shared";
-import { Button } from "@/shared";
-import { FullLogo } from "@/shared";
+import {BurgerButton, Button, FullLogo, ThemeEnum, useResize} from "@/shared";
 
 export const Header: React.FC<HTMLAttributes<HTMLDivElement>> = (props) => {
     const [width] = useResize()
@@ -21,14 +16,12 @@ export const Header: React.FC<HTMLAttributes<HTMLDivElement>> = (props) => {
 
     const navigate = useNavigate()
 
-    const isDark = store.getState().themeSlice.themeValue.type === ThemeEnum.dark
-
     const { t } = useTranslation()
 
     return (
         <MainHeader {...props}>
             <nav>
-                <Logo $isDark={isDark}>
+                <Logo>
                     <FullLogo/>
                 </Logo>
                 {isBigDisplay && <HeaderNavigation/>}
@@ -71,7 +64,7 @@ const MainHeader = styled.header`
   }
 `
 
-const Logo = styled.div<{$isDark: boolean}>`
+const Logo = styled.div`
   width: 165px;
 
   svg{
@@ -80,7 +73,7 @@ const Logo = styled.div<{$isDark: boolean}>`
     cursor: pointer;
 
     path:last-child{
-      fill: ${props => props.$isDark ? 'white' : 'black'};
+      fill: ${props => props.theme.type === ThemeEnum.dark ? 'white' : 'black'};
     }
   }
 `

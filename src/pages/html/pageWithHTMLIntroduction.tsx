@@ -1,4 +1,4 @@
-import {Container, Example} from "../../UI/components";
+import {Container, Example} from "@/shared";
 import Page from "../../components/page";
 import {useTranslation} from "react-i18next";
 import HTMLCodeExample from "../../components/code/HTMLCodeExample";

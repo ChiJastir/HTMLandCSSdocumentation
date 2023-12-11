@@ -1,2 +1,8 @@
 export { NavigationList as HeaderNavigation } from './headerNavigation/ui/NavigationList'
 export { Card } from './card/ui/card'
+export { InfoBlock } from './infoBlock/ui/infoBlock'
+export { InfoBlockTypes } from './infoBlock/lib/enums'
+export { CssCodeExample } from './cssCodeExample/ui/CssCodeExample'
+export { HtmlCodeExample } from './htmlCodeExample/ui/HtmlCodeExample'
+export { BoxElements, displayType } from './boxes/ui/boxElements'
+export { BoxElem } from './boxes/ui/boxElem'

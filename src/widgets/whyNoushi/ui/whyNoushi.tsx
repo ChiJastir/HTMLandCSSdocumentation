@@ -16,7 +16,7 @@ export const WhyNoushi: React.FC<HTMLAttributes<HTMLDivElement>> = (props) => {
     const { t } = useTranslation()
 
     return (
-        <div {...props} ref={cardsElem}>
+        <WhyNoushiContainer {...props} ref={cardsElem}>
             <motion.h2 variants={cardItemLeftTop}>{t('whyNoushiTH1')} <GradientText>{t('whyNoushiTH2')}</GradientText></motion.h2>
             <motion.p variants={cardItemLeftTop}>{t('whyNoushiP1')}</motion.p>
             <motion.div
@@ -30,9 +30,20 @@ export const WhyNoushi: React.FC<HTMLAttributes<HTMLDivElement>> = (props) => {
                     </Card>)}
                 </Cards>
             </motion.div>
-        </div>
+        </WhyNoushiContainer>
     );
 };
+
+const WhyNoushiContainer = styled.section`
+  text-align: center;
+  padding: 50px 0;
+  h2{
+    font-size: clamp(24px, 6vw, 44px);
+    margin: 0;
+  }
+  p{
+    font-weight: 300;
+  }`
 
 const Cards = styled.div`
   display: grid;

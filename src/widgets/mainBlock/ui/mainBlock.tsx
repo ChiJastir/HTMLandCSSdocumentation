@@ -6,9 +6,11 @@ import arrow from "@shared/assets/ui/arrow-right.svg";
 import {animationItem} from "../lib/motionAnimation";
 import {useTranslation} from "react-i18next";
 import React, {HTMLAttributes} from "react";
+import {useNavigate} from "react-router-dom";
 
 export const MainBlock: React.FC<HTMLAttributes<HTMLDivElement>> = (props) => {
     const { t } = useTranslation()
+    const navigate = useNavigate()
 
     return (
         <Main {...props}>
@@ -17,7 +19,7 @@ export const MainBlock: React.FC<HTMLAttributes<HTMLDivElement>> = (props) => {
             <motion.p variants={animationItem}>{t('mainPageP1H1')} <span>{t('mainPageP1H2')}</span> {t('mainPageP1H3')}</motion.p>
             <motion.div variants={animationItem}>
                 <Buttons>
-                    <Button onClick={() => window.location.replace("/html/introduction-to-HTML")} $primary>{t('mainPageGetStartedButton')}</Button>
+                    <Button onClick={ () => navigate("/html/introduction-to-HTML") } $primary>{t('mainPageGetStartedButton')}</Button>
                 </Buttons>
             </motion.div>
             <motion.div variants={animationItem}>
@@ -40,6 +42,7 @@ const Main = styled.main`
   width: min(800px, 100%);
   margin: auto;
   padding: 50px 0;
+  
   h2{
     color: ${props => props.theme.colors.secondary};
     font-size: 16px;

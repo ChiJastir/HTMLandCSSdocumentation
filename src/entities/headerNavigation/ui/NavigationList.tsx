@@ -12,10 +12,10 @@ export const NavigationList: React.FC<Props> = ({$vertical = false, innerRef, ..
 
     return (
         <HeaderNavigation {...props} $vertical={$vertical} ref={innerRef}>
-            <li><a href="src/features/headerNavigation/ui#company">{t('mainHeaderNavCompany')}</a></li>
-            <li><a href="src/features/headerNavigation/ui#product">{t('mainHeaderNavProduct')}</a></li>
-            <li><a href="src/features/headerNavigation/ui#advantages">{t('mainHeaderNavAdvantages')}</a></li>
-            <li><a href="src/features/headerNavigation/ui#tools">{t('mainHeaderNavTools')}</a></li>
+            <li><a href="#company">{t('mainHeaderNavCompany')}</a></li>
+            <li><a href="#product">{t('mainHeaderNavProduct')}</a></li>
+            <li><a href="#advantages">{t('mainHeaderNavAdvantages')}</a></li>
+            <li><a href="#tools">{t('mainHeaderNavTools')}</a></li>
         </HeaderNavigation>
     );
 };

@@ -29,8 +29,8 @@ function App() {
     });
 
     useEffect(() => {
-        if (navigator.language === 'ru' && !langValue) dispatch(inRussian())
-        else dispatch(inRussian())
+        if (navigator.language === 'ru' && !langValue)
+            dispatch(inRussian())
     }, [])
 
     return (

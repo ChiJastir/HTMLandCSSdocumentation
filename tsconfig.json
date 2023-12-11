@@ -24,13 +24,10 @@
     "baseUrl": ".",
     "paths": {
       "@assets/*": [
-        "src/shared/assets/*"
+        "src/assets/*"
       ],
       "@components/*": [
         "src/components/*"
-      ],
-      "@features/*": [
-        "src/features/*"
       ],
       "@hooks/*": [
         "src/hooks/*"
@@ -56,38 +53,38 @@
       "@widgets/*": [
         "src/widgets/*"
       ],
-      "@slices/*": [
-        "src/slices/*"
-      ],
       "@entities/*": [
         "src/entities/*"
       ],
-      "@header/*": [
-        "src/widgets/header/*"
+      "@newPages/*": [
+        "src/newPages/*"
       ],
-      "@burgerButton/*": [
-        "src/shared/burgerButton/*"
+      "@pageFrame/*": [
+        "src/shared/pageFrame/*"
       ],
-      "@store/*": [
-        "src/shared/store/*"
+      "@page404/*": [
+        "src/newPages/page404/*"
       ],
-      "@types/*": [
-        "src/shared/types/*"
+      "@css/*": [
+        "src/newPages/css/*"
       ],
-      "@consts/*": [
-        "src/shared/consts/*"
+      "@cssPages/*": [
+        "src/newPages/cssPages/*"
       ],
-      "@mainBlock/*": [
-        "src/widgets/mainBlock/*"
+      "@gradient/*": [
+        "src/shared/gradient/*"
       ],
-      "@checkedText/*": [
-        "src/shared/checkedText/*"
+      "@cssCodeExample/*": [
+        "src/entities/cssCodeExample/*"
       ],
-      "@whyNoushi/*": [
-        "src/widgets/whyNoushi/*"
+      "@boxes/*": [
+        "src/entities/boxes/*"
       ],
-      "@card/*": [
-        "src/entities/card/*"
+      "@htmlCodeExample/*": [
+        "src/entities/htmlCodeExample/*"
+      ],
+      "@htmlPages/*": [
+        "src/newPages/htmlPages/*"
       ]
     }
   },

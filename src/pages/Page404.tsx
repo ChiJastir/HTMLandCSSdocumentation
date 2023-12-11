@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Page from "../components/page";
+import { Page } from "@/shared"
 
 const Page404 = () => {
     return (
