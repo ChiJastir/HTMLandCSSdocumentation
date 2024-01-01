@@ -244,6 +244,7 @@
     "colorIndicationFormatsP5": "CSS3 цветовые функции - CSS3 предоставляет функции для создания цветов, такие как linear-gradient() и radial-gradient(). Эти функции позволяют создавать градиенты и другие сложные эффекты цвета.",
     "colorP1": "color задаёт цвет для текста",
     "backgroundColorP1": "background-color задаёт цвет для фона элемента",
+    "backgroundGradientP1": "background: linear-gradient() позволяет задать градиент для фона. В базовом варианте первым аргументом указывается наклон в градусах, а далее цвета градиента",
     "backgroundImageP1": "background-image задаёт элементу фоновое изображение через url(\"URL\")",
     "backgroundAttachmentP1": "background-attachment устанавливает, будет ли прокручиваться фоновое изображение вместе с содержимым элемента",
     "backgroundRepeatP1": "background-repeat устанавливает способ повторения заднего фона. Основные значения: repeat, round и no-repeat",

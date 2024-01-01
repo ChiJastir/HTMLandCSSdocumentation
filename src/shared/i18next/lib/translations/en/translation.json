@@ -244,6 +244,7 @@
     "colorIndicationFormatsP5": "CSS3 color functions - CSS3 provides functions for creating colors, such as linear-gradient() and radial-gradient(). These functions allow you to create gradients and other complex color effects.",
     "colorP1": "color sets the color for the text",
     "backgroundColorP1": "background-color sets the color for the element's background",
+    "backgroundGradientP1": "background: linear-gradient() allows you to set a gradient for the background. In the basic version, the first argument indicates the slope in degrees, and then the gradient colors",
     "backgroundImageP1": "background-image sets the background image for the element via url(\"URL\")",
     "backgroundAttachmentP1": "background-attachment sets whether the background image will scroll along with the content of the element",
     "backgroundRepeatP1": "background-repeat sets the way the background repeats. The main values are repeat, round and no-repeat",

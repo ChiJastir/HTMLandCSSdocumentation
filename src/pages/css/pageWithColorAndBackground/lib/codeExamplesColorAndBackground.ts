@@ -7,6 +7,11 @@ export const useCodeExamplesColorAndBackground = () => {
     background-color: #008000;
 }`
 
+    const backgroundGradient = `p {
+    background: linear-gradient(90deg, red, blue);
+}
+`
+
     const backgroundImage = `p {
     background-image: url("images/logo.svg");
 }`
@@ -31,5 +36,5 @@ export const useCodeExamplesColorAndBackground = () => {
     background-repeat: no-repeat;
     background-position: center;;
 }`
-    return { color, backgroundColor, backgroundAttachment, backgroundImage, backgroundRepeat, backgroundSize, backgroundPosition }
+    return { color, backgroundColor, backgroundAttachment, backgroundImage, backgroundRepeat, backgroundSize, backgroundPosition, backgroundGradient }
 }

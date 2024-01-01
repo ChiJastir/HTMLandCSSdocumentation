@@ -15,7 +15,8 @@ export const PageWithColorAndBackground = () => {
         backgroundImage,
         backgroundRepeat,
         backgroundSize,
-        backgroundPosition
+        backgroundPosition,
+        backgroundGradient,
     } = useCodeExamplesColorAndBackground()
 
     return (
@@ -46,6 +47,14 @@ export const PageWithColorAndBackground = () => {
                     <Example>
                         <CssCodeExample>{backgroundColor}</CssCodeExample>
                         <BackgroundColor>Hello world</BackgroundColor>
+                    </Example>
+                </div>
+                <div>
+                    <h2>Background: linear-gradient()</h2>
+                    <p>{t("backgroundGradientP1")}</p>
+                    <Example>
+                        <CssCodeExample>{backgroundGradient}</CssCodeExample>
+                        <BackgroundGradient>Hello world</BackgroundGradient>
                     </Example>
                 </div>
                 <div>
@@ -99,6 +108,10 @@ const Color = styled.p`
 
 const BackgroundColor = styled.p`
   background-color: #008000
+`
+
+const BackgroundGradient = styled.p`
+  background: linear-gradient(90deg, red, blue);
 `
 
 const BackgroundImage = styled.p<{img: string}>`

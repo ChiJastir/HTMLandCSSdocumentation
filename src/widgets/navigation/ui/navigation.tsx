@@ -42,7 +42,7 @@ export const Navigation: React.FC<NavigationProps> = ({swipe, setSwipe, ...props
                                 <svg style={{position: 'absolute', left: 0, top: 0, width: '100%', height: '100%'}}>
                                     {technology === 'html'
                                         ? <path d={
-                                            `M ${(firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0) -1} 
+                                            `M ${(firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0) - 1} 
                                             ${(firstBtn.current?.offsetTop ?? 0) + 1} 
                                             
                                             C ${((secondBtn.current?.offsetLeft ?? 0) - ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))) * 0.6 + ((firstBtn.current?.offsetLeft ?? 0) + (firstBtn.current?.offsetWidth ?? 0))} 

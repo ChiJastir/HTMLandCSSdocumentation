@@ -17,6 +17,20 @@ export const GlobalStyles =  createGlobalStyle`
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
   }
+  
+  * {
+    scrollbar-color: ${props => props.theme.colors.secondary} rgba(0, 0, 0, 0);
+  }
+
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+  *::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: ${props => props.theme.colors.secondary};
+  }
 
   a {
     font-weight: 500;
