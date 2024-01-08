@@ -92,7 +92,7 @@ export const Navigation: React.FC<NavigationProps> = ({swipe, setSwipe, ...props
 
 const Content = styled.aside<{$isVisible: boolean, $isMenuPin: boolean}>`
   background-color: ${props => props.theme.colors.bg};
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   position: fixed;
   left: ${props => props.$isVisible ? 0 : 'calc(-1 * (280px - 5px))'};
